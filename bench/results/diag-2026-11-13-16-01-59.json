@@ -1,0 +1,46 @@
+{
+ "mode": "diag",
+ "at": "2026-11-13-16-01-59",
+ "results": [
+  {
+   "id": "diag-electron-0",
+   "group": "diag",
+   "shell": "electron",
+   "page": "base",
+   "query": {
+    "bench": 2000
+   },
+   "ok": false,
+   "exitedEarly": true,
+   "startMs": 1199,
+   "bootMs": 755.0999999977648,
+   "proc": {
+    "peakWsMB": 543.1,
+    "avgWsMB": 531,
+    "peakPrivMB": 682.6,
+    "avgPrivMB": 624.7,
+    "cpuPct": 169,
+    "procs": 4,
+    "samples": 12
+   },
+   "memTimeline": [
+    {
+     "t": 2,
+     "wsMB": 497.5,
+     "privMB": 559.1
+    },
+    {
+     "t": 13,
+     "wsMB": 542.3,
+     "privMB": 635.7
+    },
+    {
+     "t": 23,
+     "wsMB": 542,
+     "privMB": 682.6
+    }
+   ],
+   "res": null
+  }
+ ]
+}

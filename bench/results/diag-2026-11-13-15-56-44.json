@@ -1,0 +1,86 @@
+{
+ "mode": "diag",
+ "at": "2026-11-13-15-56-44",
+ "results": [
+  {
+   "id": "diag-tauri-0",
+   "group": "diag",
+   "shell": "tauri",
+   "page": "base",
+   "query": {
+    "bench": 2000
+   },
+   "ok": false,
+   "exitedEarly": true,
+   "startMs": 1445,
+   "bootMs": 660.3999999985099,
+   "proc": {
+    "peakWsMB": 685.6,
+    "avgWsMB": 668.1,
+    "peakPrivMB": 768.4,
+    "avgPrivMB": 709.7,
+    "cpuPct": 196,
+    "procs": 7,
+    "samples": 12
+   },
+   "memTimeline": [
+    {
+     "t": 2,
+     "wsMB": 616,
+     "privMB": 600.4
+    },
+    {
+     "t": 13,
+     "wsMB": 672.8,
+     "privMB": 700.4
+    },
+    {
+     "t": 23,
+     "wsMB": 685.6,
+     "privMB": 705.2
+    }
+   ],
+   "res": null
+  },
+  {
+   "id": "diag-edge-1",
+   "group": "diag",
+   "shell": "edge",
+   "page": "base",
+   "query": {
+    "bench": 2000
+   },
+   "ok": false,
+   "exitedEarly": false,
+   "startMs": 1297,
+   "bootMs": 892,
+   "proc": {
+    "peakWsMB": 1120.2,
+    "avgWsMB": 982.9,
+    "peakPrivMB": 1036.1,
+    "avgPrivMB": 910.4,
+    "cpuPct": 204,
+    "procs": 17,
+    "samples": 13
+   },
+   "memTimeline": [
+    {
+     "t": 3,
+     "wsMB": 948.9,
+     "privMB": 805.7
+    },
+    {
+     "t": 13,
+     "wsMB": 1120.2,
+     "privMB": 1036.1
+    },
+    {
+     "t": 24,
+     "wsMB": 888,
+     "privMB": 851.8
+    }
+   ],
+   "res": null
+  }
+ ]
+}

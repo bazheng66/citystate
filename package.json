@@ -1,0 +1,15 @@
+{
+  "name": "citystate",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "tauri": "tauri",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build",
+    "electron:start": "npm --prefix electron start",
+    "electron:pack": "npm --prefix electron run pack"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  }
+}

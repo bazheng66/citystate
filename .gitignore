@@ -1,0 +1,13 @@
+node_modules/
+src-tauri/target/
+src-tauri/gen/
+electron/node_modules/
+electron/dist/
+dist/
+bench/tmp/
+bench/all.log
+tauri-dev.log
+*.log
+.claude/
+backup_v1/
+backup_v2/

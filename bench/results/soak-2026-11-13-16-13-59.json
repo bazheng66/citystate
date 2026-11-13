@@ -1,0 +1,2031 @@
+{
+ "mode": "soak",
+ "at": "2026-11-13-16-13-59",
+ "results": [
+  {
+   "id": "soak-electron-0",
+   "group": "soak",
+   "shell": "electron",
+   "page": "v3",
+   "query": {
+    "bench": 4000,
+    "map": "l",
+    "secs": 480,
+    "cam": "tour"
+   },
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 950,
+   "bootMs": 467.1,
+   "atlasMs": 386.3,
+   "proc": {
+    "peakWsMB": 728,
+    "avgWsMB": 667.9,
+    "peakPrivMB": 809,
+    "avgPrivMB": 643.3,
+    "cpuPct": 213,
+    "procs": 5,
+    "samples": 232
+   },
+   "memTimeline": [
+    {
+     "t": 2,
+     "wsMB": 517.8,
+     "privMB": 523.8
+    },
+    {
+     "t": 13,
+     "wsMB": 570.5,
+     "privMB": 494.1
+    },
+    {
+     "t": 24,
+     "wsMB": 579.9,
+     "privMB": 544.6
+    },
+    {
+     "t": 34,
+     "wsMB": 581.2,
+     "privMB": 484.9
+    },
+    {
+     "t": 45,
+     "wsMB": 586.9,
+     "privMB": 515.3
+    },
+    {
+     "t": 55,
+     "wsMB": 598.2,
+     "privMB": 534
+    },
+    {
+     "t": 66,
+     "wsMB": 594.6,
+     "privMB": 533.7
+    },
+    {
+     "t": 77,
+     "wsMB": 603.5,
+     "privMB": 541.6
+    },
+    {
+     "t": 87,
+     "wsMB": 618.3,
+     "privMB": 566.1
+    },
+    {
+     "t": 98,
+     "wsMB": 612.5,
+     "privMB": 551.8
+    },
+    {
+     "t": 108,
+     "wsMB": 615.9,
+     "privMB": 564.2
+    },
+    {
+     "t": 119,
+     "wsMB": 615,
+     "privMB": 563.6
+    },
+    {
+     "t": 130,
+     "wsMB": 619.1,
+     "privMB": 560
+    },
+    {
+     "t": 140,
+     "wsMB": 620.4,
+     "privMB": 569.6
+    },
+    {
+     "t": 151,
+     "wsMB": 623.5,
+     "privMB": 581.5
+    },
+    {
+     "t": 161,
+     "wsMB": 622.6,
+     "privMB": 585.7
+    },
+    {
+     "t": 172,
+     "wsMB": 629.4,
+     "privMB": 607.6
+    },
+    {
+     "t": 182,
+     "wsMB": 625.6,
+     "privMB": 586.7
+    },
+    {
+     "t": 193,
+     "wsMB": 629.9,
+     "privMB": 579.9
+    },
+    {
+     "t": 203,
+     "wsMB": 645.5,
+     "privMB": 688.6
+    },
+    {
+     "t": 214,
+     "wsMB": 688.4,
+     "privMB": 734.9
+    },
+    {
+     "t": 224,
+     "wsMB": 704.3,
+     "privMB": 768.2
+    },
+    {
+     "t": 235,
+     "wsMB": 702.3,
+     "privMB": 689.8
+    },
+    {
+     "t": 246,
+     "wsMB": 711.7,
+     "privMB": 690
+    },
+    {
+     "t": 256,
+     "wsMB": 702.1,
+     "privMB": 684.1
+    },
+    {
+     "t": 267,
+     "wsMB": 701.9,
+     "privMB": 684.1
+    },
+    {
+     "t": 277,
+     "wsMB": 705.1,
+     "privMB": 687.3
+    },
+    {
+     "t": 288,
+     "wsMB": 702.8,
+     "privMB": 684.4
+    },
+    {
+     "t": 299,
+     "wsMB": 702.3,
+     "privMB": 677.9
+    },
+    {
+     "t": 309,
+     "wsMB": 703.6,
+     "privMB": 679.5
+    },
+    {
+     "t": 320,
+     "wsMB": 707.2,
+     "privMB": 686.2
+    },
+    {
+     "t": 331,
+     "wsMB": 706.7,
+     "privMB": 682.6
+    },
+    {
+     "t": 341,
+     "wsMB": 703.8,
+     "privMB": 674.8
+    },
+    {
+     "t": 352,
+     "wsMB": 709,
+     "privMB": 682.4
+    },
+    {
+     "t": 362,
+     "wsMB": 711.3,
+     "privMB": 700.4
+    },
+    {
+     "t": 373,
+     "wsMB": 728,
+     "privMB": 724.6
+    },
+    {
+     "t": 384,
+     "wsMB": 714.2,
+     "privMB": 720.1
+    },
+    {
+     "t": 394,
+     "wsMB": 715,
+     "privMB": 698.1
+    },
+    {
+     "t": 405,
+     "wsMB": 717.1,
+     "privMB": 696.8
+    },
+    {
+     "t": 415,
+     "wsMB": 716.4,
+     "privMB": 721.1
+    },
+    {
+     "t": 426,
+     "wsMB": 719.7,
+     "privMB": 702.3
+    },
+    {
+     "t": 436,
+     "wsMB": 718.6,
+     "privMB": 700.8
+    },
+    {
+     "t": 447,
+     "wsMB": 720.8,
+     "privMB": 699.5
+    },
+    {
+     "t": 457,
+     "wsMB": 717.5,
+     "privMB": 708
+    },
+    {
+     "t": 468,
+     "wsMB": 720.4,
+     "privMB": 703.5
+    },
+    {
+     "t": 478,
+     "wsMB": 719.6,
+     "privMB": 702.1
+    },
+    {
+     "t": 489,
+     "wsMB": 719.1,
+     "privMB": 702.7
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Electron",
+    "target": 4000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 480,
+    "peakSoldiers": 4061,
+    "avgSoldiers": 4014,
+    "avgDrawnUnits": 1364,
+    "avgParticles": 1026,
+    "structs": 51,
+    "squads": 1088,
+    "frames": 70323,
+    "avgFps": 146.5,
+    "p50FrameMs": 4.3,
+    "p95FrameMs": 12.5,
+    "p99FrameMs": 16.6,
+    "maxFrameMs": 41.7,
+    "low1Fps": 60.2,
+    "over33": 3,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 0.41,
+    "p95SimMs": 2.1,
+    "avgRenderMs": 2.749,
+    "p95RenderMs": 4.5,
+    "phases": {
+     "close": {
+      "avgFps": 199.7,
+      "low1Fps": 119,
+      "renderMs": 1.94,
+      "frames": 33553
+     },
+     "zoomout": {
+      "avgFps": 152.3,
+      "low1Fps": 47.8,
+      "renderMs": 2.97,
+      "frames": 7311
+     },
+     "overview": {
+      "avgFps": 86.6,
+      "low1Fps": 59.9,
+      "renderMs": 3.79,
+      "frames": 11223
+     },
+     "mid": {
+      "avgFps": 135.7,
+      "low1Fps": 79.4,
+      "renderMs": 3.51,
+      "frames": 18236
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 208.6,
+      "worstMs": 16.6,
+      "soldiers": 4007,
+      "heapMB": 13.6
+     },
+     {
+      "t": 10,
+      "fps": 183,
+      "worstMs": 12.6,
+      "soldiers": 4019,
+      "heapMB": 13.6
+     },
+     {
+      "t": 15,
+      "fps": 191.6,
+      "worstMs": 8.5,
+      "soldiers": 4006,
+      "heapMB": 13.6
+     },
+     {
+      "t": 20,
+      "fps": 231.8,
+      "worstMs": 8.5,
+      "soldiers": 4015,
+      "heapMB": 13.6
+     },
+     {
+      "t": 25,
+      "fps": 240,
+      "worstMs": 4.4,
+      "soldiers": 4024,
+      "heapMB": 13.6
+     },
+     {
+      "t": 30,
+      "fps": 240,
+      "worstMs": 4.8,
+      "soldiers": 4015,
+      "heapMB": 13.6
+     },
+     {
+      "t": 35,
+      "fps": 222.8,
+      "worstMs": 8.5,
+      "soldiers": 3996,
+      "heapMB": 13.6
+     },
+     {
+      "t": 40,
+      "fps": 203.6,
+      "worstMs": 8.5,
+      "soldiers": 3997,
+      "heapMB": 13.6
+     },
+     {
+      "t": 45,
+      "fps": 208.9,
+      "worstMs": 12.6,
+      "soldiers": 4008,
+      "heapMB": 13.6
+     },
+     {
+      "t": 50,
+      "fps": 173.5,
+      "worstMs": 12.6,
+      "soldiers": 4014,
+      "heapMB": 13.6
+     },
+     {
+      "t": 55,
+      "fps": 172.7,
+      "worstMs": 8.6,
+      "soldiers": 4022,
+      "heapMB": 13.6
+     },
+     {
+      "t": 60,
+      "fps": 197.6,
+      "worstMs": 16.6,
+      "soldiers": 4000,
+      "heapMB": 13.6
+     },
+     {
+      "t": 65,
+      "fps": 217.2,
+      "worstMs": 8.5,
+      "soldiers": 4012,
+      "heapMB": 13.6
+     },
+     {
+      "t": 70,
+      "fps": 200.8,
+      "worstMs": 12.5,
+      "soldiers": 4005,
+      "heapMB": 13.6
+     },
+     {
+      "t": 75,
+      "fps": 166.1,
+      "worstMs": 12.5,
+      "soldiers": 4002,
+      "heapMB": 13.6
+     },
+     {
+      "t": 80,
+      "fps": 232,
+      "worstMs": 8.5,
+      "soldiers": 4006,
+      "heapMB": 13.6
+     },
+     {
+      "t": 85,
+      "fps": 240,
+      "worstMs": 4.5,
+      "soldiers": 4015,
+      "heapMB": 13.6
+     },
+     {
+      "t": 90,
+      "fps": 240,
+      "worstMs": 4.6,
+      "soldiers": 4013,
+      "heapMB": 13.6
+     },
+     {
+      "t": 95,
+      "fps": 240,
+      "worstMs": 4.5,
+      "soldiers": 4011,
+      "heapMB": 13.6
+     },
+     {
+      "t": 100,
+      "fps": 240,
+      "worstMs": 4.5,
+      "soldiers": 4024,
+      "heapMB": 13.6
+     },
+     {
+      "t": 105,
+      "fps": 221.8,
+      "worstMs": 8.4,
+      "soldiers": 4007,
+      "heapMB": 13.6
+     },
+     {
+      "t": 110,
+      "fps": 196.4,
+      "worstMs": 8.5,
+      "soldiers": 4012,
+      "heapMB": 13.6
+     },
+     {
+      "t": 115,
+      "fps": 189.6,
+      "worstMs": 8.5,
+      "soldiers": 4025,
+      "heapMB": 13.6
+     },
+     {
+      "t": 120,
+      "fps": 184.2,
+      "worstMs": 8.5,
+      "soldiers": 4005,
+      "heapMB": 13.6
+     },
+     {
+      "t": 125,
+      "fps": 177.7,
+      "worstMs": 8.8,
+      "soldiers": 4027,
+      "heapMB": 13.6
+     },
+     {
+      "t": 130,
+      "fps": 192.4,
+      "worstMs": 12.5,
+      "soldiers": 4025,
+      "heapMB": 13.6
+     },
+     {
+      "t": 135,
+      "fps": 144.2,
+      "worstMs": 29.3,
+      "soldiers": 4027,
+      "heapMB": 13.6
+     },
+     {
+      "t": 140,
+      "fps": 153.3,
+      "worstMs": 12.5,
+      "soldiers": 4009,
+      "heapMB": 13.6
+     },
+     {
+      "t": 145,
+      "fps": 135.3,
+      "worstMs": 12.6,
+      "soldiers": 4005,
+      "heapMB": 13.6
+     },
+     {
+      "t": 150,
+      "fps": 134.9,
+      "worstMs": 16.7,
+      "soldiers": 4025,
+      "heapMB": 13.6
+     },
+     {
+      "t": 155,
+      "fps": 195,
+      "worstMs": 12.6,
+      "soldiers": 4006,
+      "heapMB": 13.6
+     },
+     {
+      "t": 160,
+      "fps": 156.9,
+      "worstMs": 12.6,
+      "soldiers": 4007,
+      "heapMB": 13.6
+     },
+     {
+      "t": 165,
+      "fps": 235.8,
+      "worstMs": 8.4,
+      "soldiers": 4022,
+      "heapMB": 13.6
+     },
+     {
+      "t": 170,
+      "fps": 240,
+      "worstMs": 4.8,
+      "soldiers": 4017,
+      "heapMB": 13.6
+     },
+     {
+      "t": 175,
+      "fps": 240,
+      "worstMs": 4.9,
+      "soldiers": 4023,
+      "heapMB": 13.6
+     },
+     {
+      "t": 180,
+      "fps": 240,
+      "worstMs": 4.6,
+      "soldiers": 4004,
+      "heapMB": 13.6
+     },
+     {
+      "t": 185,
+      "fps": 237,
+      "worstMs": 20.8,
+      "soldiers": 4000,
+      "heapMB": 13.6
+     },
+     {
+      "t": 190,
+      "fps": 189,
+      "worstMs": 12.6,
+      "soldiers": 4008,
+      "heapMB": 13.6
+     },
+     {
+      "t": 195,
+      "fps": 151.7,
+      "worstMs": 20.9,
+      "soldiers": 4010,
+      "heapMB": 13.6
+     },
+     {
+      "t": 200,
+      "fps": 97,
+      "worstMs": 17,
+      "soldiers": 4008,
+      "heapMB": 13.6
+     },
+     {
+      "t": 205,
+      "fps": 56.4,
+      "worstMs": 37.4,
+      "soldiers": 4008,
+      "heapMB": 13.6
+     },
+     {
+      "t": 210,
+      "fps": 55.7,
+      "worstMs": 25.1,
+      "soldiers": 4015,
+      "heapMB": 13.6
+     },
+     {
+      "t": 215,
+      "fps": 78.3,
+      "worstMs": 41.7,
+      "soldiers": 4033,
+      "heapMB": 13.6
+     },
+     {
+      "t": 220,
+      "fps": 81.7,
+      "worstMs": 16.8,
+      "soldiers": 4026,
+      "heapMB": 13.6
+     },
+     {
+      "t": 225,
+      "fps": 83.5,
+      "worstMs": 20.8,
+      "soldiers": 4026,
+      "heapMB": 13.6
+     },
+     {
+      "t": 230,
+      "fps": 81.9,
+      "worstMs": 16.8,
+      "soldiers": 4023,
+      "heapMB": 13.6
+     },
+     {
+      "t": 235,
+      "fps": 85.3,
+      "worstMs": 16.6,
+      "soldiers": 4019,
+      "heapMB": 13.6
+     },
+     {
+      "t": 240,
+      "fps": 85,
+      "worstMs": 16.8,
+      "soldiers": 4029,
+      "heapMB": 13.6
+     },
+     {
+      "t": 245,
+      "fps": 86.1,
+      "worstMs": 20.9,
+      "soldiers": 4055,
+      "heapMB": 13.6
+     },
+     {
+      "t": 250,
+      "fps": 85.1,
+      "worstMs": 16.8,
+      "soldiers": 4019,
+      "heapMB": 13.6
+     },
+     {
+      "t": 255,
+      "fps": 81.9,
+      "worstMs": 20.8,
+      "soldiers": 4017,
+      "heapMB": 13.6
+     },
+     {
+      "t": 260,
+      "fps": 80.8,
+      "worstMs": 16.8,
+      "soldiers": 4016,
+      "heapMB": 13.6
+     },
+     {
+      "t": 265,
+      "fps": 79,
+      "worstMs": 16.8,
+      "soldiers": 4000,
+      "heapMB": 13.6
+     },
+     {
+      "t": 270,
+      "fps": 83.9,
+      "worstMs": 16.8,
+      "soldiers": 4034,
+      "heapMB": 13.6
+     },
+     {
+      "t": 275,
+      "fps": 88.3,
+      "worstMs": 12.8,
+      "soldiers": 4027,
+      "heapMB": 13.6
+     },
+     {
+      "t": 280,
+      "fps": 89.6,
+      "worstMs": 20.9,
+      "soldiers": 4031,
+      "heapMB": 13.6
+     },
+     {
+      "t": 285,
+      "fps": 87.7,
+      "worstMs": 20.8,
+      "soldiers": 4042,
+      "heapMB": 13.6
+     },
+     {
+      "t": 290,
+      "fps": 88.5,
+      "worstMs": 16.8,
+      "soldiers": 4017,
+      "heapMB": 13.6
+     },
+     {
+      "t": 295,
+      "fps": 87.6,
+      "worstMs": 16.8,
+      "soldiers": 4033,
+      "heapMB": 13.6
+     },
+     {
+      "t": 300,
+      "fps": 88.3,
+      "worstMs": 16.7,
+      "soldiers": 4023,
+      "heapMB": 13.6
+     },
+     {
+      "t": 305,
+      "fps": 89.5,
+      "worstMs": 16.8,
+      "soldiers": 4026,
+      "heapMB": 13.6
+     },
+     {
+      "t": 310,
+      "fps": 90.1,
+      "worstMs": 16.8,
+      "soldiers": 4021,
+      "heapMB": 13.6
+     },
+     {
+      "t": 315,
+      "fps": 89.9,
+      "worstMs": 16.8,
+      "soldiers": 4019,
+      "heapMB": 13.6
+     },
+     {
+      "t": 320,
+      "fps": 88.2,
+      "worstMs": 16.7,
+      "soldiers": 4020,
+      "heapMB": 13.6
+     },
+     {
+      "t": 325,
+      "fps": 89.5,
+      "worstMs": 16.7,
+      "soldiers": 4016,
+      "heapMB": 13.6
+     },
+     {
+      "t": 330,
+      "fps": 89.8,
+      "worstMs": 16.8,
+      "soldiers": 3999,
+      "heapMB": 13.6
+     },
+     {
+      "t": 335,
+      "fps": 88.9,
+      "worstMs": 16.7,
+      "soldiers": 4019,
+      "heapMB": 13.6
+     },
+     {
+      "t": 340,
+      "fps": 89.9,
+      "worstMs": 16.6,
+      "soldiers": 4013,
+      "heapMB": 13.6
+     },
+     {
+      "t": 345,
+      "fps": 91.3,
+      "worstMs": 16.8,
+      "soldiers": 4025,
+      "heapMB": 13.6
+     },
+     {
+      "t": 350,
+      "fps": 128.3,
+      "worstMs": 17,
+      "soldiers": 4022,
+      "heapMB": 13.6
+     },
+     {
+      "t": 355,
+      "fps": 130.7,
+      "worstMs": 12.9,
+      "soldiers": 4018,
+      "heapMB": 13.6
+     },
+     {
+      "t": 360,
+      "fps": 136.5,
+      "worstMs": 12.7,
+      "soldiers": 4014,
+      "heapMB": 13.6
+     },
+     {
+      "t": 365,
+      "fps": 144.7,
+      "worstMs": 12.6,
+      "soldiers": 4010,
+      "heapMB": 13.6
+     },
+     {
+      "t": 370,
+      "fps": 154.5,
+      "worstMs": 12.6,
+      "soldiers": 4008,
+      "heapMB": 13.6
+     },
+     {
+      "t": 375,
+      "fps": 159.3,
+      "worstMs": 12.6,
+      "soldiers": 4009,
+      "heapMB": 13.6
+     },
+     {
+      "t": 380,
+      "fps": 186.2,
+      "worstMs": 12.6,
+      "soldiers": 4010,
+      "heapMB": 13.6
+     },
+     {
+      "t": 385,
+      "fps": 183.5,
+      "worstMs": 12.6,
+      "soldiers": 4002,
+      "heapMB": 13.6
+     },
+     {
+      "t": 390,
+      "fps": 164.5,
+      "worstMs": 12.6,
+      "soldiers": 4029,
+      "heapMB": 13.6
+     },
+     {
+      "t": 395,
+      "fps": 157.6,
+      "worstMs": 12.6,
+      "soldiers": 4018,
+      "heapMB": 13.6
+     },
+     {
+      "t": 400,
+      "fps": 159.6,
+      "worstMs": 12.6,
+      "soldiers": 4010,
+      "heapMB": 13.6
+     },
+     {
+      "t": 405,
+      "fps": 137.7,
+      "worstMs": 12.6,
+      "soldiers": 4007,
+      "heapMB": 13.6
+     },
+     {
+      "t": 410,
+      "fps": 120.6,
+      "worstMs": 16.7,
+      "soldiers": 4001,
+      "heapMB": 13.6
+     },
+     {
+      "t": 415,
+      "fps": 118.9,
+      "worstMs": 12.9,
+      "soldiers": 4025,
+      "heapMB": 13.6
+     },
+     {
+      "t": 420,
+      "fps": 100.5,
+      "worstMs": 16.7,
+      "soldiers": 4019,
+      "heapMB": 13.6
+     },
+     {
+      "t": 425,
+      "fps": 94.1,
+      "worstMs": 29.3,
+      "soldiers": 4004,
+      "heapMB": 13.6
+     },
+     {
+      "t": 430,
+      "fps": 94.4,
+      "worstMs": 16.8,
+      "soldiers": 4000,
+      "heapMB": 13.6
+     },
+     {
+      "t": 435,
+      "fps": 96.2,
+      "worstMs": 16.8,
+      "soldiers": 4016,
+      "heapMB": 13.6
+     },
+     {
+      "t": 440,
+      "fps": 105.6,
+      "worstMs": 16.8,
+      "soldiers": 4003,
+      "heapMB": 13.6
+     },
+     {
+      "t": 445,
+      "fps": 147.7,
+      "worstMs": 16.6,
+      "soldiers": 4031,
+      "heapMB": 13.6
+     },
+     {
+      "t": 450,
+      "fps": 140.4,
+      "worstMs": 12.6,
+      "soldiers": 4022,
+      "heapMB": 13.6
+     },
+     {
+      "t": 455,
+      "fps": 126.4,
+      "worstMs": 16.8,
+      "soldiers": 4020,
+      "heapMB": 13.6
+     },
+     {
+      "t": 460,
+      "fps": 133.3,
+      "worstMs": 33.5,
+      "soldiers": 4006,
+      "heapMB": 13.6
+     },
+     {
+      "t": 465,
+      "fps": 142.2,
+      "worstMs": 12.6,
+      "soldiers": 4017,
+      "heapMB": 13.6
+     },
+     {
+      "t": 470,
+      "fps": 139.4,
+      "worstMs": 12.6,
+      "soldiers": 4008,
+      "heapMB": 13.6
+     },
+     {
+      "t": 475,
+      "fps": 123.4,
+      "worstMs": 16.7,
+      "soldiers": 4029,
+      "heapMB": 13.6
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 13.6,
+    "heapEndMB": 13.6,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) citystate-electron/0.1.0 Chrome/156.0.8078.75 Electron/45.2.1 Safari/537.36"
+   }
+  },
+  {
+   "id": "soak-edge-1r1",
+   "group": "soak",
+   "shell": "edge",
+   "page": "v3",
+   "query": {
+    "bench": 4000,
+    "map": "l",
+    "secs": 480,
+    "cam": "tour"
+   },
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 918,
+   "bootMs": 545.5,
+   "atlasMs": 300.7,
+   "proc": {
+    "peakWsMB": 1124.5,
+    "avgWsMB": 849.3,
+    "peakPrivMB": 884,
+    "avgPrivMB": 720.6,
+    "cpuPct": 205,
+    "procs": 17,
+    "samples": 232
+   },
+   "memTimeline": [
+    {
+     "t": 4,
+     "wsMB": 953,
+     "privMB": 758.2
+    },
+    {
+     "t": 14,
+     "wsMB": 1124.5,
+     "privMB": 815.6
+    },
+    {
+     "t": 25,
+     "wsMB": 891.9,
+     "privMB": 683.3
+    },
+    {
+     "t": 35,
+     "wsMB": 723.1,
+     "privMB": 565.1
+    },
+    {
+     "t": 46,
+     "wsMB": 724.3,
+     "privMB": 591.4
+    },
+    {
+     "t": 57,
+     "wsMB": 727.6,
+     "privMB": 604.7
+    },
+    {
+     "t": 67,
+     "wsMB": 777.7,
+     "privMB": 626.2
+    },
+    {
+     "t": 78,
+     "wsMB": 777,
+     "privMB": 620.6
+    },
+    {
+     "t": 88,
+     "wsMB": 796.3,
+     "privMB": 640.2
+    },
+    {
+     "t": 99,
+     "wsMB": 766.2,
+     "privMB": 622.8
+    },
+    {
+     "t": 109,
+     "wsMB": 766.8,
+     "privMB": 630.7
+    },
+    {
+     "t": 120,
+     "wsMB": 779.4,
+     "privMB": 643.4
+    },
+    {
+     "t": 130,
+     "wsMB": 772.5,
+     "privMB": 631.1
+    },
+    {
+     "t": 141,
+     "wsMB": 779.5,
+     "privMB": 643.5
+    },
+    {
+     "t": 151,
+     "wsMB": 796.3,
+     "privMB": 669.3
+    },
+    {
+     "t": 162,
+     "wsMB": 796.4,
+     "privMB": 674.2
+    },
+    {
+     "t": 173,
+     "wsMB": 795.7,
+     "privMB": 686.9
+    },
+    {
+     "t": 183,
+     "wsMB": 792,
+     "privMB": 669.3
+    },
+    {
+     "t": 194,
+     "wsMB": 793.7,
+     "privMB": 658.1
+    },
+    {
+     "t": 204,
+     "wsMB": 809.6,
+     "privMB": 710.4
+    },
+    {
+     "t": 215,
+     "wsMB": 828.3,
+     "privMB": 797.3
+    },
+    {
+     "t": 225,
+     "wsMB": 858.4,
+     "privMB": 839.4
+    },
+    {
+     "t": 236,
+     "wsMB": 854.6,
+     "privMB": 757.9
+    },
+    {
+     "t": 246,
+     "wsMB": 863.9,
+     "privMB": 747.9
+    },
+    {
+     "t": 257,
+     "wsMB": 861.5,
+     "privMB": 750
+    },
+    {
+     "t": 267,
+     "wsMB": 865.5,
+     "privMB": 749.2
+    },
+    {
+     "t": 278,
+     "wsMB": 867.2,
+     "privMB": 746.4
+    },
+    {
+     "t": 288,
+     "wsMB": 864.6,
+     "privMB": 749.5
+    },
+    {
+     "t": 299,
+     "wsMB": 865.9,
+     "privMB": 741.8
+    },
+    {
+     "t": 310,
+     "wsMB": 889.8,
+     "privMB": 752.8
+    },
+    {
+     "t": 320,
+     "wsMB": 893.2,
+     "privMB": 759.2
+    },
+    {
+     "t": 331,
+     "wsMB": 893.5,
+     "privMB": 753
+    },
+    {
+     "t": 341,
+     "wsMB": 891.5,
+     "privMB": 748.1
+    },
+    {
+     "t": 352,
+     "wsMB": 891.7,
+     "privMB": 751.3
+    },
+    {
+     "t": 362,
+     "wsMB": 891.2,
+     "privMB": 768.8
+    },
+    {
+     "t": 373,
+     "wsMB": 903.9,
+     "privMB": 787.3
+    },
+    {
+     "t": 383,
+     "wsMB": 887.7,
+     "privMB": 778.1
+    },
+    {
+     "t": 394,
+     "wsMB": 888.5,
+     "privMB": 757.2
+    },
+    {
+     "t": 405,
+     "wsMB": 890.5,
+     "privMB": 756.6
+    },
+    {
+     "t": 415,
+     "wsMB": 888,
+     "privMB": 780.5
+    },
+    {
+     "t": 426,
+     "wsMB": 891.6,
+     "privMB": 762.5
+    },
+    {
+     "t": 436,
+     "wsMB": 892.8,
+     "privMB": 762.8
+    },
+    {
+     "t": 447,
+     "wsMB": 899.9,
+     "privMB": 765.3
+    },
+    {
+     "t": 458,
+     "wsMB": 902.4,
+     "privMB": 779.1
+    },
+    {
+     "t": 468,
+     "wsMB": 901.4,
+     "privMB": 771.1
+    },
+    {
+     "t": 479,
+     "wsMB": 901,
+     "privMB": 770.7
+    },
+    {
+     "t": 489,
+     "wsMB": 900.6,
+     "privMB": 769.3
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Browser",
+    "target": 4000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 480,
+    "peakSoldiers": 4061,
+    "avgSoldiers": 4015,
+    "avgDrawnUnits": 1565,
+    "avgParticles": 1012,
+    "structs": 51,
+    "squads": 1088,
+    "frames": 82395,
+    "avgFps": 171.7,
+    "p50FrameMs": 4.2,
+    "p95FrameMs": 8.4,
+    "p99FrameMs": 12.6,
+    "maxFrameMs": 29.2,
+    "low1Fps": 79.4,
+    "over33": 0,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 0.322,
+    "p95SimMs": 1.9,
+    "avgRenderMs": 2.746,
+    "p95RenderMs": 4.3,
+    "phases": {
+     "close": {
+      "avgFps": 218.7,
+      "low1Fps": 119,
+      "renderMs": 1.93,
+      "frames": 36742
+     },
+     "zoomout": {
+      "avgFps": 162.1,
+      "low1Fps": 48.1,
+      "renderMs": 2.96,
+      "frames": 7779
+     },
+     "overview": {
+      "avgFps": 139.3,
+      "low1Fps": 80,
+      "renderMs": 3.61,
+      "frames": 18055
+     },
+     "mid": {
+      "avgFps": 147.5,
+      "low1Fps": 79.4,
+      "renderMs": 3.4,
+      "frames": 19819
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 234.8,
+      "worstMs": 16.7,
+      "soldiers": 4007,
+      "heapMB": 19
+     },
+     {
+      "t": 10,
+      "fps": 219,
+      "worstMs": 8.5,
+      "soldiers": 4019,
+      "heapMB": 9.8
+     },
+     {
+      "t": 15,
+      "fps": 217.6,
+      "worstMs": 12.5,
+      "soldiers": 4006,
+      "heapMB": 8.6
+     },
+     {
+      "t": 20,
+      "fps": 232.8,
+      "worstMs": 8.4,
+      "soldiers": 4015,
+      "heapMB": 11.7
+     },
+     {
+      "t": 25,
+      "fps": 239.2,
+      "worstMs": 20.9,
+      "soldiers": 4024,
+      "heapMB": 10.1
+     },
+     {
+      "t": 30,
+      "fps": 240,
+      "worstMs": 4.7,
+      "soldiers": 4015,
+      "heapMB": 12
+     },
+     {
+      "t": 35,
+      "fps": 232.2,
+      "worstMs": 8.5,
+      "soldiers": 3996,
+      "heapMB": 7.2
+     },
+     {
+      "t": 40,
+      "fps": 230.6,
+      "worstMs": 8.5,
+      "soldiers": 3997,
+      "heapMB": 9.8
+     },
+     {
+      "t": 45,
+      "fps": 221.6,
+      "worstMs": 8.7,
+      "soldiers": 4008,
+      "heapMB": 13.4
+     },
+     {
+      "t": 50,
+      "fps": 194,
+      "worstMs": 8.6,
+      "soldiers": 4014,
+      "heapMB": 12.6
+     },
+     {
+      "t": 55,
+      "fps": 202.8,
+      "worstMs": 8.5,
+      "soldiers": 4022,
+      "heapMB": 15
+     },
+     {
+      "t": 60,
+      "fps": 220.2,
+      "worstMs": 8.5,
+      "soldiers": 4000,
+      "heapMB": 13.6
+     },
+     {
+      "t": 65,
+      "fps": 233,
+      "worstMs": 8.5,
+      "soldiers": 4012,
+      "heapMB": 10
+     },
+     {
+      "t": 70,
+      "fps": 218.4,
+      "worstMs": 12.5,
+      "soldiers": 4005,
+      "heapMB": 29.6
+     },
+     {
+      "t": 75,
+      "fps": 186.1,
+      "worstMs": 12.5,
+      "soldiers": 4002,
+      "heapMB": 7.6
+     },
+     {
+      "t": 80,
+      "fps": 236.2,
+      "worstMs": 8.4,
+      "soldiers": 4006,
+      "heapMB": 15.5
+     },
+     {
+      "t": 85,
+      "fps": 240,
+      "worstMs": 4.8,
+      "soldiers": 4015,
+      "heapMB": 15.4
+     },
+     {
+      "t": 90,
+      "fps": 240,
+      "worstMs": 4.7,
+      "soldiers": 4013,
+      "heapMB": 10.1
+     },
+     {
+      "t": 95,
+      "fps": 240,
+      "worstMs": 4.5,
+      "soldiers": 4013,
+      "heapMB": 8.8
+     },
+     {
+      "t": 100,
+      "fps": 239.6,
+      "worstMs": 12.5,
+      "soldiers": 4024,
+      "heapMB": 18
+     },
+     {
+      "t": 105,
+      "fps": 240,
+      "worstMs": 4.4,
+      "soldiers": 4007,
+      "heapMB": 18.4
+     },
+     {
+      "t": 110,
+      "fps": 239.6,
+      "worstMs": 8.3,
+      "soldiers": 4012,
+      "heapMB": 10.8
+     },
+     {
+      "t": 115,
+      "fps": 240,
+      "worstMs": 5,
+      "soldiers": 4025,
+      "heapMB": 13
+     },
+     {
+      "t": 120,
+      "fps": 236.2,
+      "worstMs": 8.4,
+      "soldiers": 4005,
+      "heapMB": 15.7
+     },
+     {
+      "t": 125,
+      "fps": 233,
+      "worstMs": 12.5,
+      "soldiers": 4027,
+      "heapMB": 15.5
+     },
+     {
+      "t": 130,
+      "fps": 239.2,
+      "worstMs": 8.4,
+      "soldiers": 4025,
+      "heapMB": 13.8
+     },
+     {
+      "t": 135,
+      "fps": 178.2,
+      "worstMs": 12.6,
+      "soldiers": 4029,
+      "heapMB": 19.5
+     },
+     {
+      "t": 140,
+      "fps": 176.9,
+      "worstMs": 12.6,
+      "soldiers": 4009,
+      "heapMB": 20.6
+     },
+     {
+      "t": 145,
+      "fps": 154.9,
+      "worstMs": 20.8,
+      "soldiers": 4005,
+      "heapMB": 14.5
+     },
+     {
+      "t": 150,
+      "fps": 150.2,
+      "worstMs": 12.6,
+      "soldiers": 4025,
+      "heapMB": 12.1
+     },
+     {
+      "t": 155,
+      "fps": 202,
+      "worstMs": 8.5,
+      "soldiers": 4006,
+      "heapMB": 9.6
+     },
+     {
+      "t": 160,
+      "fps": 164.5,
+      "worstMs": 16.7,
+      "soldiers": 4007,
+      "heapMB": 20.6
+     },
+     {
+      "t": 165,
+      "fps": 233,
+      "worstMs": 12.4,
+      "soldiers": 4022,
+      "heapMB": 22
+     },
+     {
+      "t": 170,
+      "fps": 239.2,
+      "worstMs": 16.6,
+      "soldiers": 4017,
+      "heapMB": 31
+     },
+     {
+      "t": 175,
+      "fps": 240,
+      "worstMs": 4.9,
+      "soldiers": 4023,
+      "heapMB": 10.1
+     },
+     {
+      "t": 180,
+      "fps": 240,
+      "worstMs": 4.4,
+      "soldiers": 4004,
+      "heapMB": 18.4
+     },
+     {
+      "t": 185,
+      "fps": 239,
+      "worstMs": 12.5,
+      "soldiers": 4001,
+      "heapMB": 11.8
+     },
+     {
+      "t": 190,
+      "fps": 200,
+      "worstMs": 12.6,
+      "soldiers": 4009,
+      "heapMB": 15
+     },
+     {
+      "t": 195,
+      "fps": 161.7,
+      "worstMs": 12.6,
+      "soldiers": 4010,
+      "heapMB": 27.3
+     },
+     {
+      "t": 200,
+      "fps": 101.6,
+      "worstMs": 17.1,
+      "soldiers": 4008,
+      "heapMB": 13.1
+     },
+     {
+      "t": 205,
+      "fps": 61.7,
+      "worstMs": 25,
+      "soldiers": 4008,
+      "heapMB": 33.9
+     },
+     {
+      "t": 210,
+      "fps": 66.1,
+      "worstMs": 29.2,
+      "soldiers": 4016,
+      "heapMB": 18.1
+     },
+     {
+      "t": 215,
+      "fps": 122.4,
+      "worstMs": 16.7,
+      "soldiers": 4033,
+      "heapMB": 13.2
+     },
+     {
+      "t": 220,
+      "fps": 129.5,
+      "worstMs": 16.5,
+      "soldiers": 4026,
+      "heapMB": 13.1
+     },
+     {
+      "t": 225,
+      "fps": 132.5,
+      "worstMs": 12.8,
+      "soldiers": 4026,
+      "heapMB": 13
+     },
+     {
+      "t": 230,
+      "fps": 135,
+      "worstMs": 12.6,
+      "soldiers": 4023,
+      "heapMB": 10.9
+     },
+     {
+      "t": 235,
+      "fps": 134.4,
+      "worstMs": 16.7,
+      "soldiers": 4019,
+      "heapMB": 9.4
+     },
+     {
+      "t": 240,
+      "fps": 138.6,
+      "worstMs": 12.6,
+      "soldiers": 4029,
+      "heapMB": 8.8
+     },
+     {
+      "t": 245,
+      "fps": 136.5,
+      "worstMs": 13,
+      "soldiers": 4055,
+      "heapMB": 9.7
+     },
+     {
+      "t": 250,
+      "fps": 135.8,
+      "worstMs": 12.7,
+      "soldiers": 4019,
+      "heapMB": 10.8
+     },
+     {
+      "t": 255,
+      "fps": 133.9,
+      "worstMs": 12.6,
+      "soldiers": 4017,
+      "heapMB": 14
+     },
+     {
+      "t": 260,
+      "fps": 133.5,
+      "worstMs": 12.6,
+      "soldiers": 4017,
+      "heapMB": 12.8
+     },
+     {
+      "t": 265,
+      "fps": 133,
+      "worstMs": 12.8,
+      "soldiers": 4001,
+      "heapMB": 13.8
+     },
+     {
+      "t": 270,
+      "fps": 136.3,
+      "worstMs": 12.6,
+      "soldiers": 4034,
+      "heapMB": 14.1
+     },
+     {
+      "t": 275,
+      "fps": 140.7,
+      "worstMs": 12.6,
+      "soldiers": 4027,
+      "heapMB": 16.5
+     },
+     {
+      "t": 280,
+      "fps": 138.3,
+      "worstMs": 12.8,
+      "soldiers": 4031,
+      "heapMB": 11.5
+     },
+     {
+      "t": 285,
+      "fps": 139.6,
+      "worstMs": 12.6,
+      "soldiers": 4043,
+      "heapMB": 14
+     },
+     {
+      "t": 290,
+      "fps": 143.6,
+      "worstMs": 12.6,
+      "soldiers": 4017,
+      "heapMB": 13.9
+     },
+     {
+      "t": 295,
+      "fps": 141.4,
+      "worstMs": 12.8,
+      "soldiers": 4033,
+      "heapMB": 10.4
+     },
+     {
+      "t": 300,
+      "fps": 141.3,
+      "worstMs": 12.6,
+      "soldiers": 4023,
+      "heapMB": 14.3
+     },
+     {
+      "t": 305,
+      "fps": 142.7,
+      "worstMs": 12.6,
+      "soldiers": 4026,
+      "heapMB": 14.8
+     },
+     {
+      "t": 310,
+      "fps": 145.2,
+      "worstMs": 12.6,
+      "soldiers": 4021,
+      "heapMB": 11.1
+     },
+     {
+      "t": 315,
+      "fps": 144.1,
+      "worstMs": 12.6,
+      "soldiers": 4019,
+      "heapMB": 14
+     },
+     {
+      "t": 320,
+      "fps": 142.8,
+      "worstMs": 12.6,
+      "soldiers": 4020,
+      "heapMB": 11.3
+     },
+     {
+      "t": 325,
+      "fps": 144,
+      "worstMs": 12.7,
+      "soldiers": 4016,
+      "heapMB": 10
+     },
+     {
+      "t": 330,
+      "fps": 145.1,
+      "worstMs": 12.6,
+      "soldiers": 4000,
+      "heapMB": 14.4
+     },
+     {
+      "t": 335,
+      "fps": 143.4,
+      "worstMs": 12.6,
+      "soldiers": 4019,
+      "heapMB": 16.5
+     },
+     {
+      "t": 340,
+      "fps": 143.4,
+      "worstMs": 12.6,
+      "soldiers": 4013,
+      "heapMB": 14.2
+     },
+     {
+      "t": 345,
+      "fps": 144.6,
+      "worstMs": 12.6,
+      "soldiers": 4025,
+      "heapMB": 10.3
+     },
+     {
+      "t": 350,
+      "fps": 142.3,
+      "worstMs": 12.7,
+      "soldiers": 4022,
+      "heapMB": 35.3
+     },
+     {
+      "t": 355,
+      "fps": 142.8,
+      "worstMs": 12.8,
+      "soldiers": 4018,
+      "heapMB": 10.5
+     },
+     {
+      "t": 360,
+      "fps": 148.8,
+      "worstMs": 12.7,
+      "soldiers": 4014,
+      "heapMB": 20.3
+     },
+     {
+      "t": 365,
+      "fps": 158.5,
+      "worstMs": 12.6,
+      "soldiers": 4010,
+      "heapMB": 28.6
+     },
+     {
+      "t": 370,
+      "fps": 169.1,
+      "worstMs": 12.6,
+      "soldiers": 4008,
+      "heapMB": 15.5
+     },
+     {
+      "t": 375,
+      "fps": 173.3,
+      "worstMs": 12.5,
+      "soldiers": 4009,
+      "heapMB": 30.5
+     },
+     {
+      "t": 380,
+      "fps": 202,
+      "worstMs": 12.5,
+      "soldiers": 4010,
+      "heapMB": 17
+     },
+     {
+      "t": 385,
+      "fps": 201,
+      "worstMs": 12.6,
+      "soldiers": 4002,
+      "heapMB": 21.7
+     },
+     {
+      "t": 390,
+      "fps": 182.3,
+      "worstMs": 12.5,
+      "soldiers": 4029,
+      "heapMB": 21.7
+     },
+     {
+      "t": 395,
+      "fps": 175.2,
+      "worstMs": 12.6,
+      "soldiers": 4018,
+      "heapMB": 10
+     },
+     {
+      "t": 400,
+      "fps": 174.5,
+      "worstMs": 12.6,
+      "soldiers": 4010,
+      "heapMB": 14.1
+     },
+     {
+      "t": 405,
+      "fps": 149.8,
+      "worstMs": 12.6,
+      "soldiers": 4007,
+      "heapMB": 16.9
+     },
+     {
+      "t": 410,
+      "fps": 136.5,
+      "worstMs": 12.7,
+      "soldiers": 4001,
+      "heapMB": 11.5
+     },
+     {
+      "t": 415,
+      "fps": 131.9,
+      "worstMs": 12.9,
+      "soldiers": 4025,
+      "heapMB": 22.3
+     },
+     {
+      "t": 420,
+      "fps": 111.4,
+      "worstMs": 17,
+      "soldiers": 4019,
+      "heapMB": 11.8
+     },
+     {
+      "t": 425,
+      "fps": 106.7,
+      "worstMs": 17,
+      "soldiers": 4004,
+      "heapMB": 12
+     },
+     {
+      "t": 430,
+      "fps": 108.3,
+      "worstMs": 17,
+      "soldiers": 4000,
+      "heapMB": 15.7
+     },
+     {
+      "t": 435,
+      "fps": 105.1,
+      "worstMs": 16.9,
+      "soldiers": 4016,
+      "heapMB": 19.1
+     },
+     {
+      "t": 440,
+      "fps": 105.5,
+      "worstMs": 16.9,
+      "soldiers": 4003,
+      "heapMB": 36.8
+     },
+     {
+      "t": 445,
+      "fps": 156.5,
+      "worstMs": 12.6,
+      "soldiers": 4031,
+      "heapMB": 34.7
+     },
+     {
+      "t": 450,
+      "fps": 145.6,
+      "worstMs": 16.7,
+      "soldiers": 4022,
+      "heapMB": 15.2
+     },
+     {
+      "t": 455,
+      "fps": 135.9,
+      "worstMs": 16.7,
+      "soldiers": 4020,
+      "heapMB": 34.2
+     },
+     {
+      "t": 460,
+      "fps": 138.7,
+      "worstMs": 16.7,
+      "soldiers": 4006,
+      "heapMB": 18.9
+     },
+     {
+      "t": 465,
+      "fps": 153.1,
+      "worstMs": 12.9,
+      "soldiers": 4017,
+      "heapMB": 33.9
+     },
+     {
+      "t": 470,
+      "fps": 145.8,
+      "worstMs": 12.6,
+      "soldiers": 4008,
+      "heapMB": 36.8
+     },
+     {
+      "t": 475,
+      "fps": 138.1,
+      "worstMs": 16.7,
+      "soldiers": 4029,
+      "heapMB": 25.5
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 9.1,
+    "heapEndMB": 17.3,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+   },
+   "retries": 1
+  }
+ ]
+}

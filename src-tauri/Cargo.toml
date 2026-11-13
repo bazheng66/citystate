@@ -1,0 +1,23 @@
+[package]
+name = "citystate"
+version = "0.1.0"
+description = "城邦演武 Tauri shell. The game page lives in ../game and is shared with Electron."
+authors = ["citystate"]
+edition = "2021"
+
+[lib]
+name = "citystate_lib"
+crate-type = ["rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+
+[profile.release]
+opt-level = "s"
+lto = "thin"
+codegen-units = 1
+panic = "abort"
+strip = true

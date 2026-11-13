@@ -1,0 +1,197 @@
+{
+ "mode": "baseold",
+ "at": "2026-11-13-16-03-16",
+ "results": [
+  {
+   "id": "base-old-tauri-0",
+   "group": "base-old",
+   "shell": "tauri",
+   "page": "base",
+   "query": {
+    "bench": 2000
+   },
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 1434,
+   "bootMs": 663.8000000007451,
+   "proc": {
+    "peakWsMB": 711.4,
+    "avgWsMB": 681.8,
+    "peakPrivMB": 792.9,
+    "avgPrivMB": 667.3,
+    "cpuPct": 193,
+    "procs": 7,
+    "samples": 23
+   },
+   "memTimeline": [
+    {
+     "t": 2,
+     "wsMB": 610,
+     "privMB": 599.1
+    },
+    {
+     "t": 13,
+     "wsMB": 668.8,
+     "privMB": 786.6
+    },
+    {
+     "t": 23,
+     "wsMB": 682.4,
+     "privMB": 630.7
+    },
+    {
+     "t": 34,
+     "wsMB": 705.8,
+     "privMB": 653.4
+    },
+    {
+     "t": 45,
+     "wsMB": 703.1,
+     "privMB": 633.5
+    }
+   ],
+   "res": {
+    "target": 2000,
+    "peakSoldiers": 1903,
+    "frames": 1213,
+    "avgFps": 40.4,
+    "p95FrameMs": 29.2,
+    "p99FrameMs": 29.3,
+    "low1Fps": 34.1,
+    "avgSimMs": 0.886,
+    "avgRenderMs": 9.764,
+    "p95RenderMs": 11.5,
+    "canvas": "1805x1128",
+    "dpr": 1.5,
+    "shell": "Tauri",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+   }
+  },
+  {
+   "id": "base-old-electron-1",
+   "group": "base-old",
+   "shell": "electron",
+   "page": "base",
+   "query": {
+    "bench": 2000
+   },
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 1194,
+   "bootMs": 779.7000000029802,
+   "proc": {
+    "peakWsMB": 567,
+    "avgWsMB": 539.5,
+    "peakPrivMB": 705.7,
+    "avgPrivMB": 618,
+    "cpuPct": 174,
+    "procs": 4,
+    "samples": 25
+   },
+   "memTimeline": [
+    {
+     "t": 1,
+     "wsMB": 409.6,
+     "privMB": 280.6
+    },
+    {
+     "t": 12,
+     "wsMB": 538.9,
+     "privMB": 659.4
+    },
+    {
+     "t": 22,
+     "wsMB": 546.8,
+     "privMB": 693.6
+    },
+    {
+     "t": 33,
+     "wsMB": 553.3,
+     "privMB": 694.8
+    },
+    {
+     "t": 43,
+     "wsMB": 556.6,
+     "privMB": 624
+    }
+   ],
+   "res": {
+    "target": 2000,
+    "peakSoldiers": 1604,
+    "frames": 1071,
+    "avgFps": 35.7,
+    "p95FrameMs": 33.3,
+    "p99FrameMs": 33.5,
+    "low1Fps": 29.9,
+    "avgSimMs": 0.715,
+    "avgRenderMs": 5.034,
+    "p95RenderMs": 5.7,
+    "canvas": "1805x1128",
+    "dpr": 1.5,
+    "shell": "Electron",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) citystate-electron/0.1.0 Chrome/156.0.8078.75 Electron/45.2.1 Safari/537.36"
+   }
+  },
+  {
+   "id": "base-old-edge-2r2",
+   "group": "base-old",
+   "shell": "edge",
+   "page": "base",
+   "query": {
+    "bench": 2000
+   },
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 1232,
+   "bootMs": 858.3000000007451,
+   "proc": {
+    "peakWsMB": 1118.5,
+    "avgWsMB": 915.1,
+    "peakPrivMB": 945.8,
+    "avgPrivMB": 806.6,
+    "cpuPct": 206,
+    "procs": 17,
+    "samples": 19
+   },
+   "memTimeline": [
+    {
+     "t": 2,
+     "wsMB": 928.8,
+     "privMB": 791.1
+    },
+    {
+     "t": 13,
+     "wsMB": 1118.5,
+     "privMB": 914.3
+    },
+    {
+     "t": 23,
+     "wsMB": 881.8,
+     "privMB": 806.7
+    },
+    {
+     "t": 34,
+     "wsMB": 753.5,
+     "privMB": 705.5
+    }
+   ],
+   "res": {
+    "target": 2000,
+    "peakSoldiers": 1959,
+    "frames": 1257,
+    "avgFps": 41.9,
+    "p95FrameMs": 29.1,
+    "p99FrameMs": 29.2,
+    "low1Fps": 34.2,
+    "avgSimMs": 0.777,
+    "avgRenderMs": 9.291,
+    "p95RenderMs": 11.1,
+    "canvas": "1805x1128",
+    "dpr": 1.5,
+    "shell": "Browser",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+   },
+   "retries": 2
+  }
+ ]
+}

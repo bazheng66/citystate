@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>城邦演武</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 标题 -->
+  <section id="title" class="screen">
+    <div class="title-art"><canvas id="title-canvas" width="640" height="200"></canvas></div>
+    <h1>城邦演武<small>v3</small></h1>
+    <p class="sub">五方势力争夺大陆。摧毁敌城，进驻废墟，重建为己所用。</p>
+    <div class="menu">
+      <button class="big" data-go="campaign">战役</button>
+      <button class="big alt" data-go="conquest">大陆征服</button>
+      <button data-go="bench">压力测试</button>
+      <button data-go="settings">设置</button>
+      <button data-go="help">操作说明</button>
+    </div>
+    <p class="credit">地图、数值、规则与代码为原创。角色：0x72 DungeonTileset II（CC0）；建筑与树木：Kenney Tiny Town（CC0）；地形、坐骑、投石车、粒子与光照为代码绘制。</p>
+  </section>
+
+  <!-- 战役 -->
+  <section id="campaign" class="screen" hidden>
+    <header class="bar">
+      <button data-go="title">‹ 返回</button>
+      <div class="tabs" id="fac-tabs"></div>
+      <button id="open-edicts" class="gold">敕令 <b id="edict-pts">0</b></button>
+    </header>
+    <div class="camp-body">
+      <div class="parchment"><canvas id="camp-map" width="900" height="560"></canvas></div>
+      <aside class="brief">
+        <h2 id="m-title"></h2>
+        <div id="m-meta" class="meta"></div>
+        <p id="m-brief"></p>
+        <div id="m-best" class="best"></div>
+        <button id="m-go" class="big">出征</button>
+        <div class="faction-note" id="fac-note"></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 大陆征服 -->
+  <section id="conquest" class="screen" hidden>
+    <header class="bar">
+      <button data-go="title">‹ 返回</button>
+      <h2>大陆征服</h2>
+      <span class="muted" style="flex:1">程序生成的大地图，多方混战。占下所有对手的据点即获胜。</span>
+    </header>
+    <div class="camp-body">
+      <div class="parchment"><canvas id="cq-map" width="900" height="560"></canvas></div>
+      <aside class="brief cq">
+        <div class="opt"><label>我方势力</label><div class="seg" id="cq-fac"></div></div>
+        <div class="opt"><label>地图规模</label><div class="seg" id="cq-size"></div></div>
+        <div class="opt"><label>对手数量</label><div class="seg" id="cq-foes"></div></div>
+        <div class="opt"><label>地貌</label><div class="seg" id="cq-biome"></div></div>
+        <div class="opt"><label>难度</label><div class="seg" id="cq-diff"></div></div>
+        <div class="opt row"><label><input type="checkbox" id="cq-fog" checked> 战争迷雾</label>
+          <label>种子 <input type="number" id="cq-seed" min="1" max="99999" value="7"></label><button id="cq-roll" title="换一张图">🎲</button></div>
+        <div id="cq-info" class="meta"></div>
+        <button id="cq-go" class="big">出征</button>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 敕令 -->
+  <section id="edicts" class="screen" hidden>
+    <header class="bar">
+      <button data-go="campaign">‹ 返回</button>
+      <h2 id="ed-title">敕令</h2>
+      <div class="pts">可用点数 <b id="ed-pts">0</b></div>
+      <button id="ed-reset">重置</button>
+    </header>
+    <p class="ed-hint">每关按用时评级：完美 3 点，优秀 2 点，完成 1 点。重玩刷新最好成绩可以补足差额。</p>
+    <div id="ed-grid" class="ed-grid"></div>
+  </section>
+
+  <!-- 对局 -->
+  <section id="game" class="screen" hidden>
+    <header class="hud">
+      <div class="res gold" title="金币"><i></i><b id="h-gold">0</b><small id="h-gold-rate"></small></div>
+      <div class="res mana" title="法力"><i></i><b id="h-mana">0</b></div>
+      <div class="res supply" title="部队 / 上限"><i></i><b id="h-supply">0/0</b></div>
+      <div class="mission"><span id="h-mission"></span> <span id="h-goal" class="goal"></span></div>
+      <div class="clock" id="h-clock">0:00</div>
+      <button id="h-tech" title="科技 (K)">⚒ 科技</button>
+      <button id="h-speed" title="加速 (F)">×1</button>
+      <button id="h-pause" title="暂停 (空格)">❚❚</button>
+      <button id="h-menu" title="菜单 (Esc)">☰</button>
+    </header>
+    <div id="stage">
+      <canvas id="view"></canvas>
+      <div id="toast"></div>
+      <div id="perf" hidden></div>
+      <div id="tip" hidden></div>
+      <div id="buildpop" hidden></div>
+      <div id="techpop" hidden></div>
+      <div id="mmwrap" hidden>
+        <canvas id="minimap" width="220" height="138"></canvas>
+        <div class="mmbtns"><button id="mm-in" title="放大">＋</button><button id="mm-out" title="缩小">－</button><button id="mm-fit" title="全图 / 回城 (Home)">⌂</button></div>
+      </div>
+    </div>
+    <footer class="panel">
+      <div class="sel" id="p-sel"></div>
+      <div class="acts" id="p-acts"></div>
+      <div class="spells" id="p-spells"></div>
+    </footer>
+  </section>
+
+  <!-- 弹窗 -->
+  <div id="modal" class="modal" hidden><div class="card" id="modal-card"></div></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/missions.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/sim.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/sprites2.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/save.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
