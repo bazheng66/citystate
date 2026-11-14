@@ -3,7 +3,9 @@
 //
 //   node tools/experiment.js smoke            每个外壳跑一个 10 秒的小测试，确认流程通
 //   node tools/experiment.js scale            士兵数阶梯（1000 / 3000 / 6000 / 10000，大地图）
-//   node tools/experiment.js base             改造前（backup_v3）对比改造后，同屏 2000 兵（baseold = 只跑改造前）
+//   node tools/experiment.js repeat           3000 / 6000 / 10000 兵各重复三次，报告里给均值 ± 标准差
+//   node tools/experiment.js limit            15000 / 20000 / 30000 兵，加到跑不动为止（找边界）
+//   node tools/experiment.js base         改造前（backup_v3）对比改造后，同屏 2000 兵（baseold = 只跑改造前）
 //   node tools/experiment.js xl               巨型地图 10000 兵
 //   node tools/experiment.js ablate           Tauri 下逐项关掉画面特性
 //   node tools/experiment.js soak [秒]         长时间浸泡（默认 480 秒）
@@ -139,6 +141,8 @@ async function runOne(run, sampler) {
     env.CS_FLAGS = FLAGS.join(",");
     if (run.page === "base") env.CS_URL = `http://127.0.0.1:${PORT}/base/index.html?${qs}`;
     else { env.CS_GAME = path.join(ROOT, "game"); env.CS_QUERY = qs; }
+    env.CS_DIAG = path.join(TMP, "electron-" + run.id + ".diag");
+    try { fs.unlinkSync(env.CS_DIAG); } catch (e) { /* 没有旧文件 */ }
   } else {
     const prof = path.join(TMP, "edge-" + run.id);
     argv = [`--app=http://127.0.0.1:${PORT}/${run.page}/index.html?${qs}`, `--user-data-dir=${prof}`, "--window-size=1376,940", "--window-position=120,40",
@@ -170,8 +174,11 @@ async function runOne(run, sampler) {
       cover = spawn("powershell.exe", ["-NoProfile", "-Command", "Add-Type -AssemblyName System.Windows.Forms; $f = New-Object Windows.Forms.Form; $f.Text = 'occlusion test'; $f.WindowState = 'Maximized'; $f.TopMost = $true; $f.Add_Shown({ $f.Activate() }); [Windows.Forms.Application]::Run($f)"], { stdio: "ignore" });
     }, run.occludeAt);
   }
+  // 渲染进程已经没了就不用等到超时
+  const goneTimer = env.CS_DIAG ? setInterval(() => { try { if (fs.readFileSync(env.CS_DIAG, "utf8").includes("render-process-gone") && w.resolve) setTimeout(w.resolve, 3000); } catch (e) { /* 还没有文件 */ } }, 2000) : null;
   if (run.idle) await sleep(run.idle); // 只测启动：等到空闲后直接收工
   else await Promise.race([done, sleep(run.timeout || 240000)]);
+  clearInterval(goneTimer);
   const samples = sampler.samples.slice();
   clearTimeout(coverTimer);
   if (cover) killTree(cover.pid);
@@ -186,14 +193,19 @@ async function runOne(run, sampler) {
   let cpuPct = null;
   if (tail.length >= 2) cpuPct = +(((tail[tail.length - 1].cpuS - tail[0].cpuS) / ((tail[tail.length - 1].at - tail[0].at) / 1000)) * 100).toFixed(0);
   const out = {
-    id: run.id, group: run.group, shell: run.shell, page: run.page, query: run.query, ok: !!w.bench || !!run.idle, exitedEarly: exited && !w.bench && !run.idle,
+    id: run.id, group: run.group, shell: run.shell, page: run.page, query: run.query, rep: run.rep, ok: !!w.bench || !!run.idle, exitedEarly: exited && !w.bench && !run.idle,
     startMs: w.ready ? w.ready.at - t0 : null, bootMs: w.ready ? w.ready.bootMs : null, atlasMs: w.ready ? w.ready.atlasMs : null,
     proc: { peakWsMB: peak("wsMB"), avgWsMB: avgOf("wsMB"), peakPrivMB: peak("privMB"), avgPrivMB: avgOf("privMB"), cpuPct, procs: peak("procs"), samples: tail.length },
     memTimeline: tail.filter((_, i) => i % 5 === 0).map((s) => ({ t: Math.round((s.at - t0) / 1000), wsMB: s.wsMB, privMB: s.privMB })),
     res: w.bench ? w.bench.res : null,
   };
+  // Electron 把进程异常退出的原因写在 CS_DIAG 文件里
+  if (env.CS_DIAG) {
+    try { out.gone = fs.readFileSync(env.CS_DIAG, "utf8").trim().split("\n").filter(Boolean).map((l) => { const g = JSON.parse(l); g.t = Math.round((g.at - t0) / 1000); delete g.at; return g; }); } catch (e) { /* 没有异常退出 */ }
+    if (out.gone) console.log(`  进程异常退出：${out.gone.map((g) => `${g.t}s ${g.kind} ${g.type || ""} ${g.reason} (${g.exitCode})`).join("；")}`);
+  }
   const r = out.res;
-  console.log(`[${run.id}] ${out.ok ? "ok" : "FAILED"}  start ${out.startMs}ms  ` + (r ? `fps ${r.avgFps} low1 ${r.low1Fps} sim ${r.avgSimMs} render ${r.avgRenderMs} soldiers ${r.avgSoldiers || r.peakSoldiers} ` : "") + `ws ${out.proc.peakWsMB}MB priv ${out.proc.peakPrivMB}MB cpu ${cpuPct}%`);
+  console.log(`[${run.id}] ${out.ok ? "ok" : "FAILED"}  start ${out.startMs}ms  ` + (r ? `fps ${r.avgFps} low1 ${r.low1Fps} sim ${r.avgSimMs} render ${r.avgRenderMs} soldiers ${r.avgSoldiers || r.peakSoldiers} simSpeed ${r.simSpeed ?? "-"} ` : "") + `ws ${out.proc.peakWsMB}MB priv ${out.proc.peakPrivMB}MB cpu ${cpuPct}%`);
   return out;
 }
 
@@ -206,6 +218,14 @@ function plan() {
   if (mode === "smoke") for (const s of shells) add("smoke", s, "v3", { bench: 800, map: "m", secs: 10, cam: "tour" });
   if (want("startup")) for (let i = 0; i < 3; i++) for (const s of shells) add("startup", s, "v3", {}, { idle: 9000 });
   if (want("scale")) for (const n of [1000, 3000, 6000, 10000]) for (const s of shells) add("scale", s, "v3", { bench: n, map: "l", secs: 30, cam: "tour" });
+  // 重复三次：给出均值和波动
+  if (mode === "repeat") for (let rep = 1; rep <= 3; rep++) for (const n of [3000, 6000, 10000]) for (const s of shells) add("rep", s, "v3", { bench: n, map: "l", secs: 30, cam: "tour" }, { rep });
+  // 往上加到跑不动为止：Tauri 三次，另外两个外壳各一次
+  // --n=22500,25000 换档位，--reps=3 指定每个外壳的重复次数
+  const nArg = args.find((a) => a.startsWith("--n="));
+  const repsArg = args.find((a) => a.startsWith("--reps="));
+  const limitNs = nArg ? nArg.slice(4).split(",").map(Number) : [15000, 20000, 30000];
+  if (mode === "limit") for (const n of limitNs) for (const s of shells) for (let rep = 1; rep <= (repsArg ? Number(repsArg.slice(7)) : s === "tauri" ? 3 : 1); rep++) add("limit", s, "v3", { bench: n, map: "l", secs: 30, cam: "tour" }, { rep, timeout: 480000 });
   if (want("base")) {
     for (const s of shells) add("base-old", s, "base", { bench: 2000 }); // 改造前：40×25 单屏，2000 兵
     for (const s of shells) add("base-new", s, "v3", { bench: 2000, map: "s", secs: 30, cam: "overview", rf: "lod:0" }); // 改造后：同屏 2000 兵全画成精灵

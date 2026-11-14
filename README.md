@@ -54,7 +54,7 @@ node tools/headless.js duchy all 900        # AI 托管玩家，把一个战役�
 node tools/headless.js conquest xl 3 600    # AI 全托管的大陆征服（规格 种子 最长秒数）
 node tools/balance.js duchy 1,2,3           # 多个随机种子的胜负与用时
 node tools/stuck.js                         # 检测部队卡在地形里
-node tools/simbench.js 2000                 # 约 2000 士兵时的纯模拟耗时
+node tools/simbench.js 20000 l              # 大地图约 20000 士兵时的纯模拟耗时（士兵数 地图规格）
 node tools/trace.js horde 3 1               # 打印某关据点易手时间线和双方兵力
 ```
 
@@ -68,7 +68,12 @@ node tools/trace.js horde 3 1               # 打印某关据点易手时间线�
 npx tauri build --no-bundle            # 先把页面嵌进 Tauri 的 release 可执行文件
 npm --prefix electron run pack         # Electron 打包成目录
 node tools/experiment.js all           # 启动、规模阶梯、改造前后、巨型地图、消融、浸泡，约一小时
+node tools/experiment.js repeat        # 3000 / 6000 / 10000 兵各重复三次（均值 ± 标准差），约 40 分钟
+node tools/experiment.js limit         # 15000 / 20000 / 30000 兵，加到跑不动为止
+node tools/experiment.js limit --only=tauri --n=22500,25000 --reps=3   # 自选档位、外壳和重复次数
 node tools/report.js                   # 汇总成 对比实验报告.md
 ```
+
+报告里除了帧率，还有“模拟速度”（实际模拟步数 ÷ 实时应跑步数，低于 100% 说明游戏本身在变慢）和“主线程 JS 占帧时间”（越接近 100%，帧率越是被页面自己的 JS 卡住）。
 
 `experiment.js` 逐个启动三个外壳，页面把结果 POST 回脚本起的本地服务，脚本同时每 2 秒采样一次整棵进程树的内存和 CPU 时间。外壳通过环境变量接收参数：`CS_QUERY`（传给页面的参数串）、`CS_URL`（改为加载外部地址，跑基线时用）。测试期间会不断弹出窗口，别挡住它们，也别同时跑别的重活。

@@ -251,7 +251,8 @@
   function benchSpawn(w) {
     const b = UI.bench;
     if (b.done || w.soldierCount >= b.n || w.tick % 4 !== 0) return;
-    const per = b.n - w.soldierCount > 600 ? 2 : 1;
+    const gap = b.n - w.soldierCount;
+    const per = gap > 5000 ? 6 : gap > 600 ? 2 : 1; // 离目标还远就多补几队，上万兵的档位不用等太久
     for (const id of ["p"].concat(w.foeIds)) {
       const home = w.structs.filter((s) => s.owner === id && !s.ruined);
       if (!home.length) continue;
@@ -306,9 +307,10 @@
     const w = UI.world;
     if (b.done) return;
     b.peak = Math.max(b.peak, w.soldierCount);
-    if (b.phase === "ramp" && (w.soldierCount >= b.n * 0.95 || now - b.start > 120000)) {
+    if (b.phase === "ramp" && (w.soldierCount >= b.n * 0.95 || now - b.start > 240000)) {
       b.phase = "measure";
       b.t0 = now;
+      b.tick0 = w.tick;
       b.winT = now;
       b.heap0 = performance.memory ? performance.memory.usedJSHeapSize : 0;
       b.chunks0 = R.stats.baked;
@@ -381,6 +383,8 @@
       low1Fps: +(1000 / pct(b.frames, 0.99)).toFixed(1),
       over33: b.frames.filter((f) => f > 33.4).length, over50: b.frames.filter((f) => f > 50).length, over100: b.frames.filter((f) => f > 100).length,
       avgSimMs: +avg(b.sim).toFixed(3), p95SimMs: +pct(b.sim, 0.95).toFixed(2),
+      // 模拟跑了多少步 ÷ 实时应该跑的步数：低于 1 说明主线程已经跟不上 30 步/秒，游戏在变慢
+      simSpeed: +((UI.world.tick - b.tick0) / (((performance.now() - b.t0) / 1000) * 30)).toFixed(3),
       avgRenderMs: +avg(b.render).toFixed(3), p95RenderMs: +pct(b.render, 0.95).toFixed(2),
       phases, timeline: b.timeline,
       chunksBaked: R.stats.baked - b.chunks0, chunkCacheMP: R.stats.chunkMP,
@@ -403,7 +407,7 @@
         <tr><td>1% Low FPS</td><td>${res.low1Fps}</td></tr>
         <tr><td>帧时间 P50 / P95 / P99 / 最大</td><td>${res.p50FrameMs} / ${res.p95FrameMs} / ${res.p99FrameMs} / ${res.maxFrameMs} ms</td></tr>
         <tr><td>卡顿帧 &gt;33 / &gt;50 / &gt;100 ms</td><td>${res.over33} / ${res.over50} / ${res.over100}（共 ${res.frames} 帧）</td></tr>
-        <tr><td>模拟耗时（每帧）</td><td>${res.avgSimMs} ms（P95 ${res.p95SimMs}）</td></tr>
+        <tr><td>模拟耗时（每帧）</td><td>${res.avgSimMs} ms（P95 ${res.p95SimMs}）· 模拟速度 ${Math.round(res.simSpeed * 100)}% 实时</td></tr>
         <tr><td>渲染耗时（每帧，JS 侧）</td><td>${res.avgRenderMs} ms（P95 ${res.p95RenderMs}）</td></tr>
         ${ph}
         <tr><td>地形块烘焙 / 缓存</td><td>${res.chunksBaked} 块 / ${res.chunkCacheMP} MP</td></tr>

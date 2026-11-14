@@ -1,0 +1,4659 @@
+{
+ "mode": "repeat",
+ "at": "2026-11-14-02-39-45",
+ "results": [
+  {
+   "id": "rep-tauri-0",
+   "group": "rep",
+   "shell": "tauri",
+   "page": "v3",
+   "query": {
+    "bench": 3000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 1,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 2683,
+   "bootMs": 382.9,
+   "atlasMs": 298.9,
+   "proc": {
+    "peakWsMB": 752.7,
+    "avgWsMB": 674.8,
+    "peakPrivMB": 881.8,
+    "avgPrivMB": 659.2,
+    "cpuPct": 193,
+    "procs": 7,
+    "samples": 18
+   },
+   "memTimeline": [
+    {
+     "t": 5,
+     "wsMB": 586.4,
+     "privMB": 546.1
+    },
+    {
+     "t": 15,
+     "wsMB": 641,
+     "privMB": 585.2
+    },
+    {
+     "t": 25,
+     "wsMB": 717.2,
+     "privMB": 881.8
+    },
+    {
+     "t": 36,
+     "wsMB": 735.7,
+     "privMB": 728.8
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Tauri",
+    "target": 3000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 3041,
+    "avgSoldiers": 3010,
+    "avgDrawnUnits": 1385,
+    "avgParticles": 796,
+    "structs": 51,
+    "squads": 777,
+    "frames": 6005,
+    "avgFps": 200.1,
+    "p50FrameMs": 4.2,
+    "p95FrameMs": 8.4,
+    "p99FrameMs": 12.4,
+    "maxFrameMs": 25.1,
+    "low1Fps": 80.6,
+    "over33": 0,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 0.174,
+    "p95SimMs": 1.2,
+    "simSpeed": 1,
+    "avgRenderMs": 2.134,
+    "p95RenderMs": 3.6,
+    "phases": {
+     "close": {
+      "avgFps": 238.5,
+      "low1Fps": 232.6,
+      "renderMs": 1.25,
+      "frames": 2505
+     },
+     "zoomout": {
+      "avgFps": 169.7,
+      "low1Fps": 79.4,
+      "renderMs": 3.27,
+      "frames": 509
+     },
+     "overview": {
+      "avgFps": 200.4,
+      "low1Fps": 119,
+      "renderMs": 2.36,
+      "frames": 1622
+     },
+     "mid": {
+      "avgFps": 162.8,
+      "low1Fps": 80,
+      "renderMs": 3.06,
+      "frames": 1369
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 237.4,
+      "worstMs": 20.9,
+      "soldiers": 3011,
+      "heapMB": 10
+     },
+     {
+      "t": 10,
+      "fps": 239.6,
+      "worstMs": 8.3,
+      "soldiers": 3013,
+      "heapMB": 7.8
+     },
+     {
+      "t": 15,
+      "fps": 188,
+      "worstMs": 25.1,
+      "soldiers": 3007,
+      "heapMB": 8.7
+     },
+     {
+      "t": 20,
+      "fps": 200.4,
+      "worstMs": 12.5,
+      "soldiers": 3022,
+      "heapMB": 10
+     },
+     {
+      "t": 25,
+      "fps": 184.6,
+      "worstMs": 12.6,
+      "soldiers": 3026,
+      "heapMB": 11.3
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 6.9,
+    "heapEndMB": 14.3,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+   }
+  },
+  {
+   "id": "rep-electron-1",
+   "group": "rep",
+   "shell": "electron",
+   "page": "v3",
+   "query": {
+    "bench": 3000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 1,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 2528,
+   "bootMs": 688.7,
+   "atlasMs": 511.4,
+   "proc": {
+    "peakWsMB": 652.8,
+    "avgWsMB": 583,
+    "peakPrivMB": 842.3,
+    "avgPrivMB": 625.7,
+    "cpuPct": 201,
+    "procs": 4,
+    "samples": 18
+   },
+   "memTimeline": [
+    {
+     "t": 4,
+     "wsMB": 508.2,
+     "privMB": 526.2
+    },
+    {
+     "t": 15,
+     "wsMB": 551.4,
+     "privMB": 548.7
+    },
+    {
+     "t": 25,
+     "wsMB": 626.6,
+     "privMB": 842.3
+    },
+    {
+     "t": 35,
+     "wsMB": 640.8,
+     "privMB": 703.3
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Electron",
+    "target": 3000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 3041,
+    "avgSoldiers": 3009,
+    "avgDrawnUnits": 1222,
+    "avgParticles": 844,
+    "structs": 51,
+    "squads": 777,
+    "frames": 5317,
+    "avgFps": 177.2,
+    "p50FrameMs": 4.2,
+    "p95FrameMs": 8.4,
+    "p99FrameMs": 12.5,
+    "maxFrameMs": 29.3,
+    "low1Fps": 80,
+    "over33": 0,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 0.2,
+    "p95SimMs": 1.2,
+    "simSpeed": 0.999,
+    "avgRenderMs": 2.089,
+    "p95RenderMs": 3.6,
+    "phases": {
+     "close": {
+      "avgFps": 233.4,
+      "low1Fps": 120.5,
+      "renderMs": 1.23,
+      "frames": 2452
+     },
+     "zoomout": {
+      "avgFps": 150.3,
+      "low1Fps": 59.9,
+      "renderMs": 3.34,
+      "frames": 451
+     },
+     "overview": {
+      "avgFps": 132.3,
+      "low1Fps": 80,
+      "renderMs": 2.34,
+      "frames": 1072
+     },
+     "mid": {
+      "avgFps": 159.6,
+      "low1Fps": 80,
+      "renderMs": 3.03,
+      "frames": 1342
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 236,
+      "worstMs": 16.6,
+      "soldiers": 3011,
+      "heapMB": 13.6
+     },
+     {
+      "t": 10,
+      "fps": 231.6,
+      "worstMs": 16.6,
+      "soldiers": 3013,
+      "heapMB": 13.6
+     },
+     {
+      "t": 15,
+      "fps": 151.9,
+      "worstMs": 29.3,
+      "soldiers": 3007,
+      "heapMB": 13.6
+     },
+     {
+      "t": 20,
+      "fps": 133.4,
+      "worstMs": 12.6,
+      "soldiers": 3022,
+      "heapMB": 13.6
+     },
+     {
+      "t": 25,
+      "fps": 161.1,
+      "worstMs": 12.6,
+      "soldiers": 3026,
+      "heapMB": 13.6
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 13.6,
+    "heapEndMB": 13.6,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) citystate-electron/0.1.0 Chrome/156.0.8078.75 Electron/45.2.1 Safari/537.36"
+   }
+  },
+  {
+   "id": "rep-edge-2",
+   "group": "rep",
+   "shell": "edge",
+   "page": "v3",
+   "query": {
+    "bench": 3000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 1,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 910,
+   "bootMs": 576.2,
+   "atlasMs": 318,
+   "proc": {
+    "peakWsMB": 1089,
+    "avgWsMB": 912,
+    "peakPrivMB": 983.6,
+    "avgPrivMB": 795.1,
+    "cpuPct": 207,
+    "procs": 18,
+    "samples": 18
+   },
+   "memTimeline": [
+    {
+     "t": 2,
+     "wsMB": 901.1,
+     "privMB": 761
+    },
+    {
+     "t": 13,
+     "wsMB": 1066.6,
+     "privMB": 810.2
+    },
+    {
+     "t": 23,
+     "wsMB": 890.7,
+     "privMB": 983.4
+    },
+    {
+     "t": 33,
+     "wsMB": 787.8,
+     "privMB": 767.8
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Browser",
+    "target": 3000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 3041,
+    "avgSoldiers": 3010,
+    "avgDrawnUnits": 1400,
+    "avgParticles": 800,
+    "structs": 51,
+    "squads": 777,
+    "frames": 6099,
+    "avgFps": 203.2,
+    "p50FrameMs": 4.2,
+    "p95FrameMs": 8.4,
+    "p99FrameMs": 8.5,
+    "maxFrameMs": 16.8,
+    "low1Fps": 117.6,
+    "over33": 0,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 0.165,
+    "p95SimMs": 1.1,
+    "simSpeed": 1,
+    "avgRenderMs": 2.096,
+    "p95RenderMs": 3.5,
+    "phases": {
+     "close": {
+      "avgFps": 238.5,
+      "low1Fps": 232.6,
+      "renderMs": 1.23,
+      "frames": 2505
+     },
+     "zoomout": {
+      "avgFps": 169.3,
+      "low1Fps": 60.2,
+      "renderMs": 3.23,
+      "frames": 508
+     },
+     "overview": {
+      "avgFps": 206.9,
+      "low1Fps": 119,
+      "renderMs": 2.31,
+      "frames": 1676
+     },
+     "mid": {
+      "avgFps": 167.8,
+      "low1Fps": 117.6,
+      "renderMs": 2.98,
+      "frames": 1410
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 238.8,
+      "worstMs": 12.5,
+      "soldiers": 3011,
+      "heapMB": 10.5
+     },
+     {
+      "t": 10,
+      "fps": 238.2,
+      "worstMs": 16.8,
+      "soldiers": 3013,
+      "heapMB": 7.9
+     },
+     {
+      "t": 15,
+      "fps": 189.8,
+      "worstMs": 16.8,
+      "soldiers": 3007,
+      "heapMB": 9.8
+     },
+     {
+      "t": 20,
+      "fps": 207.4,
+      "worstMs": 8.4,
+      "soldiers": 3022,
+      "heapMB": 7.9
+     },
+     {
+      "t": 25,
+      "fps": 186.5,
+      "worstMs": 12.5,
+      "soldiers": 3026,
+      "heapMB": 12.7
+     }
+    ],
+    "chunksBaked": 66,
+    "chunkCacheMP": 33,
+    "heapStartMB": 9.2,
+    "heapEndMB": 7,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+   }
+  },
+  {
+   "id": "rep-tauri-3",
+   "group": "rep",
+   "shell": "tauri",
+   "page": "v3",
+   "query": {
+    "bench": 6000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 1,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 1238,
+   "bootMs": 404.4,
+   "atlasMs": 330.4,
+   "proc": {
+    "peakWsMB": 793.6,
+    "avgWsMB": 701.6,
+    "peakPrivMB": 927.3,
+    "avgPrivMB": 672.7,
+    "cpuPct": 215,
+    "procs": 7,
+    "samples": 22
+   },
+   "memTimeline": [
+    {
+     "t": 1,
+     "wsMB": 597.4,
+     "privMB": 536.4
+    },
+    {
+     "t": 12,
+     "wsMB": 638,
+     "privMB": 483.2
+    },
+    {
+     "t": 22,
+     "wsMB": 680.6,
+     "privMB": 630.4
+    },
+    {
+     "t": 32,
+     "wsMB": 774,
+     "privMB": 898.3
+    },
+    {
+     "t": 43,
+     "wsMB": 784.9,
+     "privMB": 783.2
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Tauri",
+    "target": 6000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 6035,
+    "avgSoldiers": 5997,
+    "avgDrawnUnits": 2468,
+    "avgParticles": 1122,
+    "structs": 51,
+    "squads": 1537,
+    "frames": 4116,
+    "avgFps": 137.1,
+    "p50FrameMs": 8.3,
+    "p95FrameMs": 12.6,
+    "p99FrameMs": 16.7,
+    "maxFrameMs": 29.2,
+    "low1Fps": 59.9,
+    "over33": 0,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 0.568,
+    "p95SimMs": 2.7,
+    "simSpeed": 0.999,
+    "avgRenderMs": 4.078,
+    "p95RenderMs": 9.8,
+    "phases": {
+     "close": {
+      "avgFps": 195.6,
+      "low1Fps": 117.6,
+      "renderMs": 2.24,
+      "frames": 2055
+     },
+     "zoomout": {
+      "avgFps": 93.8,
+      "low1Fps": 39.5,
+      "renderMs": 7,
+      "frames": 281
+     },
+     "overview": {
+      "avgFps": 119,
+      "low1Fps": 60.2,
+      "renderMs": 4,
+      "frames": 964
+     },
+     "mid": {
+      "avgFps": 97,
+      "low1Fps": 59.5,
+      "renderMs": 7.8,
+      "frames": 816
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 189.4,
+      "worstMs": 16.7,
+      "soldiers": 6008,
+      "heapMB": 13.8
+     },
+     {
+      "t": 10,
+      "fps": 203.9,
+      "worstMs": 12.6,
+      "soldiers": 6007,
+      "heapMB": 23.2
+     },
+     {
+      "t": 15,
+      "fps": 105.3,
+      "worstMs": 29.2,
+      "soldiers": 5999,
+      "heapMB": 9.6
+     },
+     {
+      "t": 20,
+      "fps": 122.8,
+      "worstMs": 16.6,
+      "soldiers": 6000,
+      "heapMB": 15.4
+     },
+     {
+      "t": 25,
+      "fps": 109.7,
+      "worstMs": 16.9,
+      "soldiers": 5998,
+      "heapMB": 26.4
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 15.4,
+    "heapEndMB": 20.3,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+   }
+  },
+  {
+   "id": "rep-electron-4",
+   "group": "rep",
+   "shell": "electron",
+   "page": "v3",
+   "query": {
+    "bench": 6000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 1,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 789,
+   "bootMs": 426.5,
+   "atlasMs": 352.2,
+   "proc": {
+    "peakWsMB": 678.4,
+    "avgWsMB": 591.9,
+    "peakPrivMB": 844.6,
+    "avgPrivMB": 603.2,
+    "cpuPct": 211,
+    "procs": 4,
+    "samples": 22
+   },
+   "memTimeline": [
+    {
+     "t": 1,
+     "wsMB": 406.3,
+     "privMB": 306.9
+    },
+    {
+     "t": 11,
+     "wsMB": 538.7,
+     "privMB": 427.4
+    },
+    {
+     "t": 21,
+     "wsMB": 586.6,
+     "privMB": 567.5
+    },
+    {
+     "t": 32,
+     "wsMB": 642,
+     "privMB": 811.1
+    },
+    {
+     "t": 42,
+     "wsMB": 676.4,
+     "privMB": 730.8
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Electron",
+    "target": 6000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 6035,
+    "avgSoldiers": 5996,
+    "avgDrawnUnits": 2208,
+    "avgParticles": 1157,
+    "structs": 51,
+    "squads": 1537,
+    "frames": 3604,
+    "avgFps": 120.1,
+    "p50FrameMs": 8.3,
+    "p95FrameMs": 12.9,
+    "p99FrameMs": 20.8,
+    "maxFrameMs": 33.3,
+    "low1Fps": 48.1,
+    "over33": 0,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 0.64,
+    "p95SimMs": 2.7,
+    "simSpeed": 0.999,
+    "avgRenderMs": 4.018,
+    "p95RenderMs": 10,
+    "phases": {
+     "close": {
+      "avgFps": 182.3,
+      "low1Fps": 80,
+      "renderMs": 2.08,
+      "frames": 1915
+     },
+     "zoomout": {
+      "avgFps": 84.5,
+      "low1Fps": 39.8,
+      "renderMs": 7.23,
+      "frames": 254
+     },
+     "overview": {
+      "avgFps": 79.6,
+      "low1Fps": 59.9,
+      "renderMs": 3.73,
+      "frames": 645
+     },
+     "mid": {
+      "avgFps": 94,
+      "low1Fps": 59.2,
+      "renderMs": 7.91,
+      "frames": 790
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 181.1,
+      "worstMs": 20.9,
+      "soldiers": 6008,
+      "heapMB": 13.6
+     },
+     {
+      "t": 10,
+      "fps": 186.2,
+      "worstMs": 12.7,
+      "soldiers": 6007,
+      "heapMB": 13.6
+     },
+     {
+      "t": 15,
+      "fps": 90.4,
+      "worstMs": 33.3,
+      "soldiers": 5999,
+      "heapMB": 13.6
+     },
+     {
+      "t": 20,
+      "fps": 80.1,
+      "worstMs": 17,
+      "soldiers": 6000,
+      "heapMB": 13.6
+     },
+     {
+      "t": 25,
+      "fps": 94.6,
+      "worstMs": 25,
+      "soldiers": 5992,
+      "heapMB": 13.6
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 13.6,
+    "heapEndMB": 13.6,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) citystate-electron/0.1.0 Chrome/156.0.8078.75 Electron/45.2.1 Safari/537.36"
+   }
+  },
+  {
+   "id": "rep-edge-5",
+   "group": "rep",
+   "shell": "edge",
+   "page": "v3",
+   "query": {
+    "bench": 6000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 1,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 870,
+   "bootMs": 550.9,
+   "atlasMs": 299.5,
+   "proc": {
+    "peakWsMB": 1061.3,
+    "avgWsMB": 908.2,
+    "peakPrivMB": 1019,
+    "avgPrivMB": 792.8,
+    "cpuPct": 219,
+    "procs": 17,
+    "samples": 21
+   },
+   "memTimeline": [
+    {
+     "t": 3,
+     "wsMB": 904.8,
+     "privMB": 757.3
+    },
+    {
+     "t": 13,
+     "wsMB": 1061.3,
+     "privMB": 702.6
+    },
+    {
+     "t": 23,
+     "wsMB": 883.2,
+     "privMB": 780
+    },
+    {
+     "t": 34,
+     "wsMB": 806.1,
+     "privMB": 784.2
+    },
+    {
+     "t": 44,
+     "wsMB": 827,
+     "privMB": 794.1
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Browser",
+    "target": 6000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 6035,
+    "avgSoldiers": 5997,
+    "avgDrawnUnits": 2493,
+    "avgParticles": 1154,
+    "structs": 51,
+    "squads": 1537,
+    "frames": 4220,
+    "avgFps": 140.6,
+    "p50FrameMs": 8.3,
+    "p95FrameMs": 12.5,
+    "p99FrameMs": 16.7,
+    "maxFrameMs": 33.3,
+    "low1Fps": 59.9,
+    "over33": 0,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 0.529,
+    "p95SimMs": 2.6,
+    "simSpeed": 0.999,
+    "avgRenderMs": 3.963,
+    "p95RenderMs": 9.8,
+    "phases": {
+     "close": {
+      "avgFps": 199.7,
+      "low1Fps": 117.6,
+      "renderMs": 2.14,
+      "frames": 2098
+     },
+     "zoomout": {
+      "avgFps": 96,
+      "low1Fps": 39.8,
+      "renderMs": 6.79,
+      "frames": 288
+     },
+     "overview": {
+      "avgFps": 125.5,
+      "low1Fps": 80,
+      "renderMs": 3.81,
+      "frames": 1017
+     },
+     "mid": {
+      "avgFps": 97.1,
+      "low1Fps": 59.9,
+      "renderMs": 7.85,
+      "frames": 817
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 196.8,
+      "worstMs": 16.7,
+      "soldiers": 6008,
+      "heapMB": 19.2
+     },
+     {
+      "t": 10,
+      "fps": 205.8,
+      "worstMs": 20.8,
+      "soldiers": 6007,
+      "heapMB": 10.9
+     },
+     {
+      "t": 15,
+      "fps": 111.9,
+      "worstMs": 33.3,
+      "soldiers": 5999,
+      "heapMB": 14.9
+     },
+     {
+      "t": 20,
+      "fps": 126.5,
+      "worstMs": 12.6,
+      "soldiers": 6000,
+      "heapMB": 9.5
+     },
+     {
+      "t": 25,
+      "fps": 110.6,
+      "worstMs": 16.8,
+      "soldiers": 5998,
+      "heapMB": 30.1
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 18.7,
+    "heapEndMB": 32.3,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+   }
+  },
+  {
+   "id": "rep-tauri-6",
+   "group": "rep",
+   "shell": "tauri",
+   "page": "v3",
+   "query": {
+    "bench": 10000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 1,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 1086,
+   "bootMs": 338.9,
+   "atlasMs": 254.4,
+   "proc": {
+    "peakWsMB": 787.8,
+    "avgWsMB": 705,
+    "peakPrivMB": 937.9,
+    "avgPrivMB": 685,
+    "cpuPct": 217,
+    "procs": 7,
+    "samples": 22
+   },
+   "memTimeline": [
+    {
+     "t": 2,
+     "wsMB": 589.6,
+     "privMB": 551.9
+    },
+    {
+     "t": 13,
+     "wsMB": 642.6,
+     "privMB": 504.8
+    },
+    {
+     "t": 23,
+     "wsMB": 708.1,
+     "privMB": 724.2
+    },
+    {
+     "t": 33,
+     "wsMB": 767.7,
+     "privMB": 931.4
+    },
+    {
+     "t": 44,
+     "wsMB": 779.3,
+     "privMB": 756.2
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Tauri",
+    "target": 10000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 10034,
+    "avgSoldiers": 9969,
+    "avgDrawnUnits": 3918,
+    "avgParticles": 1352,
+    "structs": 51,
+    "squads": 2533,
+    "frames": 2764,
+    "avgFps": 92.1,
+    "p50FrameMs": 12.4,
+    "p95FrameMs": 20.8,
+    "p99FrameMs": 25.2,
+    "maxFrameMs": 41.8,
+    "low1Fps": 39.7,
+    "over33": 12,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 1.571,
+    "p95SimMs": 5.2,
+    "simSpeed": 0.999,
+    "avgRenderMs": 6.813,
+    "p95RenderMs": 13.3,
+    "phases": {
+     "close": {
+      "avgFps": 138.9,
+      "low1Fps": 60.2,
+      "renderMs": 3.88,
+      "frames": 1459
+     },
+     "zoomout": {
+      "avgFps": 61.3,
+      "low1Fps": 26.6,
+      "renderMs": 11.56,
+      "frames": 184
+     },
+     "overview": {
+      "avgFps": 76.9,
+      "low1Fps": 59.2,
+      "renderMs": 8.44,
+      "frames": 623
+     },
+     "mid": {
+      "avgFps": 59.2,
+      "low1Fps": 39.5,
+      "renderMs": 11.6,
+      "frames": 498
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 128.5,
+      "worstMs": 41.7,
+      "soldiers": 10027,
+      "heapMB": 27.8
+     },
+     {
+      "t": 10,
+      "fps": 152.9,
+      "worstMs": 20.9,
+      "soldiers": 10005,
+      "heapMB": 20.4
+     },
+     {
+      "t": 15,
+      "fps": 70.8,
+      "worstMs": 41.8,
+      "soldiers": 10004,
+      "heapMB": 16.8
+     },
+     {
+      "t": 20,
+      "fps": 76.3,
+      "worstMs": 20.9,
+      "soldiers": 10013,
+      "heapMB": 16.2
+     },
+     {
+      "t": 25,
+      "fps": 68.2,
+      "worstMs": 33.4,
+      "soldiers": 9994,
+      "heapMB": 15.1
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 19.6,
+    "heapEndMB": 39.6,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+   }
+  },
+  {
+   "id": "rep-electron-7",
+   "group": "rep",
+   "shell": "electron",
+   "page": "v3",
+   "query": {
+    "bench": 10000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 1,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 800,
+   "bootMs": 432.4,
+   "atlasMs": 360.8,
+   "proc": {
+    "peakWsMB": 720.9,
+    "avgWsMB": 625.9,
+    "peakPrivMB": 876,
+    "avgPrivMB": 619.4,
+    "cpuPct": 217,
+    "procs": 4,
+    "samples": 23
+   },
+   "memTimeline": [
+    {
+     "t": 2,
+     "wsMB": 505.4,
+     "privMB": 518.9
+    },
+    {
+     "t": 12,
+     "wsMB": 568,
+     "privMB": 438.1
+    },
+    {
+     "t": 22,
+     "wsMB": 617.2,
+     "privMB": 645.6
+    },
+    {
+     "t": 32,
+     "wsMB": 691.9,
+     "privMB": 876
+    },
+    {
+     "t": 43,
+     "wsMB": 695.3,
+     "privMB": 696.7
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Electron",
+    "target": 10000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 10034,
+    "avgSoldiers": 9968,
+    "avgDrawnUnits": 3558,
+    "avgParticles": 1349,
+    "structs": 51,
+    "squads": 2533,
+    "frames": 2376,
+    "avgFps": 79.1,
+    "p50FrameMs": 12.5,
+    "p95FrameMs": 21,
+    "p99FrameMs": 29.2,
+    "maxFrameMs": 41.7,
+    "low1Fps": 34.2,
+    "over33": 14,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 1.867,
+    "p95SimMs": 5.4,
+    "simSpeed": 1,
+    "avgRenderMs": 7.149,
+    "p95RenderMs": 14.1,
+    "phases": {
+     "close": {
+      "avgFps": 124.4,
+      "low1Fps": 59.9,
+      "renderMs": 4.05,
+      "frames": 1307
+     },
+     "zoomout": {
+      "avgFps": 53.9,
+      "low1Fps": 24,
+      "renderMs": 12.3,
+      "frames": 162
+     },
+     "overview": {
+      "avgFps": 52,
+      "low1Fps": 39.8,
+      "renderMs": 8.94,
+      "frames": 421
+     },
+     "mid": {
+      "avgFps": 57.7,
+      "low1Fps": 39.4,
+      "renderMs": 12.22,
+      "frames": 486
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 119.6,
+      "worstMs": 25.1,
+      "soldiers": 10027,
+      "heapMB": 13.6
+     },
+     {
+      "t": 10,
+      "fps": 132.9,
+      "worstMs": 16.8,
+      "soldiers": 10005,
+      "heapMB": 13.6
+     },
+     {
+      "t": 15,
+      "fps": 57.6,
+      "worstMs": 41.7,
+      "soldiers": 10003,
+      "heapMB": 13.6
+     },
+     {
+      "t": 20,
+      "fps": 51.4,
+      "worstMs": 25.3,
+      "soldiers": 10013,
+      "heapMB": 13.6
+     },
+     {
+      "t": 25,
+      "fps": 59.4,
+      "worstMs": 33.5,
+      "soldiers": 10027,
+      "heapMB": 13.6
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 13.6,
+    "heapEndMB": 13.6,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) citystate-electron/0.1.0 Chrome/156.0.8078.75 Electron/45.2.1 Safari/537.36"
+   }
+  },
+  {
+   "id": "rep-edge-8",
+   "group": "rep",
+   "shell": "edge",
+   "page": "v3",
+   "query": {
+    "bench": 10000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 1,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 876,
+   "bootMs": 549.3,
+   "atlasMs": 304.9,
+   "proc": {
+    "peakWsMB": 1090.8,
+    "avgWsMB": 927.9,
+    "peakPrivMB": 1005.2,
+    "avgPrivMB": 781.3,
+    "cpuPct": 220,
+    "procs": 17,
+    "samples": 23
+   },
+   "memTimeline": [
+    {
+     "t": 1,
+     "wsMB": 797.2,
+     "privMB": 524
+    },
+    {
+     "t": 11,
+     "wsMB": 1077.6,
+     "privMB": 729.7
+    },
+    {
+     "t": 22,
+     "wsMB": 921.8,
+     "privMB": 828.1
+    },
+    {
+     "t": 32,
+     "wsMB": 848.9,
+     "privMB": 969.6
+    },
+    {
+     "t": 42,
+     "wsMB": 853.2,
+     "privMB": 785.6
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Browser",
+    "target": 10000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 10034,
+    "avgSoldiers": 9970,
+    "avgDrawnUnits": 4008,
+    "avgParticles": 1336,
+    "structs": 51,
+    "squads": 2533,
+    "frames": 2787,
+    "avgFps": 92.8,
+    "p50FrameMs": 12.2,
+    "p95FrameMs": 20.8,
+    "p99FrameMs": 25.1,
+    "maxFrameMs": 41.7,
+    "low1Fps": 39.8,
+    "over33": 12,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 1.54,
+    "p95SimMs": 5.2,
+    "simSpeed": 0.999,
+    "avgRenderMs": 6.853,
+    "p95RenderMs": 13.3,
+    "phases": {
+     "close": {
+      "avgFps": 137.3,
+      "low1Fps": 60.2,
+      "renderMs": 3.92,
+      "frames": 1442
+     },
+     "zoomout": {
+      "avgFps": 61.5,
+      "low1Fps": 24,
+      "renderMs": 11.63,
+      "frames": 185
+     },
+     "overview": {
+      "avgFps": 81.2,
+      "low1Fps": 59.9,
+      "renderMs": 8.35,
+      "frames": 657
+     },
+     "mid": {
+      "avgFps": 59.7,
+      "low1Fps": 39.8,
+      "renderMs": 11.56,
+      "frames": 503
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 128.2,
+      "worstMs": 16.7,
+      "soldiers": 10027,
+      "heapMB": 27.2
+     },
+     {
+      "t": 10,
+      "fps": 149.9,
+      "worstMs": 16.7,
+      "soldiers": 10005,
+      "heapMB": 29.4
+     },
+     {
+      "t": 15,
+      "fps": 72.1,
+      "worstMs": 41.7,
+      "soldiers": 10004,
+      "heapMB": 14.3
+     },
+     {
+      "t": 20,
+      "fps": 80.9,
+      "worstMs": 20.8,
+      "soldiers": 10013,
+      "heapMB": 20.4
+     },
+     {
+      "t": 25,
+      "fps": 69.8,
+      "worstMs": 25.4,
+      "soldiers": 9994,
+      "heapMB": 20.9
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 28.2,
+    "heapEndMB": 30.7,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+   }
+  },
+  {
+   "id": "rep-tauri-9",
+   "group": "rep",
+   "shell": "tauri",
+   "page": "v3",
+   "query": {
+    "bench": 3000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 2,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 1108,
+   "bootMs": 366,
+   "atlasMs": 282.4,
+   "proc": {
+    "peakWsMB": 727.8,
+    "avgWsMB": 658.7,
+    "peakPrivMB": 882.7,
+    "avgPrivMB": 661.7,
+    "cpuPct": 190,
+    "procs": 7,
+    "samples": 19
+   },
+   "memTimeline": [
+    {
+     "t": 2,
+     "wsMB": 588,
+     "privMB": 563.7
+    },
+    {
+     "t": 13,
+     "wsMB": 624.7,
+     "privMB": 588.5
+    },
+    {
+     "t": 23,
+     "wsMB": 698.5,
+     "privMB": 882.7
+    },
+    {
+     "t": 33,
+     "wsMB": 716.1,
+     "privMB": 734.1
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Tauri",
+    "target": 3000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 3041,
+    "avgSoldiers": 3010,
+    "avgDrawnUnits": 1402,
+    "avgParticles": 797,
+    "structs": 51,
+    "squads": 777,
+    "frames": 6135,
+    "avgFps": 204.4,
+    "p50FrameMs": 4.2,
+    "p95FrameMs": 8.4,
+    "p99FrameMs": 12.4,
+    "maxFrameMs": 20.9,
+    "low1Fps": 80.6,
+    "over33": 0,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 0.164,
+    "p95SimMs": 1.1,
+    "simSpeed": 0.999,
+    "avgRenderMs": 2.069,
+    "p95RenderMs": 3.5,
+    "phases": {
+     "close": {
+      "avgFps": 238.9,
+      "low1Fps": 232.6,
+      "renderMs": 1.2,
+      "frames": 2509
+     },
+     "zoomout": {
+      "avgFps": 171.9,
+      "low1Fps": 79.4,
+      "renderMs": 3.19,
+      "frames": 515
+     },
+     "overview": {
+      "avgFps": 207.9,
+      "low1Fps": 119,
+      "renderMs": 2.25,
+      "frames": 1685
+     },
+     "mid": {
+      "avgFps": 169.6,
+      "low1Fps": 116.3,
+      "renderMs": 2.99,
+      "frames": 1426
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 238.4,
+      "worstMs": 20.9,
+      "soldiers": 3011,
+      "heapMB": 8.9
+     },
+     {
+      "t": 10,
+      "fps": 239.4,
+      "worstMs": 16.7,
+      "soldiers": 3013,
+      "heapMB": 17.2
+     },
+     {
+      "t": 15,
+      "fps": 190.6,
+      "worstMs": 16.7,
+      "soldiers": 3007,
+      "heapMB": 7.1
+     },
+     {
+      "t": 20,
+      "fps": 208.4,
+      "worstMs": 8.6,
+      "soldiers": 3022,
+      "heapMB": 8.9
+     },
+     {
+      "t": 25,
+      "fps": 190.2,
+      "worstMs": 12.5,
+      "soldiers": 3026,
+      "heapMB": 15
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 9.7,
+    "heapEndMB": 18.1,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+   }
+  },
+  {
+   "id": "rep-electron-10",
+   "group": "rep",
+   "shell": "electron",
+   "page": "v3",
+   "query": {
+    "bench": 3000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 2,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 793,
+   "bootMs": 415.9,
+   "atlasMs": 341.8,
+   "proc": {
+    "peakWsMB": 634.5,
+    "avgWsMB": 577.4,
+    "peakPrivMB": 824.8,
+    "avgPrivMB": 608.1,
+    "cpuPct": 202,
+    "procs": 4,
+    "samples": 19
+   },
+   "memTimeline": [
+    {
+     "t": 1,
+     "wsMB": 516.1,
+     "privMB": 523.1
+    },
+    {
+     "t": 11,
+     "wsMB": 552.3,
+     "privMB": 523.4
+    },
+    {
+     "t": 22,
+     "wsMB": 596.8,
+     "privMB": 777.5
+    },
+    {
+     "t": 32,
+     "wsMB": 631.3,
+     "privMB": 685.1
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Electron",
+    "target": 3000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 3041,
+    "avgSoldiers": 3009,
+    "avgDrawnUnits": 1224,
+    "avgParticles": 849,
+    "structs": 51,
+    "squads": 777,
+    "frames": 5371,
+    "avgFps": 179,
+    "p50FrameMs": 4.2,
+    "p95FrameMs": 8.4,
+    "p99FrameMs": 12.5,
+    "maxFrameMs": 25,
+    "low1Fps": 80,
+    "over33": 0,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 0.192,
+    "p95SimMs": 1.2,
+    "simSpeed": 0.999,
+    "avgRenderMs": 2.05,
+    "p95RenderMs": 3.5,
+    "phases": {
+     "close": {
+      "avgFps": 235.7,
+      "low1Fps": 120.5,
+      "renderMs": 1.22,
+      "frames": 2476
+     },
+     "zoomout": {
+      "avgFps": 153.3,
+      "low1Fps": 59.9,
+      "renderMs": 3.29,
+      "frames": 460
+     },
+     "overview": {
+      "avgFps": 134.1,
+      "low1Fps": 80,
+      "renderMs": 2.3,
+      "frames": 1085
+     },
+     "mid": {
+      "avgFps": 160.5,
+      "low1Fps": 80.6,
+      "renderMs": 2.95,
+      "frames": 1350
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 237,
+      "worstMs": 16.6,
+      "soldiers": 3011,
+      "heapMB": 13.6
+     },
+     {
+      "t": 10,
+      "fps": 234.4,
+      "worstMs": 8.5,
+      "soldiers": 3013,
+      "heapMB": 13.6
+     },
+     {
+      "t": 15,
+      "fps": 155.3,
+      "worstMs": 25,
+      "soldiers": 3007,
+      "heapMB": 13.6
+     },
+     {
+      "t": 20,
+      "fps": 135.2,
+      "worstMs": 12.6,
+      "soldiers": 3022,
+      "heapMB": 13.6
+     },
+     {
+      "t": 25,
+      "fps": 160.3,
+      "worstMs": 16.7,
+      "soldiers": 3026,
+      "heapMB": 13.6
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 13.6,
+    "heapEndMB": 13.6,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) citystate-electron/0.1.0 Chrome/156.0.8078.75 Electron/45.2.1 Safari/537.36"
+   }
+  },
+  {
+   "id": "rep-edge-11",
+   "group": "rep",
+   "shell": "edge",
+   "page": "v3",
+   "query": {
+    "bench": 3000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 2,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 866,
+   "bootMs": 533.4,
+   "atlasMs": 280,
+   "proc": {
+    "peakWsMB": 1050.7,
+    "avgWsMB": 900.2,
+    "peakPrivMB": 992.2,
+    "avgPrivMB": 792.5,
+    "cpuPct": 200,
+    "procs": 17,
+    "samples": 18
+   },
+   "memTimeline": [
+    {
+     "t": 2,
+     "wsMB": 902.6,
+     "privMB": 760.2
+    },
+    {
+     "t": 13,
+     "wsMB": 1050.7,
+     "privMB": 798.5
+    },
+    {
+     "t": 23,
+     "wsMB": 897.6,
+     "privMB": 992.2
+    },
+    {
+     "t": 34,
+     "wsMB": 779.3,
+     "privMB": 762.8
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Browser",
+    "target": 3000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 3041,
+    "avgSoldiers": 3010,
+    "avgDrawnUnits": 1408,
+    "avgParticles": 790,
+    "structs": 51,
+    "squads": 777,
+    "frames": 6163,
+    "avgFps": 205.4,
+    "p50FrameMs": 4.2,
+    "p95FrameMs": 8.4,
+    "p99FrameMs": 8.5,
+    "maxFrameMs": 20.8,
+    "low1Fps": 117.6,
+    "over33": 0,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 0.162,
+    "p95SimMs": 1.1,
+    "simSpeed": 1,
+    "avgRenderMs": 2.087,
+    "p95RenderMs": 3.4,
+    "phases": {
+     "close": {
+      "avgFps": 238.6,
+      "low1Fps": 232.6,
+      "renderMs": 1.23,
+      "frames": 2506
+     },
+     "zoomout": {
+      "avgFps": 171.7,
+      "low1Fps": 78.7,
+      "renderMs": 3.22,
+      "frames": 515
+     },
+     "overview": {
+      "avgFps": 210.5,
+      "low1Fps": 119,
+      "renderMs": 2.29,
+      "frames": 1705
+     },
+     "mid": {
+      "avgFps": 171,
+      "low1Fps": 117.6,
+      "renderMs": 2.94,
+      "frames": 1437
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 237.6,
+      "worstMs": 20.8,
+      "soldiers": 3011,
+      "heapMB": 11.3
+     },
+     {
+      "t": 10,
+      "fps": 239.6,
+      "worstMs": 12.5,
+      "soldiers": 3013,
+      "heapMB": 6.8
+     },
+     {
+      "t": 15,
+      "fps": 191,
+      "worstMs": 16.7,
+      "soldiers": 3007,
+      "heapMB": 6.5
+     },
+     {
+      "t": 20,
+      "fps": 211.2,
+      "worstMs": 8.5,
+      "soldiers": 3022,
+      "heapMB": 7
+     },
+     {
+      "t": 25,
+      "fps": 192.4,
+      "worstMs": 12.7,
+      "soldiers": 3026,
+      "heapMB": 10.1
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 9.3,
+    "heapEndMB": 10.1,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+   }
+  },
+  {
+   "id": "rep-tauri-12",
+   "group": "rep",
+   "shell": "tauri",
+   "page": "v3",
+   "query": {
+    "bench": 6000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 2,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 1126,
+   "bootMs": 363.7,
+   "atlasMs": 262.3,
+   "proc": {
+    "peakWsMB": 765.6,
+    "avgWsMB": 684.4,
+    "peakPrivMB": 917,
+    "avgPrivMB": 660.7,
+    "cpuPct": 212,
+    "procs": 7,
+    "samples": 22
+   },
+   "memTimeline": [
+    {
+     "t": 1,
+     "wsMB": 600.7,
+     "privMB": 564.6
+    },
+    {
+     "t": 12,
+     "wsMB": 619.1,
+     "privMB": 475.2
+    },
+    {
+     "t": 22,
+     "wsMB": 678.5,
+     "privMB": 636.9
+    },
+    {
+     "t": 32,
+     "wsMB": 752.2,
+     "privMB": 772
+    },
+    {
+     "t": 43,
+     "wsMB": 765.6,
+     "privMB": 775.3
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Tauri",
+    "target": 6000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 6035,
+    "avgSoldiers": 5996,
+    "avgDrawnUnits": 2464,
+    "avgParticles": 1152,
+    "structs": 51,
+    "squads": 1537,
+    "frames": 4229,
+    "avgFps": 140.9,
+    "p50FrameMs": 8.2,
+    "p95FrameMs": 12.6,
+    "p99FrameMs": 16.7,
+    "maxFrameMs": 37.5,
+    "low1Fps": 59.9,
+    "over33": 1,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 0.539,
+    "p95SimMs": 2.7,
+    "simSpeed": 0.999,
+    "avgRenderMs": 3.94,
+    "p95RenderMs": 9.8,
+    "phases": {
+     "close": {
+      "avgFps": 203.3,
+      "low1Fps": 117.6,
+      "renderMs": 2.09,
+      "frames": 2135
+     },
+     "zoomout": {
+      "avgFps": 93.3,
+      "low1Fps": 34.4,
+      "renderMs": 6.97,
+      "frames": 280
+     },
+     "overview": {
+      "avgFps": 123.5,
+      "low1Fps": 79.4,
+      "renderMs": 3.86,
+      "frames": 1000
+     },
+     "mid": {
+      "avgFps": 96.7,
+      "low1Fps": 59.5,
+      "renderMs": 7.83,
+      "frames": 814
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 202.1,
+      "worstMs": 12.6,
+      "soldiers": 6008,
+      "heapMB": 17.7
+     },
+     {
+      "t": 10,
+      "fps": 207,
+      "worstMs": 20.9,
+      "soldiers": 6007,
+      "heapMB": 30.9
+     },
+     {
+      "t": 15,
+      "fps": 110.1,
+      "worstMs": 37.5,
+      "soldiers": 5999,
+      "heapMB": 9.1
+     },
+     {
+      "t": 20,
+      "fps": 124.7,
+      "worstMs": 12.6,
+      "soldiers": 6000,
+      "heapMB": 18.1
+     },
+     {
+      "t": 25,
+      "fps": 109.9,
+      "worstMs": 25,
+      "soldiers": 5998,
+      "heapMB": 31
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 18.5,
+    "heapEndMB": 15.9,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+   }
+  },
+  {
+   "id": "rep-electron-13",
+   "group": "rep",
+   "shell": "electron",
+   "page": "v3",
+   "query": {
+    "bench": 6000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 2,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 762,
+   "bootMs": 420,
+   "atlasMs": 344.9,
+   "proc": {
+    "peakWsMB": 684.1,
+    "avgWsMB": 598.1,
+    "peakPrivMB": 844.1,
+    "avgPrivMB": 599.3,
+    "cpuPct": 216,
+    "procs": 4,
+    "samples": 22
+   },
+   "memTimeline": [
+    {
+     "t": 1,
+     "wsMB": 499.2,
+     "privMB": 443.1
+    },
+    {
+     "t": 11,
+     "wsMB": 538.1,
+     "privMB": 420.3
+    },
+    {
+     "t": 22,
+     "wsMB": 589.8,
+     "privMB": 563.6
+    },
+    {
+     "t": 32,
+     "wsMB": 645.8,
+     "privMB": 697.5
+    },
+    {
+     "t": 42,
+     "wsMB": 679.7,
+     "privMB": 723
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Electron",
+    "target": 6000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 6035,
+    "avgSoldiers": 5995,
+    "avgDrawnUnits": 2229,
+    "avgParticles": 1137,
+    "structs": 51,
+    "squads": 1537,
+    "frames": 3482,
+    "avgFps": 116,
+    "p50FrameMs": 8.3,
+    "p95FrameMs": 16.6,
+    "p99FrameMs": 20.8,
+    "maxFrameMs": 33.4,
+    "low1Fps": 48.1,
+    "over33": 1,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 0.683,
+    "p95SimMs": 2.8,
+    "simSpeed": 0.999,
+    "avgRenderMs": 4.219,
+    "p95RenderMs": 10.4,
+    "phases": {
+     "close": {
+      "avgFps": 174.9,
+      "low1Fps": 80,
+      "renderMs": 2.25,
+      "frames": 1839
+     },
+     "zoomout": {
+      "avgFps": 83.1,
+      "low1Fps": 39.7,
+      "renderMs": 7.35,
+      "frames": 249
+     },
+     "overview": {
+      "avgFps": 78.2,
+      "low1Fps": 59.5,
+      "renderMs": 3.91,
+      "frames": 633
+     },
+     "mid": {
+      "avgFps": 90.4,
+      "low1Fps": 59.2,
+      "renderMs": 8.22,
+      "frames": 761
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 172.3,
+      "worstMs": 20.8,
+      "soldiers": 6008,
+      "heapMB": 13.6
+     },
+     {
+      "t": 10,
+      "fps": 180.4,
+      "worstMs": 12.6,
+      "soldiers": 6007,
+      "heapMB": 13.6
+     },
+     {
+      "t": 15,
+      "fps": 88.8,
+      "worstMs": 33.4,
+      "soldiers": 5999,
+      "heapMB": 13.6
+     },
+     {
+      "t": 20,
+      "fps": 77.7,
+      "worstMs": 16.9,
+      "soldiers": 6000,
+      "heapMB": 13.6
+     },
+     {
+      "t": 25,
+      "fps": 92.3,
+      "worstMs": 21,
+      "soldiers": 5998,
+      "heapMB": 13.6
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 13.6,
+    "heapEndMB": 13.6,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) citystate-electron/0.1.0 Chrome/156.0.8078.75 Electron/45.2.1 Safari/537.36"
+   }
+  },
+  {
+   "id": "rep-edge-14",
+   "group": "rep",
+   "shell": "edge",
+   "page": "v3",
+   "query": {
+    "bench": 6000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 2,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 962,
+   "bootMs": 564.6,
+   "atlasMs": 280.4,
+   "proc": {
+    "peakWsMB": 1070,
+    "avgWsMB": 918.1,
+    "peakPrivMB": 1030.3,
+    "avgPrivMB": 784.4,
+    "cpuPct": 228,
+    "procs": 17,
+    "samples": 21
+   },
+   "memTimeline": [
+    {
+     "t": 1,
+     "wsMB": 893.2,
+     "privMB": 662
+    },
+    {
+     "t": 12,
+     "wsMB": 1069.4,
+     "privMB": 714.5
+    },
+    {
+     "t": 22,
+     "wsMB": 882.8,
+     "privMB": 743
+    },
+    {
+     "t": 33,
+     "wsMB": 835.5,
+     "privMB": 815.9
+    },
+    {
+     "t": 43,
+     "wsMB": 837.6,
+     "privMB": 806.8
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Browser",
+    "target": 6000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 6035,
+    "avgSoldiers": 5997,
+    "avgDrawnUnits": 2472,
+    "avgParticles": 1130,
+    "structs": 51,
+    "squads": 1537,
+    "frames": 4042,
+    "avgFps": 134.7,
+    "p50FrameMs": 8.3,
+    "p95FrameMs": 12.5,
+    "p99FrameMs": 16.7,
+    "maxFrameMs": 37.5,
+    "low1Fps": 59.9,
+    "over33": 1,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 0.591,
+    "p95SimMs": 2.8,
+    "simSpeed": 0.999,
+    "avgRenderMs": 4.185,
+    "p95RenderMs": 9.7,
+    "phases": {
+     "close": {
+      "avgFps": 190.3,
+      "low1Fps": 80.6,
+      "renderMs": 2.33,
+      "frames": 1999
+     },
+     "zoomout": {
+      "avgFps": 95.7,
+      "low1Fps": 40,
+      "renderMs": 6.85,
+      "frames": 287
+     },
+     "overview": {
+      "avgFps": 115.7,
+      "low1Fps": 79.4,
+      "renderMs": 4.16,
+      "frames": 937
+     },
+     "mid": {
+      "avgFps": 97.4,
+      "low1Fps": 59.9,
+      "renderMs": 7.8,
+      "frames": 819
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 185.5,
+      "worstMs": 16.7,
+      "soldiers": 6008,
+      "heapMB": 21.2
+     },
+     {
+      "t": 10,
+      "fps": 196.9,
+      "worstMs": 12.6,
+      "soldiers": 6007,
+      "heapMB": 29.4
+     },
+     {
+      "t": 15,
+      "fps": 110.1,
+      "worstMs": 25,
+      "soldiers": 5999,
+      "heapMB": 13.6
+     },
+     {
+      "t": 20,
+      "fps": 114,
+      "worstMs": 12.7,
+      "soldiers": 6000,
+      "heapMB": 10.3
+     },
+     {
+      "t": 25,
+      "fps": 108.9,
+      "worstMs": 37.5,
+      "soldiers": 5998,
+      "heapMB": 33.7
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 19.3,
+    "heapEndMB": 11.9,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+   }
+  },
+  {
+   "id": "rep-tauri-15",
+   "group": "rep",
+   "shell": "tauri",
+   "page": "v3",
+   "query": {
+    "bench": 10000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 2,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 1188,
+   "bootMs": 360.3,
+   "atlasMs": 276.3,
+   "proc": {
+    "peakWsMB": 776,
+    "avgWsMB": 703.7,
+    "peakPrivMB": 943.1,
+    "avgPrivMB": 680.2,
+    "cpuPct": 219,
+    "procs": 7,
+    "samples": 23
+   },
+   "memTimeline": [
+    {
+     "t": 1,
+     "wsMB": 600.6,
+     "privMB": 566.3
+    },
+    {
+     "t": 11,
+     "wsMB": 647.3,
+     "privMB": 518.7
+    },
+    {
+     "t": 22,
+     "wsMB": 707.8,
+     "privMB": 736.1
+    },
+    {
+     "t": 32,
+     "wsMB": 769.1,
+     "privMB": 943.1
+    },
+    {
+     "t": 42,
+     "wsMB": 771.3,
+     "privMB": 749.2
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Tauri",
+    "target": 10000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 10034,
+    "avgSoldiers": 9969,
+    "avgDrawnUnits": 3925,
+    "avgParticles": 1332,
+    "structs": 51,
+    "squads": 2533,
+    "frames": 2764,
+    "avgFps": 92.1,
+    "p50FrameMs": 12.4,
+    "p95FrameMs": 20.8,
+    "p99FrameMs": 25.1,
+    "maxFrameMs": 42,
+    "low1Fps": 39.8,
+    "over33": 15,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 1.574,
+    "p95SimMs": 5.3,
+    "simSpeed": 0.999,
+    "avgRenderMs": 6.783,
+    "p95RenderMs": 13.1,
+    "phases": {
+     "close": {
+      "avgFps": 137.7,
+      "low1Fps": 59.9,
+      "renderMs": 3.88,
+      "frames": 1446
+     },
+     "zoomout": {
+      "avgFps": 61.7,
+      "low1Fps": 24,
+      "renderMs": 11.45,
+      "frames": 185
+     },
+     "overview": {
+      "avgFps": 76.6,
+      "low1Fps": 59.5,
+      "renderMs": 8.43,
+      "frames": 621
+     },
+     "mid": {
+      "avgFps": 60.9,
+      "low1Fps": 39.8,
+      "renderMs": 11.3,
+      "frames": 512
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 129.3,
+      "worstMs": 33.4,
+      "soldiers": 10027,
+      "heapMB": 29.5
+     },
+     {
+      "t": 10,
+      "fps": 149.7,
+      "worstMs": 16.8,
+      "soldiers": 10005,
+      "heapMB": 15.3
+     },
+     {
+      "t": 15,
+      "fps": 70.7,
+      "worstMs": 42,
+      "soldiers": 10004,
+      "heapMB": 12.3
+     },
+     {
+      "t": 20,
+      "fps": 75.9,
+      "worstMs": 20.9,
+      "soldiers": 10013,
+      "heapMB": 12.8
+     },
+     {
+      "t": 25,
+      "fps": 69.7,
+      "worstMs": 25.1,
+      "soldiers": 9994,
+      "heapMB": 20.3
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 17.5,
+    "heapEndMB": 13.5,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+   }
+  },
+  {
+   "id": "rep-electron-16",
+   "group": "rep",
+   "shell": "electron",
+   "page": "v3",
+   "query": {
+    "bench": 10000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 2,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 789,
+   "bootMs": 403.1,
+   "atlasMs": 330.2,
+   "proc": {
+    "peakWsMB": 685.3,
+    "avgWsMB": 605.6,
+    "peakPrivMB": 879.7,
+    "avgPrivMB": 625.9,
+    "cpuPct": 221,
+    "procs": 4,
+    "samples": 22
+   },
+   "memTimeline": [
+    {
+     "t": 2,
+     "wsMB": 513.9,
+     "privMB": 514.1
+    },
+    {
+     "t": 13,
+     "wsMB": 554.1,
+     "privMB": 438.7
+    },
+    {
+     "t": 23,
+     "wsMB": 595.4,
+     "privMB": 648.4
+    },
+    {
+     "t": 33,
+     "wsMB": 661.3,
+     "privMB": 879.4
+    },
+    {
+     "t": 44,
+     "wsMB": 680.4,
+     "privMB": 712.5
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Electron",
+    "target": 10000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 10034,
+    "avgSoldiers": 9967,
+    "avgDrawnUnits": 3554,
+    "avgParticles": 1355,
+    "structs": 51,
+    "squads": 2533,
+    "frames": 2377,
+    "avgFps": 79.1,
+    "p50FrameMs": 12.5,
+    "p95FrameMs": 21,
+    "p99FrameMs": 29.2,
+    "maxFrameMs": 45.8,
+    "low1Fps": 34.2,
+    "over33": 12,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 1.862,
+    "p95SimMs": 5.4,
+    "simSpeed": 0.998,
+    "avgRenderMs": 7.144,
+    "p95RenderMs": 14.2,
+    "phases": {
+     "close": {
+      "avgFps": 124.7,
+      "low1Fps": 59.9,
+      "renderMs": 4.09,
+      "frames": 1311
+     },
+     "zoomout": {
+      "avgFps": 54.7,
+      "low1Fps": 24,
+      "renderMs": 12.12,
+      "frames": 164
+     },
+     "overview": {
+      "avgFps": 52.1,
+      "low1Fps": 47.2,
+      "renderMs": 8.89,
+      "frames": 422
+     },
+     "mid": {
+      "avgFps": 57,
+      "low1Fps": 39.7,
+      "renderMs": 12.24,
+      "frames": 480
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 119.1,
+      "worstMs": 33.3,
+      "soldiers": 10027,
+      "heapMB": 13.6
+     },
+     {
+      "t": 10,
+      "fps": 133.7,
+      "worstMs": 20.8,
+      "soldiers": 10005,
+      "heapMB": 13.6
+     },
+     {
+      "t": 15,
+      "fps": 58,
+      "worstMs": 45.8,
+      "soldiers": 10003,
+      "heapMB": 13.6
+     },
+     {
+      "t": 20,
+      "fps": 51.7,
+      "worstMs": 25,
+      "soldiers": 10013,
+      "heapMB": 13.6
+     },
+     {
+      "t": 25,
+      "fps": 58.9,
+      "worstMs": 29.5,
+      "soldiers": 9994,
+      "heapMB": 13.6
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 13.6,
+    "heapEndMB": 13.6,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) citystate-electron/0.1.0 Chrome/156.0.8078.75 Electron/45.2.1 Safari/537.36"
+   }
+  },
+  {
+   "id": "rep-edge-17",
+   "group": "rep",
+   "shell": "edge",
+   "page": "v3",
+   "query": {
+    "bench": 10000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 2,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 855,
+   "bootMs": 523.6,
+   "atlasMs": 278.2,
+   "proc": {
+    "peakWsMB": 1091.8,
+    "avgWsMB": 929.8,
+    "peakPrivMB": 993.8,
+    "avgPrivMB": 793,
+    "cpuPct": 223,
+    "procs": 17,
+    "samples": 22
+   },
+   "memTimeline": [
+    {
+     "t": 2,
+     "wsMB": 915.2,
+     "privMB": 750.4
+    },
+    {
+     "t": 12,
+     "wsMB": 1091.8,
+     "privMB": 701.4
+    },
+    {
+     "t": 23,
+     "wsMB": 916.3,
+     "privMB": 819.2
+    },
+    {
+     "t": 33,
+     "wsMB": 840,
+     "privMB": 963
+    },
+    {
+     "t": 43,
+     "wsMB": 843.8,
+     "privMB": 774.3
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Browser",
+    "target": 10000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 10034,
+    "avgSoldiers": 9971,
+    "avgDrawnUnits": 4030,
+    "avgParticles": 1296,
+    "structs": 51,
+    "squads": 2533,
+    "frames": 2707,
+    "avgFps": 90.2,
+    "p50FrameMs": 12.4,
+    "p95FrameMs": 20.9,
+    "p99FrameMs": 25.1,
+    "maxFrameMs": 41.8,
+    "low1Fps": 39.8,
+    "over33": 11,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 1.581,
+    "p95SimMs": 5.1,
+    "simSpeed": 0.999,
+    "avgRenderMs": 7.02,
+    "p95RenderMs": 13.6,
+    "phases": {
+     "close": {
+      "avgFps": 132.7,
+      "low1Fps": 59.9,
+      "renderMs": 3.99,
+      "frames": 1394
+     },
+     "zoomout": {
+      "avgFps": 59,
+      "low1Fps": 23.9,
+      "renderMs": 12.05,
+      "frames": 177
+     },
+     "overview": {
+      "avgFps": 79.8,
+      "low1Fps": 59.5,
+      "renderMs": 8.6,
+      "frames": 646
+     },
+     "mid": {
+      "avgFps": 58.3,
+      "low1Fps": 39.8,
+      "renderMs": 11.75,
+      "frames": 490
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 123.3,
+      "worstMs": 29.3,
+      "soldiers": 10027,
+      "heapMB": 34.8
+     },
+     {
+      "t": 10,
+      "fps": 145.8,
+      "worstMs": 16.8,
+      "soldiers": 10005,
+      "heapMB": 13.4
+     },
+     {
+      "t": 15,
+      "fps": 69.3,
+      "worstMs": 41.8,
+      "soldiers": 10004,
+      "heapMB": 22.3
+     },
+     {
+      "t": 20,
+      "fps": 80.2,
+      "worstMs": 20.8,
+      "soldiers": 10013,
+      "heapMB": 14.8
+     },
+     {
+      "t": 25,
+      "fps": 68,
+      "worstMs": 25,
+      "soldiers": 9995,
+      "heapMB": 22.9
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 19.9,
+    "heapEndMB": 19.9,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+   }
+  },
+  {
+   "id": "rep-tauri-18",
+   "group": "rep",
+   "shell": "tauri",
+   "page": "v3",
+   "query": {
+    "bench": 3000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 3,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 1072,
+   "bootMs": 332.2,
+   "atlasMs": 250.8,
+   "proc": {
+    "peakWsMB": 736.8,
+    "avgWsMB": 659.7,
+    "peakPrivMB": 874.5,
+    "avgPrivMB": 658.4,
+    "cpuPct": 189,
+    "procs": 7,
+    "samples": 19
+   },
+   "memTimeline": [
+    {
+     "t": 2,
+     "wsMB": 606.4,
+     "privMB": 580.4
+    },
+    {
+     "t": 12,
+     "wsMB": 625.8,
+     "privMB": 568
+    },
+    {
+     "t": 22,
+     "wsMB": 673.8,
+     "privMB": 826.8
+    },
+    {
+     "t": 33,
+     "wsMB": 718.3,
+     "privMB": 721.9
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Tauri",
+    "target": 3000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 3041,
+    "avgSoldiers": 3010,
+    "avgDrawnUnits": 1406,
+    "avgParticles": 796,
+    "structs": 51,
+    "squads": 777,
+    "frames": 6127,
+    "avgFps": 204.2,
+    "p50FrameMs": 4.2,
+    "p95FrameMs": 8.4,
+    "p99FrameMs": 8.5,
+    "maxFrameMs": 20.9,
+    "low1Fps": 117.6,
+    "over33": 0,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 0.164,
+    "p95SimMs": 1.1,
+    "simSpeed": 0.999,
+    "avgRenderMs": 2.066,
+    "p95RenderMs": 3.7,
+    "phases": {
+     "close": {
+      "avgFps": 238.3,
+      "low1Fps": 227.3,
+      "renderMs": 1.2,
+      "frames": 2503
+     },
+     "zoomout": {
+      "avgFps": 173,
+      "low1Fps": 59.9,
+      "renderMs": 3.17,
+      "frames": 519
+     },
+     "overview": {
+      "avgFps": 210,
+      "low1Fps": 119,
+      "renderMs": 2.21,
+      "frames": 1701
+     },
+     "mid": {
+      "avgFps": 167.1,
+      "low1Fps": 117.6,
+      "renderMs": 3.04,
+      "frames": 1404
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 237.6,
+      "worstMs": 20.8,
+      "soldiers": 3011,
+      "heapMB": 8.8
+     },
+     {
+      "t": 10,
+      "fps": 239,
+      "worstMs": 20.9,
+      "soldiers": 3013,
+      "heapMB": 17
+     },
+     {
+      "t": 15,
+      "fps": 191.6,
+      "worstMs": 20.8,
+      "soldiers": 3007,
+      "heapMB": 9.1
+     },
+     {
+      "t": 20,
+      "fps": 210.4,
+      "worstMs": 8.6,
+      "soldiers": 3022,
+      "heapMB": 7.1
+     },
+     {
+      "t": 25,
+      "fps": 192.6,
+      "worstMs": 8.5,
+      "soldiers": 3026,
+      "heapMB": 15.6
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 6.4,
+    "heapEndMB": 22.1,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+   }
+  },
+  {
+   "id": "rep-electron-19",
+   "group": "rep",
+   "shell": "electron",
+   "page": "v3",
+   "query": {
+    "bench": 3000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 3,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 795,
+   "bootMs": 432.7,
+   "atlasMs": 357.1,
+   "proc": {
+    "peakWsMB": 636.7,
+    "avgWsMB": 581.7,
+    "peakPrivMB": 826.9,
+    "avgPrivMB": 620.1,
+    "cpuPct": 213,
+    "procs": 4,
+    "samples": 18
+   },
+   "memTimeline": [
+    {
+     "t": 3,
+     "wsMB": 507.8,
+     "privMB": 525
+    },
+    {
+     "t": 13,
+     "wsMB": 560.6,
+     "privMB": 544.9
+    },
+    {
+     "t": 23,
+     "wsMB": 621.4,
+     "privMB": 826.9
+    },
+    {
+     "t": 34,
+     "wsMB": 632.2,
+     "privMB": 689.8
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Electron",
+    "target": 3000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 3041,
+    "avgSoldiers": 3009,
+    "avgDrawnUnits": 1227,
+    "avgParticles": 857,
+    "structs": 51,
+    "squads": 777,
+    "frames": 5371,
+    "avgFps": 179,
+    "p50FrameMs": 4.2,
+    "p95FrameMs": 8.4,
+    "p99FrameMs": 12.5,
+    "maxFrameMs": 24.9,
+    "low1Fps": 80,
+    "over33": 0,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 0.192,
+    "p95SimMs": 1.2,
+    "simSpeed": 0.999,
+    "avgRenderMs": 2.066,
+    "p95RenderMs": 3.5,
+    "phases": {
+     "close": {
+      "avgFps": 234.6,
+      "low1Fps": 120.5,
+      "renderMs": 1.22,
+      "frames": 2465
+     },
+     "zoomout": {
+      "avgFps": 152.2,
+      "low1Fps": 59.5,
+      "renderMs": 3.3,
+      "frames": 456
+     },
+     "overview": {
+      "avgFps": 134.1,
+      "low1Fps": 80,
+      "renderMs": 2.28,
+      "frames": 1086
+     },
+     "mid": {
+      "avgFps": 162.2,
+      "low1Fps": 80,
+      "renderMs": 3,
+      "frames": 1364
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 235.8,
+      "worstMs": 20.7,
+      "soldiers": 3011,
+      "heapMB": 13.6
+     },
+     {
+      "t": 10,
+      "fps": 233.2,
+      "worstMs": 8.5,
+      "soldiers": 3013,
+      "heapMB": 13.6
+     },
+     {
+      "t": 15,
+      "fps": 155.3,
+      "worstMs": 24.9,
+      "soldiers": 3007,
+      "heapMB": 13.6
+     },
+     {
+      "t": 20,
+      "fps": 134.8,
+      "worstMs": 16.6,
+      "soldiers": 3022,
+      "heapMB": 13.6
+     },
+     {
+      "t": 25,
+      "fps": 162.7,
+      "worstMs": 12.6,
+      "soldiers": 3025,
+      "heapMB": 13.6
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 13.6,
+    "heapEndMB": 13.6,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) citystate-electron/0.1.0 Chrome/156.0.8078.75 Electron/45.2.1 Safari/537.36"
+   }
+  },
+  {
+   "id": "rep-edge-20",
+   "group": "rep",
+   "shell": "edge",
+   "page": "v3",
+   "query": {
+    "bench": 3000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 3,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 831,
+   "bootMs": 506.7,
+   "atlasMs": 260.5,
+   "proc": {
+    "peakWsMB": 1058.4,
+    "avgWsMB": 909.1,
+    "peakPrivMB": 984.9,
+    "avgPrivMB": 784.7,
+    "cpuPct": 193,
+    "procs": 17,
+    "samples": 18
+   },
+   "memTimeline": [
+    {
+     "t": 2,
+     "wsMB": 899.3,
+     "privMB": 753.1
+    },
+    {
+     "t": 12,
+     "wsMB": 1058.4,
+     "privMB": 796.3
+    },
+    {
+     "t": 23,
+     "wsMB": 896.3,
+     "privMB": 984.1
+    },
+    {
+     "t": 33,
+     "wsMB": 789,
+     "privMB": 763.5
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Browser",
+    "target": 3000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 3041,
+    "avgSoldiers": 3010,
+    "avgDrawnUnits": 1402,
+    "avgParticles": 802,
+    "structs": 51,
+    "squads": 777,
+    "frames": 6132,
+    "avgFps": 204.3,
+    "p50FrameMs": 4.2,
+    "p95FrameMs": 8.4,
+    "p99FrameMs": 12.4,
+    "maxFrameMs": 29.3,
+    "low1Fps": 80.6,
+    "over33": 0,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 0.164,
+    "p95SimMs": 1.1,
+    "simSpeed": 1,
+    "avgRenderMs": 2.087,
+    "p95RenderMs": 3.5,
+    "phases": {
+     "close": {
+      "avgFps": 239.1,
+      "low1Fps": 227.3,
+      "renderMs": 1.22,
+      "frames": 2511
+     },
+     "zoomout": {
+      "avgFps": 168,
+      "low1Fps": 59.9,
+      "renderMs": 3.24,
+      "frames": 504
+     },
+     "overview": {
+      "avgFps": 208.4,
+      "low1Fps": 119,
+      "renderMs": 2.3,
+      "frames": 1688
+     },
+     "mid": {
+      "avgFps": 170,
+      "low1Fps": 117.6,
+      "renderMs": 2.95,
+      "frames": 1429
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 239,
+      "worstMs": 12.4,
+      "soldiers": 3011,
+      "heapMB": 9.8
+     },
+     {
+      "t": 10,
+      "fps": 239.2,
+      "worstMs": 12.6,
+      "soldiers": 3013,
+      "heapMB": 12
+     },
+     {
+      "t": 15,
+      "fps": 188.2,
+      "worstMs": 29.3,
+      "soldiers": 3007,
+      "heapMB": 8.8
+     },
+     {
+      "t": 20,
+      "fps": 209.4,
+      "worstMs": 8.5,
+      "soldiers": 3022,
+      "heapMB": 7.4
+     },
+     {
+      "t": 25,
+      "fps": 191.4,
+      "worstMs": 12.5,
+      "soldiers": 3026,
+      "heapMB": 7.5
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 7.5,
+    "heapEndMB": 17.4,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+   }
+  },
+  {
+   "id": "rep-tauri-21",
+   "group": "rep",
+   "shell": "tauri",
+   "page": "v3",
+   "query": {
+    "bench": 6000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 3,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 1155,
+   "bootMs": 352,
+   "atlasMs": 267.7,
+   "proc": {
+    "peakWsMB": 761.9,
+    "avgWsMB": 679.9,
+    "peakPrivMB": 909.2,
+    "avgPrivMB": 665.3,
+    "cpuPct": 214,
+    "procs": 7,
+    "samples": 22
+   },
+   "memTimeline": [
+    {
+     "t": 1,
+     "wsMB": 606.5,
+     "privMB": 572.7
+    },
+    {
+     "t": 12,
+     "wsMB": 627.7,
+     "privMB": 502.9
+    },
+    {
+     "t": 22,
+     "wsMB": 663.3,
+     "privMB": 629
+    },
+    {
+     "t": 32,
+     "wsMB": 739.1,
+     "privMB": 767.8
+    },
+    {
+     "t": 43,
+     "wsMB": 761.7,
+     "privMB": 775.6
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Tauri",
+    "target": 6000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 6035,
+    "avgSoldiers": 5996,
+    "avgDrawnUnits": 2455,
+    "avgParticles": 1160,
+    "structs": 51,
+    "squads": 1537,
+    "frames": 4212,
+    "avgFps": 140.3,
+    "p50FrameMs": 8.2,
+    "p95FrameMs": 12.5,
+    "p99FrameMs": 16.7,
+    "maxFrameMs": 29.2,
+    "low1Fps": 59.9,
+    "over33": 0,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 0.542,
+    "p95SimMs": 2.7,
+    "simSpeed": 0.999,
+    "avgRenderMs": 3.937,
+    "p95RenderMs": 9.8,
+    "phases": {
+     "close": {
+      "avgFps": 202.7,
+      "low1Fps": 119,
+      "renderMs": 2.1,
+      "frames": 2130
+     },
+     "zoomout": {
+      "avgFps": 97.7,
+      "low1Fps": 39.8,
+      "renderMs": 6.71,
+      "frames": 293
+     },
+     "overview": {
+      "avgFps": 121.4,
+      "low1Fps": 80,
+      "renderMs": 3.89,
+      "frames": 983
+     },
+     "mid": {
+      "avgFps": 95.9,
+      "low1Fps": 59.5,
+      "renderMs": 7.84,
+      "frames": 806
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 200.8,
+      "worstMs": 16.7,
+      "soldiers": 6008,
+      "heapMB": 10.3
+     },
+     {
+      "t": 10,
+      "fps": 207.8,
+      "worstMs": 16.7,
+      "soldiers": 6007,
+      "heapMB": 10.3
+     },
+     {
+      "t": 15,
+      "fps": 112.3,
+      "worstMs": 29.2,
+      "soldiers": 5999,
+      "heapMB": 8.3
+     },
+     {
+      "t": 20,
+      "fps": 123.2,
+      "worstMs": 20.8,
+      "soldiers": 6000,
+      "heapMB": 16.8
+     },
+     {
+      "t": 25,
+      "fps": 107.4,
+      "worstMs": 25.1,
+      "soldiers": 5998,
+      "heapMB": 23.4
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 20.2,
+    "heapEndMB": 33.6,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+   }
+  },
+  {
+   "id": "rep-electron-22",
+   "group": "rep",
+   "shell": "electron",
+   "page": "v3",
+   "query": {
+    "bench": 6000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 3,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 774,
+   "bootMs": 401.8,
+   "atlasMs": 311.1,
+   "proc": {
+    "peakWsMB": 669.5,
+    "avgWsMB": 593.5,
+    "peakPrivMB": 842.2,
+    "avgPrivMB": 594.9,
+    "cpuPct": 217,
+    "procs": 4,
+    "samples": 22
+   },
+   "memTimeline": [
+    {
+     "t": 1,
+     "wsMB": 472.9,
+     "privMB": 347.1
+    },
+    {
+     "t": 11,
+     "wsMB": 539.8,
+     "privMB": 420.5
+    },
+    {
+     "t": 22,
+     "wsMB": 590.4,
+     "privMB": 569.7
+    },
+    {
+     "t": 32,
+     "wsMB": 641.3,
+     "privMB": 705.7
+    },
+    {
+     "t": 42,
+     "wsMB": 663.4,
+     "privMB": 716.2
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Electron",
+    "target": 6000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 6035,
+    "avgSoldiers": 5996,
+    "avgDrawnUnits": 2220,
+    "avgParticles": 1140,
+    "structs": 51,
+    "squads": 1537,
+    "frames": 3583,
+    "avgFps": 119.4,
+    "p50FrameMs": 8.3,
+    "p95FrameMs": 12.6,
+    "p99FrameMs": 16.9,
+    "maxFrameMs": 37.6,
+    "low1Fps": 59.2,
+    "over33": 1,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 0.657,
+    "p95SimMs": 2.8,
+    "simSpeed": 0.999,
+    "avgRenderMs": 4.054,
+    "p95RenderMs": 10,
+    "phases": {
+     "close": {
+      "avgFps": 180.9,
+      "low1Fps": 80,
+      "renderMs": 2.09,
+      "frames": 1901
+     },
+     "zoomout": {
+      "avgFps": 84.7,
+      "low1Fps": 34.2,
+      "renderMs": 7.21,
+      "frames": 254
+     },
+     "overview": {
+      "avgFps": 80.2,
+      "low1Fps": 59.9,
+      "renderMs": 3.86,
+      "frames": 650
+     },
+     "mid": {
+      "avgFps": 92.5,
+      "low1Fps": 59.5,
+      "renderMs": 7.99,
+      "frames": 778
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 180,
+      "worstMs": 16.7,
+      "soldiers": 6008,
+      "heapMB": 13.6
+     },
+     {
+      "t": 10,
+      "fps": 184.3,
+      "worstMs": 29.1,
+      "soldiers": 6007,
+      "heapMB": 13.6
+     },
+     {
+      "t": 15,
+      "fps": 90.5,
+      "worstMs": 37.6,
+      "soldiers": 5999,
+      "heapMB": 13.6
+     },
+     {
+      "t": 20,
+      "fps": 80.7,
+      "worstMs": 16.8,
+      "soldiers": 6000,
+      "heapMB": 13.6
+     },
+     {
+      "t": 25,
+      "fps": 93.8,
+      "worstMs": 25,
+      "soldiers": 5998,
+      "heapMB": 13.6
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 13.6,
+    "heapEndMB": 13.6,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) citystate-electron/0.1.0 Chrome/156.0.8078.75 Electron/45.2.1 Safari/537.36"
+   }
+  },
+  {
+   "id": "rep-edge-23",
+   "group": "rep",
+   "shell": "edge",
+   "page": "v3",
+   "query": {
+    "bench": 6000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 3,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 894,
+   "bootMs": 561.2,
+   "atlasMs": 318.3,
+   "proc": {
+    "peakWsMB": 1053.3,
+    "avgWsMB": 908.4,
+    "peakPrivMB": 1026.1,
+    "avgPrivMB": 787.9,
+    "cpuPct": 222,
+    "procs": 17,
+    "samples": 21
+   },
+   "memTimeline": [
+    {
+     "t": 3,
+     "wsMB": 926.2,
+     "privMB": 768.3
+    },
+    {
+     "t": 13,
+     "wsMB": 1053.3,
+     "privMB": 695.6
+    },
+    {
+     "t": 24,
+     "wsMB": 871.7,
+     "privMB": 772.1
+    },
+    {
+     "t": 34,
+     "wsMB": 805,
+     "privMB": 732.3
+    },
+    {
+     "t": 44,
+     "wsMB": 827.8,
+     "privMB": 800.1
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Browser",
+    "target": 6000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 6035,
+    "avgSoldiers": 5997,
+    "avgDrawnUnits": 2482,
+    "avgParticles": 1150,
+    "structs": 51,
+    "squads": 1537,
+    "frames": 4228,
+    "avgFps": 140.9,
+    "p50FrameMs": 8.2,
+    "p95FrameMs": 12.5,
+    "p99FrameMs": 16.7,
+    "maxFrameMs": 29.2,
+    "low1Fps": 59.9,
+    "over33": 0,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 0.539,
+    "p95SimMs": 2.7,
+    "simSpeed": 0.999,
+    "avgRenderMs": 3.94,
+    "p95RenderMs": 9.8,
+    "phases": {
+     "close": {
+      "avgFps": 201.5,
+      "low1Fps": 119,
+      "renderMs": 2.1,
+      "frames": 2117
+     },
+     "zoomout": {
+      "avgFps": 96,
+      "low1Fps": 39.8,
+      "renderMs": 6.8,
+      "frames": 288
+     },
+     "overview": {
+      "avgFps": 124.6,
+      "low1Fps": 80,
+      "renderMs": 3.85,
+      "frames": 1009
+     },
+     "mid": {
+      "avgFps": 96.8,
+      "low1Fps": 59.9,
+      "renderMs": 7.83,
+      "frames": 814
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 198.1,
+      "worstMs": 16.8,
+      "soldiers": 6008,
+      "heapMB": 21.2
+     },
+     {
+      "t": 10,
+      "fps": 207.9,
+      "worstMs": 12.6,
+      "soldiers": 6007,
+      "heapMB": 31.6
+     },
+     {
+      "t": 15,
+      "fps": 112.4,
+      "worstMs": 29.2,
+      "soldiers": 5999,
+      "heapMB": 9.5
+     },
+     {
+      "t": 20,
+      "fps": 125.3,
+      "worstMs": 12.6,
+      "soldiers": 6000,
+      "heapMB": 11.4
+     },
+     {
+      "t": 25,
+      "fps": 109.9,
+      "worstMs": 16.8,
+      "soldiers": 5992,
+      "heapMB": 35.4
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 10.1,
+    "heapEndMB": 25.2,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+   }
+  },
+  {
+   "id": "rep-tauri-24",
+   "group": "rep",
+   "shell": "tauri",
+   "page": "v3",
+   "query": {
+    "bench": 10000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 3,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 1143,
+   "bootMs": 387.2,
+   "atlasMs": 297.5,
+   "proc": {
+    "peakWsMB": 780.3,
+    "avgWsMB": 694.6,
+    "peakPrivMB": 923.9,
+    "avgPrivMB": 670,
+    "cpuPct": 224,
+    "procs": 7,
+    "samples": 22
+   },
+   "memTimeline": [
+    {
+     "t": 2,
+     "wsMB": 589.8,
+     "privMB": 553.4
+    },
+    {
+     "t": 13,
+     "wsMB": 637.7,
+     "privMB": 471.6
+    },
+    {
+     "t": 23,
+     "wsMB": 689,
+     "privMB": 699.7
+    },
+    {
+     "t": 33,
+     "wsMB": 751.8,
+     "privMB": 911.3
+    },
+    {
+     "t": 44,
+     "wsMB": 770.5,
+     "privMB": 746.8
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Tauri",
+    "target": 10000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 10034,
+    "avgSoldiers": 9969,
+    "avgDrawnUnits": 3909,
+    "avgParticles": 1354,
+    "structs": 51,
+    "squads": 2533,
+    "frames": 2749,
+    "avgFps": 91.6,
+    "p50FrameMs": 12.4,
+    "p95FrameMs": 20.8,
+    "p99FrameMs": 25,
+    "maxFrameMs": 53.8,
+    "low1Fps": 40,
+    "over33": 12,
+    "over50": 1,
+    "over100": 0,
+    "avgSimMs": 1.581,
+    "p95SimMs": 5.3,
+    "simSpeed": 0.999,
+    "avgRenderMs": 6.81,
+    "p95RenderMs": 13.1,
+    "phases": {
+     "close": {
+      "avgFps": 137.8,
+      "low1Fps": 59.9,
+      "renderMs": 3.88,
+      "frames": 1448
+     },
+     "zoomout": {
+      "avgFps": 61,
+      "low1Fps": 21.8,
+      "renderMs": 11.54,
+      "frames": 183
+     },
+     "overview": {
+      "avgFps": 76.2,
+      "low1Fps": 59.9,
+      "renderMs": 8.49,
+      "frames": 617
+     },
+     "mid": {
+      "avgFps": 59.5,
+      "low1Fps": 40,
+      "renderMs": 11.47,
+      "frames": 501
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 129.8,
+      "worstMs": 20.9,
+      "soldiers": 10027,
+      "heapMB": 16.6
+     },
+     {
+      "t": 10,
+      "fps": 149.6,
+      "worstMs": 29.2,
+      "soldiers": 10005,
+      "heapMB": 15.1
+     },
+     {
+      "t": 15,
+      "fps": 70.1,
+      "worstMs": 53.8,
+      "soldiers": 10004,
+      "heapMB": 14.1
+     },
+     {
+      "t": 20,
+      "fps": 75.5,
+      "worstMs": 20.8,
+      "soldiers": 10013,
+      "heapMB": 23.8
+     },
+     {
+      "t": 25,
+      "fps": 68.5,
+      "worstMs": 25.1,
+      "soldiers": 9994,
+      "heapMB": 22.9
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 14.1,
+    "heapEndMB": 20,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+   }
+  },
+  {
+   "id": "rep-electron-25",
+   "group": "rep",
+   "shell": "electron",
+   "page": "v3",
+   "query": {
+    "bench": 10000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 3,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 779,
+   "bootMs": 422.9,
+   "atlasMs": 344.4,
+   "proc": {
+    "peakWsMB": 705.7,
+    "avgWsMB": 621.6,
+    "peakPrivMB": 921,
+    "avgPrivMB": 668.8,
+    "cpuPct": 216,
+    "procs": 5,
+    "samples": 23
+   },
+   "memTimeline": [
+    {
+     "t": 2,
+     "wsMB": 515,
+     "privMB": 562.4
+    },
+    {
+     "t": 12,
+     "wsMB": 566.3,
+     "privMB": 485
+    },
+    {
+     "t": 22,
+     "wsMB": 611.8,
+     "privMB": 697.8
+    },
+    {
+     "t": 33,
+     "wsMB": 676.6,
+     "privMB": 915.4
+    },
+    {
+     "t": 43,
+     "wsMB": 700.1,
+     "privMB": 754.2
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Electron",
+    "target": 10000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 10034,
+    "avgSoldiers": 9968,
+    "avgDrawnUnits": 3555,
+    "avgParticles": 1338,
+    "structs": 51,
+    "squads": 2533,
+    "frames": 2336,
+    "avgFps": 77.8,
+    "p50FrameMs": 12.5,
+    "p95FrameMs": 21.1,
+    "p99FrameMs": 29.2,
+    "maxFrameMs": 45.9,
+    "low1Fps": 34.2,
+    "over33": 14,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 1.904,
+    "p95SimMs": 5.4,
+    "simSpeed": 0.999,
+    "avgRenderMs": 7.249,
+    "p95RenderMs": 14.6,
+    "phases": {
+     "close": {
+      "avgFps": 123.2,
+      "low1Fps": 59.9,
+      "renderMs": 4.08,
+      "frames": 1295
+     },
+     "zoomout": {
+      "avgFps": 53.1,
+      "low1Fps": 23.9,
+      "renderMs": 12.34,
+      "frames": 159
+     },
+     "overview": {
+      "avgFps": 51.5,
+      "low1Fps": 40,
+      "renderMs": 9.13,
+      "frames": 418
+     },
+     "mid": {
+      "avgFps": 55.1,
+      "low1Fps": 39.4,
+      "renderMs": 12.65,
+      "frames": 464
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 117,
+      "worstMs": 45.7,
+      "soldiers": 10027,
+      "heapMB": 13.6
+     },
+     {
+      "t": 10,
+      "fps": 132.7,
+      "worstMs": 33.3,
+      "soldiers": 10004,
+      "heapMB": 13.6
+     },
+     {
+      "t": 15,
+      "fps": 56.7,
+      "worstMs": 45.9,
+      "soldiers": 10003,
+      "heapMB": 13.6
+     },
+     {
+      "t": 20,
+      "fps": 51.7,
+      "worstMs": 25,
+      "soldiers": 10013,
+      "heapMB": 13.6
+     },
+     {
+      "t": 25,
+      "fps": 57.3,
+      "worstMs": 29.4,
+      "soldiers": 9994,
+      "heapMB": 13.6
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 13.6,
+    "heapEndMB": 13.6,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) citystate-electron/0.1.0 Chrome/156.0.8078.75 Electron/45.2.1 Safari/537.36"
+   }
+  },
+  {
+   "id": "rep-edge-26",
+   "group": "rep",
+   "shell": "edge",
+   "page": "v3",
+   "query": {
+    "bench": 10000,
+    "map": "l",
+    "secs": 30,
+    "cam": "tour"
+   },
+   "rep": 3,
+   "ok": true,
+   "exitedEarly": false,
+   "startMs": 900,
+   "bootMs": 577,
+   "atlasMs": 331.1,
+   "proc": {
+    "peakWsMB": 1068.8,
+    "avgWsMB": 918.5,
+    "peakPrivMB": 1036.2,
+    "avgPrivMB": 800.8,
+    "cpuPct": 217,
+    "procs": 18,
+    "samples": 23
+   },
+   "memTimeline": [
+    {
+     "t": 1,
+     "wsMB": 912.7,
+     "privMB": 773
+    },
+    {
+     "t": 12,
+     "wsMB": 1062.3,
+     "privMB": 717.3
+    },
+    {
+     "t": 22,
+     "wsMB": 905.6,
+     "privMB": 827.5
+    },
+    {
+     "t": 33,
+     "wsMB": 829.7,
+     "privMB": 974.5
+    },
+    {
+     "t": 43,
+     "wsMB": 836.3,
+     "privMB": 788.8
+    }
+   ],
+   "res": {
+    "version": "3.0",
+    "shell": "Browser",
+    "target": 10000,
+    "map": "144x90",
+    "cam": "tour",
+    "secs": 30,
+    "peakSoldiers": 10034,
+    "avgSoldiers": 9971,
+    "avgDrawnUnits": 4033,
+    "avgParticles": 1316,
+    "structs": 51,
+    "squads": 2533,
+    "frames": 2763,
+    "avgFps": 92.1,
+    "p50FrameMs": 12.4,
+    "p95FrameMs": 20.8,
+    "p99FrameMs": 25,
+    "maxFrameMs": 46.1,
+    "low1Fps": 40,
+    "over33": 14,
+    "over50": 0,
+    "over100": 0,
+    "avgSimMs": 1.546,
+    "p95SimMs": 5.2,
+    "simSpeed": 0.999,
+    "avgRenderMs": 6.886,
+    "p95RenderMs": 13,
+    "phases": {
+     "close": {
+      "avgFps": 134.3,
+      "low1Fps": 59.9,
+      "renderMs": 3.96,
+      "frames": 1411
+     },
+     "zoomout": {
+      "avgFps": 60.6,
+      "low1Fps": 24,
+      "renderMs": 11.66,
+      "frames": 182
+     },
+     "overview": {
+      "avgFps": 80.7,
+      "low1Fps": 59.5,
+      "renderMs": 8.43,
+      "frames": 654
+     },
+     "mid": {
+      "avgFps": 61.4,
+      "low1Fps": 40,
+      "renderMs": 11.25,
+      "frames": 516
+     }
+    },
+    "timeline": [
+     {
+      "t": 5,
+      "fps": 124.9,
+      "worstMs": 25,
+      "soldiers": 10027,
+      "heapMB": 22.4
+     },
+     {
+      "t": 10,
+      "fps": 147.2,
+      "worstMs": 20.9,
+      "soldiers": 10005,
+      "heapMB": 19.7
+     },
+     {
+      "t": 15,
+      "fps": 71.1,
+      "worstMs": 46.1,
+      "soldiers": 10003,
+      "heapMB": 14.5
+     },
+     {
+      "t": 20,
+      "fps": 80.1,
+      "worstMs": 25.1,
+      "soldiers": 10013,
+      "heapMB": 20.4
+     },
+     {
+      "t": 25,
+      "fps": 71.4,
+      "worstMs": 25,
+      "soldiers": 9994,
+      "heapMB": 17.3
+     }
+    ],
+    "chunksBaked": 68,
+    "chunkCacheMP": 33,
+    "heapStartMB": 15.1,
+    "heapEndMB": 13.4,
+    "errors": [],
+    "errorCount": 0,
+    "canvas": "2040x1128",
+    "dpr": 1.5,
+    "rf": {
+     "shadow": 1,
+     "unit": 1,
+     "tags": 1,
+     "corpses": 1,
+     "light": 1,
+     "particles": 1,
+     "weather": 1,
+     "clouds": 1,
+     "fog": 1,
+     "water": 1,
+     "lod": 1
+    },
+    "atlas": {
+     "frames": 864,
+     "w": 2016,
+     "h": 1300
+    },
+    "gpu": "ANGLE (NVIDIA, NVIDIA GeForce RTX 4060 Laptop GPU (0x000028E0) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0"
+   }
+  }
+ ]
+}

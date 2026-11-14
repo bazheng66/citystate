@@ -38,4 +38,12 @@ app.whenReady().then(() => {
   else win.loadFile(path.join(process.env.CS_GAME || gameDir, "index.html"), QUERY ? { search: QUERY } : undefined);
 });
 
+// 对比实验用：CS_DIAG 指向一个文件时，把渲染进程 / 子进程异常退出的原因记下来
+if (process.env.CS_DIAG) {
+  const fs = require("fs");
+  const note = (kind, d) => { try { fs.appendFileSync(process.env.CS_DIAG, JSON.stringify({ at: Date.now(), kind, type: d.type, reason: d.reason, exitCode: d.exitCode }) + "\n"); } catch (e) { /* 记不下来就算了 */ } };
+  app.on("render-process-gone", (_e, _wc, d) => note("render-process-gone", d));
+  app.on("child-process-gone", (_e, d) => note("child-process-gone", d));
+}
+
 app.on("window-all-closed", () => app.quit());

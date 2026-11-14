@@ -13,6 +13,7 @@ for (const f of fs.readdirSync(DIR).filter((n) => n.endsWith(".json")).sort()) {
     if (!r.ok) continue;
     let key = r.group + "|" + r.shell + "|" + JSON.stringify(r.query);
     if (r.group === "startup") key += "|" + r.id; // 启动测试每轮都保留
+    if (r.rep != null) key += "|rep" + r.rep; // 重复实验：每次重复都保留
     byKey.set(key, r);
   }
 }
@@ -75,6 +76,82 @@ const HEAD = ["场景", "外壳", "平均 FPS", "1% Low", "P99 帧 ms", "最长�
       return [`${r.query.bench} 兵`, NAME[r.shell], c("close"), c("zoomout"), c("overview"), c("mid")];
     }));
     sec("一、规模阶梯：三个外壳在同一负载下的表现", body);
+  }
+}
+
+// ---- 重复实验与极限档位 ----
+const sd = (a) => { if (a.length < 2) return 0; const m = avg(a); return Math.sqrt(a.reduce((s, v) => s + (v - m) ** 2, 0) / (a.length - 1)); };
+const pm = (a, d = 1) => (!a.length ? "–" : a.length > 1 ? `${avg(a).toFixed(d)} ± ${sd(a).toFixed(d)}` : avg(a).toFixed(d));
+function aggRows(rs) {
+  const rows = [];
+  const ns = Array.from(new Set(rs.map((r) => r.query.bench))).sort((a, b) => a - b);
+  for (const n of ns) for (const s of SH) {
+    const g = rs.filter((r) => r.query.bench === n && r.shell === s);
+    if (!g.length) continue;
+    const col = (fn) => g.map(fn).filter((v) => v != null && !Number.isNaN(v));
+    rows.push([`${n} 兵`, NAME[s], g.length, pm(col((r) => r.res.avgFps)), pm(col((r) => r.res.low1Fps)), pm(col((r) => r.res.p99FrameMs)), pm(col((r) => r.res.over33), 0),
+      pm(col((r) => r.res.avgSimMs), 2), pm(col((r) => r.res.avgRenderMs), 2), pm(col((r) => (r.res.simSpeed != null ? r.res.simSpeed * 100 : null)), 0), pm(col((r) => ((r.res.avgSimMs + r.res.avgRenderMs) / (1000 / r.res.avgFps)) * 100), 0), f0(avg(col((r) => r.res.avgSoldiers))), f0(avg(col((r) => r.proc.cpuPct)))]);
+  }
+  return rows;
+}
+const AHEAD = ["场景", "外壳", "轮数", "平均 FPS", "1% Low", "P99 帧 ms", "卡顿帧 >33ms", "模拟 ms/帧", "渲染 ms/帧(JS)", "模拟速度 % 实时", "主线程 JS 占帧时间 %", "实际士兵数", "CPU %"];
+{
+  const rs = grp("rep");
+  if (rs.length) {
+    let body = table(AHEAD, aggRows(rs)) + "\n和上一节相同的场景，每个配置独立跑三次（每次都是新开进程），“±”后面是样本标准差。\n\nElectron 相对 Tauri 的平均 FPS 差距：";
+    const ns = Array.from(new Set(rs.map((r) => r.query.bench))).sort((a, b) => a - b);
+    body += ns.map((n) => { const t = avg(rs.filter((r) => r.shell === "tauri" && r.query.bench === n).map((r) => r.res.avgFps)); const e = avg(rs.filter((r) => r.shell === "electron" && r.query.bench === n).map((r) => r.res.avgFps)); const g = avg(rs.filter((r) => r.shell === "edge" && r.query.bench === n).map((r) => r.res.avgFps)); return `${n} 兵 ${((e / t - 1) * 100).toFixed(1)}%（Edge ${((g / t - 1) * 100).toFixed(1)}%）`; }).join("，") + "。\n\n分阶段平均 FPS（三次的均值 ± 标准差）：\n\n";
+    const prow = [];
+    for (const n of ns) for (const s of SH) {
+      const g = rs.filter((r) => r.query.bench === n && r.shell === s);
+      if (!g.length) continue;
+      const c = (k) => pm(g.map((r) => r.res.phases[k] && r.res.phases[k].avgFps).filter((v) => v != null));
+      prow.push([`${n} 兵`, NAME[s], c("close"), c("zoomout"), c("overview"), c("mid")]);
+    }
+    body += table(["场景", "外壳", "近景巡游", "拉远过程", "全图俯瞰", "中景"], prow);
+    sec("一（续）、规模阶梯重复三次：均值与波动", body);
+  }
+}
+{
+  const rs = grp("limit");
+  if (rs.length) {
+    let body = table(AHEAD, aggRows(rs)) + "\n同一张大地图继续加兵。“模拟速度”= 实际跑的模拟步数 ÷ 实时应跑的步数（30 步/秒）；低于 100% 说明主线程已经来不及，游戏本身在变慢，此时 FPS 再高也没有意义。“主线程 JS 占帧时间”=（模拟 + 发绘制指令）÷ 帧时间，越接近 100% 说明帧率越是被页面自己的 JS 卡住，而不是 GPU 或外壳。各配置的轮数见表。\n";
+    // 用 Tauri 的各档均值估算几条线落在哪（相邻两档之间线性插值）
+    const pts = [];
+    const src = grp("scale").filter((r) => r.shell === "tauri" && r.query.bench === 1000).concat(grp("rep").filter((r) => r.shell === "tauri"), rs.filter((r) => r.shell === "tauri"));
+    for (const n of Array.from(new Set(src.map((r) => r.query.bench))).sort((a, b) => a - b)) {
+      const g = src.filter((r) => r.query.bench === n);
+      pts.push({ n: avg(g.map((r) => r.res.avgSoldiers)), fps: avg(g.map((r) => r.res.avgFps)), low: avg(g.map((r) => r.res.low1Fps)), sim: avg(g.map((r) => (r.res.simSpeed != null ? r.res.simSpeed : 1))) });
+    }
+    const cross = (key, level) => {
+      for (let i = 1; i < pts.length; i++) {
+        const a = pts[i - 1];
+        const b = pts[i];
+        if (a[key] >= level && b[key] < level) return Math.round((a.n + ((a[key] - level) / (a[key] - b[key])) * (b.n - a.n)) / 100) * 100;
+      }
+      return null;
+    };
+    const say = (v) => (v == null ? "测试范围内没有跌破" : "约 " + v + " 兵");
+    body += "\nTauri 的边界（由各档均值线性插值估算，实际士兵数为横轴）：\n\n" + [
+      `- 平均帧率跌破 120 FPS：${say(cross("fps", 120))}`,
+      `- 平均帧率跌破 60 FPS：${say(cross("fps", 60))}`,
+      `- 最差 1% 的帧跌破 30 FPS：${say(cross("low", 30))}`,
+      `- 平均帧率跌破 30 FPS：${say(cross("fps", 30))}`,
+      `- 模拟跟不上实时（速度低于 95%）：${say(cross("sim", 0.95))}`,
+    ].join("\n") + "\n";
+    // Tauri 各档的主线程时间去向
+    const trow = [];
+    for (const n of Array.from(new Set(src.map((r) => r.query.bench))).sort((a, b) => a - b)) {
+      const g = src.filter((r) => r.query.bench === n);
+      const m = (fn) => avg(g.map(fn));
+      const fps = m((r) => r.res.avgFps);
+      const simMs = m((r) => r.res.avgSimMs);
+      const renMs = m((r) => r.res.avgRenderMs);
+      const step = m((r) => (r.res.avgSimMs * r.res.avgFps) / (30 * (r.res.simSpeed != null ? r.res.simSpeed : 1)));
+      trow.push([f0(m((r) => r.res.avgSoldiers)), g.length, fps.toFixed(1), (1000 / fps).toFixed(1), simMs.toFixed(2), renMs.toFixed(2), f0(((simMs + renMs) / (1000 / fps)) * 100), step.toFixed(2), f0((step / (1000 / 30)) * 100)]);
+    }
+    body += "\nTauri 各档的主线程时间去向（1000 兵取自第一节，3000–10000 兵取自重复实验）：\n\n" + table(["实际士兵数", "轮数", "平均 FPS", "帧时间 ms", "模拟 ms/帧", "绘制 ms/帧(JS)", "JS 占帧时间 %", "每个模拟步 ms", "占 33.3ms 步长预算 %"], trow);
+    sec("一（再续）、极限档位：加到跑不动为止", body);
   }
 }
 
