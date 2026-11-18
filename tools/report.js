@@ -336,6 +336,10 @@ const BHEAD = ["场景", "外壳", "模拟跑在", "轮数", "平均 FPS", "1% L
   }
 }
 
+// 图：从数据现画，放在 bench/figs/，notes.md 里按相对报告的路径引用
+const figs = require("./figs.js")(all, path.join(ROOT, "bench", "figs"));
+console.log("图：" + Object.keys(figs).join(" ") + " → bench/figs/");
+
 const notes = path.join(ROOT, "bench", "notes.md");
 const out = (fs.existsSync(notes) ? fs.readFileSync(notes, "utf8").trim() + "\n" : "# 对比实验报告\n") + "\n---\n\n# 数据表\n" + md + `\n\n原始数据在 \`bench/results/\`；本文件由 \`node tools/report.js\` 生成。\n`;
 fs.writeFileSync(path.join(ROOT, "对比实验报告.md"), out);

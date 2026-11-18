@@ -83,7 +83,7 @@ node tools/experiment.js limit --only=tauri --n=22500,25000 --reps=3   # 自选�
 node tools/experiment.js backend       # 模拟后端对比：1 万 / 2 万 / 3 万兵 × Tauri 的 main / worker / rust 各 3 次
 node tools/experiment.js backlimit     # 模拟离开主线程后的新边界：worker / rust，4 万 / 5 万 / 6 万兵
 node tools/experiment.js ipc           # IPC 基准：1 KB–16 MB 过一次 Rust↔JS 边界（对照 Worker postMessage）
-node tools/report.js                   # 汇总成 对比实验报告.md
+node tools/report.js                   # 汇总成 对比实验报告.md，并从数据画出 bench/figs/*.svg
 ```
 
 报告里除了帧率，还有“模拟速度”（实际模拟步数 ÷ 实时应跑步数，低于 100% 说明游戏本身在变慢）和“主线程 JS 占帧时间”（越接近 100%，帧率越是被页面自己的 JS 卡住）。
