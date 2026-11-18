@@ -322,7 +322,7 @@
     if (world.corpses.length > 400) world.corpses.splice(0, world.corpses.length - 400);
     if (u.owner === "p") world.stats.lost++;
     else if (src && src.owner === "p") world.stats.kills++;
-    world.events.push({ e: "die", x: u.x, y: u.y, type: u.sq.type, owner: u.owner });
+    world.events.push({ e: "die", x: u.x, y: u.y, type: u.sq.type, owner: u.owner, face: u.face });
   }
 
   function hurtStruct(world, st, amount, type, srcOwner, fortMult) {

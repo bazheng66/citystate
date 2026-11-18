@@ -44,6 +44,12 @@
 | sprites2.js | 角色图集：势力 × 兵种 × 动画 × 朝向预合成，全部排进一张 2016×1300 的画布（同一张纹理，方便合批） | 是 |
 | render.js | 相机；512px 分块烘焙地形，三级分辨率，按像素预算做 LRU 淘汰；视锥裁剪；按 y 排序；士兵三级 LOD；粒子、昼夜光照、云影、天气、战争迷雾、小地图。`CS.RF` 是渲染开关，用于消融测试 | 是 |
 | ui.js / main.js | 界面、输入、DOM 差量更新、主循环、压力测试与结果上报 | 是 |
+| benchcore.js | 压力测试建世界、补兵，以及导出给 Rust 后端的初始化数据（主线程、Worker、Node 共用） | 否 |
+| snap.js | 模拟快照的二进制格式：编码（Worker 用）与还原进主线程的镜像世界（渲染层不用改） | 否 |
+| simworker.js / remote.js | 模拟后端：Web Worker 里跑同一份 sim.js；主线程每帧取快照（Worker 走 postMessage，Rust 走 Tauri invoke） | 部分 |
+| ipcbench.js | IPC 基准（`?ipc=1`）：Tauri invoke 与 Worker postMessage 的往返耗时 | 是 |
+
+Rust 侧（`src-tauri/`）：`simcore/` 是 `sim.js + ai.js + 寻路` 的逐函数移植，只覆盖压力测试路径（据点打不坏、敕令全 0），不能跑正常对局；`src/lib.rs` 提供 `sim_start / sim_snap / sim_stop`（模拟跑在原生线程，页面长轮询取二进制快照）和 IPC 基准用的 `ipc_blob / ipc_json / ipc_sink`。
 
 `sprites.js` 和 `assets/medieval/` 是早期版本留下的，现在不再加载。`backup_v1`–`backup_v3` 是历次改造前的快照，`backup_v3` 同时是对比实验的基线。
 
@@ -56,11 +62,14 @@ node tools/balance.js duchy 1,2,3           # 多个随机种子的胜负与用�
 node tools/stuck.js                         # 检测部队卡在地形里
 node tools/simbench.js 20000 l              # 大地图约 20000 士兵时的纯模拟耗时（士兵数 地图规格）
 node tools/trace.js horde 3 1               # 打印某关据点易手时间线和双方兵力
+node tools/snapcheck.js 20000 900           # 快照编码 → 还原往返，检查有无不一致
+node tools/rustcheck.js 20000 1800 l --exact  # JS 与 Rust 模拟逐秒对拍（--exact：两边用同一个 sin/cos）
+node tools/mathcheck.js                     # Rust 与 V8 的 hypot / atan2 / sin / cos 逐位比较
 ```
 
 ## 压力测试与跨外壳对比
 
-标题页「压力测试」可以选士兵数、地图规格、相机脚本和时长；也可以用地址参数直接进：`?bench=6000&map=l&secs=30&cam=tour`（`rf=light:0,particles:0` 这样的参数可以关掉某些画面特性）。测试时所有归属都由 AI 托管，据点打不坏，兵死了会补，负载稳定；补兵按模拟步数走，各个外壳里跑出来的战局完全一致。报告内容：平均 FPS、1% Low、帧时间分位数、卡顿帧数、模拟与渲染耗时、分阶段帧率、每 5 秒一个点的时间线、地形块烘焙数、JS 堆。
+标题页「压力测试」可以选士兵数、地图规格、相机脚本和时长；也可以用地址参数直接进：`?bench=6000&map=l&secs=30&cam=tour`（`rf=light:0,particles:0` 这样的参数可以关掉某些画面特性；`sim=worker` 把模拟放进 Web Worker，`sim=rust` 放到 Tauri 的 Rust 线程，只在 Tauri 里可用）。测试时所有归属都由 AI 托管，据点打不坏，兵死了会补，负载稳定；补兵按模拟步数走，各个外壳里跑出来的战局完全一致。报告内容：平均 FPS、1% Low、帧时间分位数、卡顿帧数、模拟与渲染耗时、分阶段帧率、每 5 秒一个点的时间线、地形块烘焙数、JS 堆。
 
 自动化对比（Windows）：
 
@@ -71,6 +80,9 @@ node tools/experiment.js all           # 启动、规模阶梯、改造前后、
 node tools/experiment.js repeat        # 3000 / 6000 / 10000 兵各重复三次（均值 ± 标准差），约 40 分钟
 node tools/experiment.js limit         # 15000 / 20000 / 30000 兵，加到跑不动为止
 node tools/experiment.js limit --only=tauri --n=22500,25000 --reps=3   # 自选档位、外壳和重复次数
+node tools/experiment.js backend       # 模拟后端对比：1 万 / 2 万 / 3 万兵 × Tauri 的 main / worker / rust 各 3 次
+node tools/experiment.js backlimit     # 模拟离开主线程后的新边界：worker / rust，4 万 / 5 万 / 6 万兵
+node tools/experiment.js ipc           # IPC 基准：1 KB–16 MB 过一次 Rust↔JS 边界（对照 Worker postMessage）
 node tools/report.js                   # 汇总成 对比实验报告.md
 ```
 

@@ -65,10 +65,17 @@
       const [k, v] = kv.split(":");
       if (k in CS.RF) CS.RF[k] = Number(v);
     }
-    if (Q.get("bench")) {
+    if (Q.get("ipc")) {
+      // IPC 基准：不进游戏，结果直接写在页面上
+      const pre = document.createElement("pre");
+      pre.style.cssText = "position:fixed;inset:20px;z-index:99;margin:0;padding:16px;background:#140e09ee;color:#f3e6c8;font:13px/1.5 Consolas,monospace;overflow:auto";
+      document.body.appendChild(pre);
+      setTimeout(() => CS.ipcBench(post, (t) => { pre.textContent = t; }), 1500);
+    } else if (Q.get("bench")) {
       M.startBench({
         n: Number(Q.get("bench")) || 2000, map: Q.get("map") || "l", secs: Number(Q.get("secs")) || 30,
         cam: Q.get("cam") || "tour", fog: Q.get("fog") === "1", seed: Number(Q.get("seed")) || 7,
+        sim: Q.get("sim") || "main",
       });
     } else if (Q.get("mission")) {
       const [f, i] = Q.get("mission").split("-");
@@ -131,11 +138,15 @@
     R.camUpdate(dtMs);
     // 模拟
     const s0 = performance.now();
-    if (!UI.paused && !w.outcome) {
+    let remoteAlpha = -1;
+    if (w.remote) {
+      // 模拟在 Web Worker 或 Rust 线程里跑：这里只负责取快照、还原进镜像世界
+      if (!UI.paused) remoteAlpha = CS.remote.pump(now).alpha;
+    } else if (!UI.paused && !w.outcome) {
       acc += (dtMs / 1000) * UI.speed;
       let n = 0;
       while (acc >= CS.STEP && n < 10) {
-        if (UI.bench) benchSpawn(w);
+        if (UI.bench) CS.benchSpawn(w, UI.bench);
         CS.step(w);
         CS.aiTick(w);
         acc -= CS.STEP;
@@ -148,7 +159,7 @@
     UI.consumeEvents(w);
     // 渲染
     UI.now = now;
-    R.draw(w, UI.paused || w.outcome ? 1 : Math.min(1, acc / CS.STEP), {
+    R.draw(w, UI.paused || w.outcome ? 1 : remoteAlpha >= 0 ? remoteAlpha : Math.min(1, acc / CS.STEP), {
       markers: UI.markers, now, selStruct: UI.selStruct, hoverStruct: UI.hoverStruct, hoverSlot: UI.hoverSlot, box: UI.box,
       aim: UI.aim, aimOk: UI.aimOk, mouse: UI.mouse, flagLine: UI.flagLine,
     });
@@ -172,7 +183,7 @@
       perf.hidden = false;
       const F = R.stats;
       const mem = performance.memory ? (performance.memory.usedJSHeapSize / 1048576).toFixed(0) + "MB" : "n/a";
-      perf.textContent = `FPS ${fps.toFixed(0)}  帧 ${frameAvg.toFixed(1)}ms  [${M.shell()}]\n模拟 ${simFrame.toFixed(2)}ms/帧 (${w.perf.sim.toFixed(3)}ms/步)\n渲染 ${renderAvg.toFixed(2)}ms\n士兵 ${w.soldierCount}（画出 ${F.units}）  部队 ${w.squads.length}  飞行物 ${w.proj.length}\n据点 ${w.structs.length}（画出 ${F.structs}）  粒子 ${F.particles}\n地形块 ${F.chunks} 可见 / 累计烘焙 ${F.baked} / 缓存 ${F.chunkMP}MP\n地图 ${w.map.cols}×${w.map.rows}  缩放 ${R.zoomCss().toFixed(2)}  画布 ${$("#view").width}×${$("#view").height}\nJS 堆 ${mem}${UI.bench ? "\n" + benchStatus() : ""}`;
+      perf.textContent = `FPS ${fps.toFixed(0)}  帧 ${frameAvg.toFixed(1)}ms  [${M.shell()}]\n模拟 ${simFrame.toFixed(2)}ms/帧 (${w.perf.sim.toFixed(3)}ms/步)\n渲染 ${renderAvg.toFixed(2)}ms\n士兵 ${w.soldierCount}（画出 ${F.units}）  部队 ${w.squads.length}  飞行物 ${w.proj.length}\n据点 ${w.structs.length}（画出 ${F.structs}）  粒子 ${F.particles}\n地形块 ${F.chunks} 可见 / 累计烘焙 ${F.baked} / 缓存 ${F.chunkMP}MP\n地图 ${w.map.cols}×${w.map.rows}  缩放 ${R.zoomCss().toFixed(2)}  画布 ${$("#view").width}×${$("#view").height}\nJS 堆 ${mem}${w.remote ? "\n模拟后端 " + w.remote + "（上面的“模拟”是还原快照的耗时，每步耗时是后端自己报的）" : ""}${UI.bench ? "\n" + benchStatus() : ""}`;
     } else if (!perf.hidden) perf.hidden = true;
   }
 
@@ -223,19 +234,14 @@
   // ---------- 压力测试 ----------
   // cfg: { n 目标士兵数, map 地图规格(s/m/l/xl), secs 测量秒数, cam 相机脚本(tour/overview/close/static), fog, seed }
   // 所有归属都由 AI 托管，据点打不坏，兵死了会补，所以负载能稳定维持到测完。
-  const TYPES = ["foot", "archer", "cav", "foot", "mage", "archer", "siege", "guard"];
+  // cfg.sim 选模拟跑在哪：main = 主线程（默认），worker = Web Worker，rust = Tauri 的 Rust 线程
   M.startBench = function (cfg) {
-    cfg = Object.assign({ n: 2000, map: "l", secs: 30, cam: "tour", fog: false, seed: 7 }, cfg);
-    const size = CS.MAP_SIZES.find((s) => s.id === cfg.map) || CS.MAP_SIZES[2];
-    const foes = Array.from({ length: size.foes }, (_, i) => CS.PLAYABLE[(i + 1) % CS.PLAYABLE.length]);
-    const layout = CS.genContinent({ cols: size.cols, rows: size.rows, seed: cfg.seed, foes, biome: cfg.biome || "temperate", name: "压力测试" });
-    const enemies = {};
-    foes.forEach((f, i) => { enemies[CS.OWNER_IDS[i + 1]] = f; });
-    const world = CS.createWorld({
-      player: "duchy", layout, diff: 5, gold: 99999, aiGold: 99999, enemies, edicts: {}, autoplay: true,
-      seed: cfg.seed, noCap: true, bench: true, fog: !!cfg.fog, dayNight: true,
-    });
-    for (const o of Object.values(world.owners)) o.mana = 150;
+    cfg = Object.assign({ n: 2000, map: "l", secs: 30, cam: "tour", fog: false, seed: 7, sim: "main" }, cfg);
+    CS.remote.stop();
+    const world = CS.benchWorld(cfg);
+    const size = world.benchSize;
+    // 远端后端会在自己那边用同样的参数建出同一个世界；这里的 world 只当镜像用
+    if (cfg.sim !== "main") CS.remote.start(cfg.sim, { n: cfg.n, map: cfg.map, seed: cfg.seed, fog: cfg.fog, biome: cfg.biome }, world);
     UI.bench = {
       cfg, n: cfg.n, t0: 0, frames: [], sim: [], render: [], phaseOf: [], peak: 0, phase: "ramp", start: performance.now(), done: false,
       k: 0, timeline: [], winT: 0, winN: 0, winMs: 0, heap0: 0, chunks0: 0, soldierSum: 0, partSum: 0, unitSum: 0,
@@ -247,27 +253,7 @@
     UI.speed = 1;
   };
 
-  // 每 4 个模拟步给各家补一批兵，直到达到目标数量（按模拟步数走，各外壳里完全一致）
-  function benchSpawn(w) {
-    const b = UI.bench;
-    if (b.done || w.soldierCount >= b.n || w.tick % 4 !== 0) return;
-    const gap = b.n - w.soldierCount;
-    const per = gap > 5000 ? 6 : gap > 600 ? 2 : 1; // 离目标还远就多补几队，上万兵的档位不用等太久
-    for (const id of ["p"].concat(w.foeIds)) {
-      const home = w.structs.filter((s) => s.owner === id && !s.ruined);
-      if (!home.length) continue;
-      for (let j = 0; j < per; j++) {
-        const st = home[(b.k + j) % home.length];
-        const type = TYPES[(b.k + j) % TYPES.length];
-        const sq = CS.spawnSquad(w, id, type, (b.k + j) % 3, st.x + (w.rand() - 0.5) * 60, st.y + st.R + 16);
-        // 目标：离这座城最近的三座敌城里随机一座
-        const foes = w.structs.filter((s) => s.owner && s.owner !== id).sort((a, c) => Math.hypot(a.x - st.x, a.y - st.y) - Math.hypot(c.x - st.x, c.y - st.y)).slice(0, 3);
-        const tgt = foes[Math.floor(w.rand() * foes.length)];
-        if (tgt) CS.orderStruct(w, [sq], tgt);
-      }
-    }
-    b.k++;
-  }
+  // 补兵逻辑在 benchcore.js（CS.benchSpawn），主线程、Worker 共用
 
   const PHASES = ["close", "zoomout", "overview", "mid"];
   function benchPhase(u, mode) {
@@ -314,6 +300,7 @@
       b.winT = now;
       b.heap0 = performance.memory ? performance.memory.usedJSHeapSize : 0;
       b.chunks0 = R.stats.baked;
+      if (CS.remote.active) { CS.remote.stats.on = true; CS.remote.stats.onAt = performance.now(); } // 快照的统计只算测量阶段
     }
     if (b.phase !== "measure") return;
     const u = (now - b.t0) / (b.cfg.secs * 1000);
@@ -387,6 +374,8 @@
       simSpeed: +((UI.world.tick - b.tick0) / (((performance.now() - b.t0) / 1000) * 30)).toFixed(3),
       avgRenderMs: +avg(b.render).toFixed(3), p95RenderMs: +pct(b.render, 0.95).toFixed(2),
       phases, timeline: b.timeline,
+      // 模拟后端：main 时 avgSimMs 是主线程上的模拟耗时；worker / rust 时它是“还原快照”的耗时，后端自己的每步耗时在 remote 里
+      simBackend: b.cfg.sim || "main", remote: CS.remote.active ? CS.remote.summary() : null,
       chunksBaked: R.stats.baked - b.chunks0, chunkCacheMP: R.stats.chunkMP,
       heapStartMB: +(b.heap0 / 1048576).toFixed(1), heapEndMB: +(heap1 / 1048576).toFixed(1),
       errors: M.errors.slice(0, 5), errorCount: M.errors.length,
@@ -396,6 +385,7 @@
     root.__bench = res;
     document.body.dataset.bench = JSON.stringify(res);
     post({ event: "bench", res });
+    CS.remote.stop();
     UI.paused = true;
     const ph = Object.entries(phases).map(([k, v]) => `<tr><td>${{ close: "近景巡游", zoomout: "拉远过程", overview: "全图俯瞰", mid: "中景" }[k]}</td><td>${v.avgFps} FPS · 1% Low ${v.low1Fps} · 渲染 ${v.renderMs} ms</td></tr>`).join("");
     $("#modal-card").className = "card wide";
@@ -407,7 +397,8 @@
         <tr><td>1% Low FPS</td><td>${res.low1Fps}</td></tr>
         <tr><td>帧时间 P50 / P95 / P99 / 最大</td><td>${res.p50FrameMs} / ${res.p95FrameMs} / ${res.p99FrameMs} / ${res.maxFrameMs} ms</td></tr>
         <tr><td>卡顿帧 &gt;33 / &gt;50 / &gt;100 ms</td><td>${res.over33} / ${res.over50} / ${res.over100}（共 ${res.frames} 帧）</td></tr>
-        <tr><td>模拟耗时（每帧）</td><td>${res.avgSimMs} ms（P95 ${res.p95SimMs}）· 模拟速度 ${Math.round(res.simSpeed * 100)}% 实时</td></tr>
+        <tr><td>${res.remote ? "还原快照耗时（每帧）" : "模拟耗时（每帧）"}</td><td>${res.avgSimMs} ms（P95 ${res.p95SimMs}）· 模拟速度 ${Math.round(res.simSpeed * 100)}% 实时</td></tr>
+        ${res.remote ? `<tr><td>模拟后端</td><td>${res.simBackend} · 每步 ${res.remote.backendStepMs} ms · 快照 ${(res.remote.avgBytes / 1024).toFixed(0)} KB · 传输 ${res.remote.transitMs} ms（P95 ${res.remote.transitP95Ms}）</td></tr>` : ""}
         <tr><td>渲染耗时（每帧，JS 侧）</td><td>${res.avgRenderMs} ms（P95 ${res.p95RenderMs}）</td></tr>
         ${ph}
         <tr><td>地形块烘焙 / 缓存</td><td>${res.chunksBaked} 块 / ${res.chunkCacheMP} MP</td></tr>

@@ -12,7 +12,12 @@
 //   node tools/experiment.js soakclose [秒]    只近景巡游的浸泡：地形缓存一直顶着预算淘汰，看内存会不会一直涨
 //   node tools/experiment.js occlude          测到一半用一个最大化的置顶窗口盖住，看被遮挡时还出不出帧
 //   node tools/experiment.js startup          冷启动到可交互的时间、空闲内存
-//   node tools/experiment.js all              以上全部
+//   node tools/experiment.js backsmoke        模拟后端冒烟：Tauri × main / worker / rust，3000 兵 10 秒
+//   node tools/experiment.js backend          模拟后端对比：1 万 / 2 万 / 3 万兵 × Tauri 三种后端各 3 次，Edge 的 main / worker 各 1 次
+//   node tools/experiment.js backpipe         缓解实验：页面同时挂 3 个请求取快照（sim=workerp / rustp），档位同 backend
+//   node tools/experiment.js backlimit        离开主线程后的新边界：Tauri 的 worker / rust，4 万 / 5 万 / 6 万兵
+//   node tools/experiment.js ipc              IPC 基准：1 KB–16 MB 的数据过一次 Rust↔JS 边界（对照 Worker postMessage）
+//   node tools/experiment.js all              以上全部（不含模拟后端和 IPC 这几组）
 //   可加 --only=tauri,electron,edge 只跑部分外壳
 // 结果写到 bench/results/*.json，再用 node tools/report.js 生成报告。
 const http = require("http");
@@ -205,7 +210,8 @@ async function runOne(run, sampler) {
     if (out.gone) console.log(`  进程异常退出：${out.gone.map((g) => `${g.t}s ${g.kind} ${g.type || ""} ${g.reason} (${g.exitCode})`).join("；")}`);
   }
   const r = out.res;
-  console.log(`[${run.id}] ${out.ok ? "ok" : "FAILED"}  start ${out.startMs}ms  ` + (r ? `fps ${r.avgFps} low1 ${r.low1Fps} sim ${r.avgSimMs} render ${r.avgRenderMs} soldiers ${r.avgSoldiers || r.peakSoldiers} simSpeed ${r.simSpeed ?? "-"} ` : "") + `ws ${out.proc.peakWsMB}MB priv ${out.proc.peakPrivMB}MB cpu ${cpuPct}%`);
+  if (r && r.ipc) { console.log(`[${run.id}] ${out.ok ? "ok" : "FAILED"}  ipc ${r.rows.length} 行  ` + r.rows.filter((x) => x.size === 1 << 20).map((x) => `${x.kind} ${x.p50Ms}ms`).join("  ") + (r.errorCount ? `  ERR ${JSON.stringify(r.errors)}` : "")); return out; }
+  console.log(`[${run.id}] ${out.ok ? "ok" : "FAILED"}  start ${out.startMs}ms  ` + (r ? `fps ${r.avgFps} low1 ${r.low1Fps} sim ${r.avgSimMs} render ${r.avgRenderMs} soldiers ${r.avgSoldiers || r.peakSoldiers} simSpeed ${r.simSpeed ?? "-"} ` : "") + (r && r.remote ? `[${r.simBackend} hz ${r.remote.snapHz} step ${r.remote.backendStepMs} snap ${(r.remote.avgBytes / 1024).toFixed(0)}KB transit ${r.remote.transitMs} decode ${r.remote.decodeMs}] ` : "") + (r && r.errorCount ? `ERR ${r.errorCount} ${JSON.stringify(r.errors)} ` : "") + `ws ${out.proc.peakWsMB}MB priv ${out.proc.peakPrivMB}MB cpu ${cpuPct}%`);
   return out;
 }
 
@@ -226,6 +232,25 @@ function plan() {
   const repsArg = args.find((a) => a.startsWith("--reps="));
   const limitNs = nArg ? nArg.slice(4).split(",").map(Number) : [15000, 20000, 30000];
   if (mode === "limit") for (const n of limitNs) for (const s of shells) for (let rep = 1; rep <= (repsArg ? Number(repsArg.slice(7)) : s === "tauri" ? 3 : 1); rep++) add("limit", s, "v3", { bench: n, map: "l", secs: 30, cam: "tour" }, { rep, timeout: 480000 });
+  // 模拟后端对比：sim=main（主线程 JS）/ worker（Web Worker 里的同一份 JS）/ rust（Tauri 原生线程里的 Rust 移植）
+  const backs = ["main", "worker", "rust"];
+  if (mode === "backsmoke") {
+    for (const sim of backs) add("backsmoke-" + sim, "tauri", "v3", { bench: 3000, map: "l", secs: 10, cam: "tour", sim }, { timeout: 120000 });
+    for (const s of ["edge", "electron"]) add("backsmoke-worker", s, "v3", { bench: 3000, map: "l", secs: 10, cam: "tour", sim: "worker" }, { timeout: 120000 });
+  }
+  const backNs = nArg ? limitNs : [10000, 20000, 30000];
+  if (mode === "backend") for (const n of backNs) {
+    for (let rep = 1; rep <= (repsArg ? Number(repsArg.slice(7)) : 3); rep++) for (const sim of backs) add("backend-" + sim, "tauri", "v3", { bench: n, map: "l", secs: 30, cam: "tour", sim }, { rep, timeout: 480000 });
+    for (const sim of ["main", "worker"]) add("backend-" + sim, "edge", "v3", { bench: n, map: "l", secs: 30, cam: "tour", sim }, { rep: 1, timeout: 480000 });
+  }
+  // 缓解实验：Rust 后端 + 流水线（页面同时挂 3 个请求），档位同 backend
+  if (mode === "backpipe") for (const n of backNs) for (let rep = 1; rep <= (repsArg ? Number(repsArg.slice(7)) : 3); rep++) for (const sim of ["workerp", "rustp"]) add("backend-" + sim, "tauri", "v3", { bench: n, map: "l", secs: 30, cam: "tour", sim }, { rep, timeout: 480000 });
+  // 离开主线程以后的新边界：只跑 worker 和 rust（--sims=worker,rustp 换后端）
+  const simsArg = args.find((a) => a.startsWith("--sims="));
+  const backLimitNs = nArg ? limitNs : [40000, 50000, 60000];
+  if (mode === "backlimit") for (const n of backLimitNs) for (let rep = 1; rep <= (repsArg ? Number(repsArg.slice(7)) : 2); rep++) for (const sim of (simsArg ? simsArg.slice(7).split(",") : ["worker", "rust"])) add("backlimit-" + sim, "tauri", "v3", { bench: n, map: "l", secs: 30, cam: "tour", sim }, { rep, timeout: 600000 });
+  // IPC 基准：不跑游戏，只测一段数据过一次边界的往返耗时（Tauri invoke 对照 Worker postMessage）
+  if (mode === "ipc") { for (let rep = 1; rep <= 3; rep++) add("ipc", "tauri", "v3", { ipc: 1 }, { rep, timeout: 300000 }); add("ipc", "edge", "v3", { ipc: 1 }, { rep: 1, timeout: 300000 }); add("ipc", "electron", "v3", { ipc: 1 }, { rep: 1, timeout: 300000 }); }
   if (want("base")) {
     for (const s of shells) add("base-old", s, "base", { bench: 2000 }); // 改造前：40×25 单屏，2000 兵
     for (const s of shells) add("base-new", s, "v3", { bench: 2000, map: "s", secs: 30, cam: "overview", rf: "lod:0" }); // 改造后：同屏 2000 兵全画成精灵
@@ -257,7 +282,7 @@ function plan() {
   for (const run of runs) {
     let out = await runOne(run, sampler);
     // 整棵进程树的 CPU 占用低得不正常（或者干脆没跑完），说明窗口中途停止了渲染：这一轮作废，最多重跑两次
-    for (let retry = 1; retry <= 2 && !run.idle && !run.occludeAt && mode !== "diag" && (!out.ok || (out.proc.cpuPct != null && out.proc.cpuPct < 60)); retry++) {
+    for (let retry = 1; retry <= 2 && !run.idle && !run.occludeAt && mode !== "diag" && !run.query.ipc && (!out.ok || (out.proc.cpuPct != null && out.proc.cpuPct < 60)); retry++) {
       console.log(`  ↑ 这一轮无效（CPU ${out.proc.cpuPct}%），第 ${retry} 次重跑`);
       out = await runOne(Object.assign({}, run, { id: run.id + "r" + retry }), sampler);
       out.retries = retry;

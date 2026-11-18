@@ -1,0 +1,17 @@
+[package]
+name = "simcore"
+version = "0.1.0"
+description = "城邦演武的战斗模拟（game/js/sim.js + ai.js + 寻路）的 Rust 移植，供 Tauri 外壳在原生线程里跑。"
+edition = "2021"
+
+[dependencies]
+serde_json = "1"
+libm = "0.2"
+
+[[bin]]
+name = "simcheck"
+path = "src/bin/simcheck.rs"
+
+[[bin]]
+name = "mathcheck"
+path = "src/bin/mathcheck.rs"

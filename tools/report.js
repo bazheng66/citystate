@@ -8,7 +8,7 @@ const DIR = path.join(ROOT, "bench", "results");
 const byKey = new Map();
 for (const f of fs.readdirSync(DIR).filter((n) => n.endsWith(".json")).sort()) {
   const d = JSON.parse(fs.readFileSync(path.join(DIR, f), "utf8"));
-  if (d.mode === "smoke") continue;
+  if (d.mode === "smoke" || d.mode === "backsmoke") continue;
   for (const r of d.results) {
     if (!r.ok) continue;
     let key = r.group + "|" + r.shell + "|" + JSON.stringify(r.query);
@@ -242,6 +242,98 @@ const AHEAD = ["场景", "外壳", "轮数", "平均 FPS", "1% Low", "P99 帧 ms
   const rs = grp("occlude").sort((a, b) => SH.indexOf(a.shell) - SH.indexOf(b.shell));
   if (rs.length) sec("七、窗口被遮挡时", table(["外壳", "遮挡前（每 5 秒平均 FPS）", "遮挡后"], rs.map((r) => { const tl = (r.res.timeline || []).map((x) => f0(x.fps)); return [NAME[r.shell], tl.slice(0, 3).join(" / "), tl.slice(3).join(" / ")]; })) +
     "\n大地图 3000 兵近景，测量开始约 15 秒后弹出一个最大化、置顶的空窗口把测试窗口完全盖住。三个外壳都加了“被遮挡不降帧”的开关。");
+}
+
+// ---- 模拟后端对比 ----
+const BK = ["main", "worker", "rust", "workerp", "rustp"];
+const BKNAME = { main: "主线程 JS", worker: "Web Worker（JS）", rust: "Rust 线程（Tauri IPC）", workerp: "Web Worker + 流水线", rustp: "Rust 线程 + 流水线" };
+function backRows(rs) {
+  const rows = [];
+  const ns = Array.from(new Set(rs.map((r) => r.query.bench))).sort((a, b) => a - b);
+  for (const n of ns) for (const s of SH) for (const b of BK) {
+    const g = rs.filter((r) => r.query.bench === n && r.shell === s && (r.query.sim || "main") === b);
+    if (!g.length) continue;
+    const col = (fn) => g.map(fn).filter((v) => v != null && !Number.isNaN(v));
+    const rm = (k) => col((r) => r.res.remote && r.res.remote[k]);
+    rows.push([`${n} 兵`, NAME[s], BKNAME[b], g.length, pm(col((r) => r.res.avgFps)), pm(col((r) => r.res.low1Fps)), pm(col((r) => r.res.p99FrameMs)),
+      pm(col((r) => r.res.avgSimMs), 2), pm(col((r) => r.res.avgRenderMs), 2),
+      b === "main" ? pm(col((r) => (r.res.avgSimMs * r.res.avgFps) / (30 * (r.res.simSpeed || 1))), 2) : pm(rm("backendStepMs"), 2),
+      b === "main" ? "–" : pm(rm("avgBytes").map((v) => v / 1024), 0), b === "main" ? "–" : pm(rm("transitMs"), 1), b === "main" ? "–" : pm(rm("snapHz"), 1),
+      pm(col((r) => (r.res.simSpeed != null ? r.res.simSpeed * 100 : null)), 0), f0(avg(col((r) => r.res.avgSoldiers))), f0(avg(col((r) => r.proc.cpuPct)))]);
+  }
+  return rows;
+}
+const BHEAD = ["场景", "外壳", "模拟跑在", "轮数", "平均 FPS", "1% Low", "P99 帧 ms", "主线程模拟/还原 ms/帧", "渲染 ms/帧(JS)", "每个模拟步 ms", "快照 KB", "快照传输 ms", "画面拿到快照 次/秒", "模拟速度 % 实时", "实际士兵数", "CPU %"];
+{
+  const rs = all.filter((r) => r.group.startsWith("backend-"));
+  if (rs.length) {
+    let body = table(BHEAD, backRows(rs));
+    body += "\n“主线程模拟/还原”：主线程 JS 时是模拟本身的耗时；Worker / Rust 时模拟不在主线程上，这一列是把快照还原进镜像世界的耗时。“每个模拟步”：主线程 JS 按每帧模拟耗时折算；Worker / Rust 是后端自己报的。“快照传输”= 请求往返时间 − 后端等下一步算完的时间，含主线程忙于渲染、来不及处理回复的排队时间。“画面拿到快照 次/秒”低于 30 说明传输跟不上模拟，画面在跳步（模拟本身仍按实时跑）。\n\n相对主线程 JS 的平均 FPS 提升（同一外壳内比较）：\n\n";
+    const ns = Array.from(new Set(rs.map((r) => r.query.bench))).sort((a, b) => a - b);
+    const srow = [];
+    for (const n of ns) for (const s of SH) {
+      const fps = (b) => { const g = rs.filter((r) => r.query.bench === n && r.shell === s && (r.query.sim || "main") === b); return g.length ? avg(g.map((r) => r.res.avgFps)) : null; };
+      const m = fps("main");
+      if (m == null) continue;
+      const pc = (v) => (v == null ? "–" : `${v >= m ? "+" : ""}${((v / m - 1) * 100).toFixed(0)}%`);
+      srow.push([`${n} 兵`, NAME[s], m.toFixed(1), pc(fps("worker")), pc(fps("rust")), pc(fps("workerp")), pc(fps("rustp"))]);
+    }
+    body += table(["场景", "外壳", "主线程 JS 的 FPS", "Worker", "Rust", "Worker + 流水线", "Rust + 流水线"], srow);
+    sec("八、模拟后端对比：把模拟搬离主线程", body);
+  }
+}
+{
+  const rs = all.filter((r) => r.group.startsWith("backlimit-") || (r.group.startsWith("backend-") && r.shell === "tauri"));
+  if (rs.some((r) => r.group.startsWith("backlimit-"))) {
+    let body = table(BHEAD, backRows(rs.filter((r) => r.query.sim !== "main" || r.query.bench >= 20000)));
+    const pts = (b) => {
+      const src = rs.filter((r) => (r.query.sim || "main") === b);
+      return Array.from(new Set(src.map((r) => r.query.bench))).sort((x, y) => x - y).map((n) => {
+        const g = src.filter((r) => r.query.bench === n);
+        return { n: avg(g.map((r) => r.res.avgSoldiers)), fps: avg(g.map((r) => r.res.avgFps)), low: avg(g.map((r) => r.res.low1Fps)), sim: avg(g.map((r) => (r.res.simSpeed != null ? r.res.simSpeed : 1))), hz: b === "main" ? 30 : avg(g.map((r) => (r.res.remote && r.res.remote.snapHz) || 0)),
+          // 每步耗时取负值，这样“超过预算”和其他几条线一样是“跌破”
+          step: -avg(g.map((r) => (b === "main" ? (r.res.avgSimMs * r.res.avgFps) / (30 * (r.res.simSpeed || 1)) : r.res.remote ? r.res.remote.backendStepMs : 0))) };
+      });
+    };
+    const cross = (p, key, level) => {
+      if (!p.length) return "未测";
+      const top = (p[p.length - 1].n / 10000).toFixed(1);
+      for (let i = 1; i < p.length; i++) { const a = p[i - 1]; const b = p[i]; if (a[key] >= level && b[key] < level) return Math.round((a.n + ((a[key] - level) / (a[key] - b[key])) * (b.n - a.n)) / 100) * 100; }
+      return p[0][key] < level ? "<" + Math.round(p[0].n / 100) * 100 : "≤" + top;
+    };
+    const say = (v) => (v === "未测" ? "未测" : typeof v === "string" && v[0] === "≤" ? `测到 ${v.slice(1)} 万兵为止没有` : typeof v === "string" ? "最低一档已经低于此线（" + v.slice(1) + " 兵）" : "约 " + v + " 兵");
+    body += "\n各后端的边界（Tauri，相邻档位线性插值，横轴为实际士兵数）：\n\n" + table(["界线", ...BK.map((b) => BKNAME[b])], [
+      ["平均帧率跌破 60 FPS", ...BK.map((b) => say(cross(pts(b), "fps", 60)))],
+      ["平均帧率跌破 30 FPS", ...BK.map((b) => say(cross(pts(b), "fps", 30)))],
+      ["最差 1% 帧跌破 30 FPS", ...BK.map((b) => say(cross(pts(b), "low", 30)))],
+      ["每个模拟步超过 33.3 ms 的步长预算", ...BK.map((b) => say(cross(pts(b), "step", -1000 / 30)))],
+      ["模拟跟不上实时（低于 95%）", ...BK.map((b) => say(cross(pts(b), "sim", 0.95)))],
+      ["画面拿到快照低于 27 次/秒", "（不适用）", ...BK.slice(1).map((b) => say(cross(pts(b), "hz", 27)))],
+    ]);
+    body += "\n主线程 JS 一列只有 1 万 / 2 万 / 3 万三档，不加流水线的 Worker / Rust 只测到 3 万兵，插值较粗。“模拟速度”取的是页面镜像世界的步数，模拟后端掉速时它也跟着掉。\n";
+    sec("九、离开主线程之后的新边界", body);
+  }
+}
+
+// ---- IPC 基准 ----
+{
+  const rs = grp("ipc").filter((r) => r.res && r.res.rows);
+  if (rs.length) {
+    const KN = { "tauri-blob": "Tauri invoke，Rust→页面，二进制", "tauri-json": "Tauri invoke，Rust→页面，JSON", "tauri-sink": "Tauri invoke，页面→Rust，二进制", "worker-xfer": "Worker postMessage，转移", "worker-clone": "Worker postMessage，克隆", "fill-only": "（对照）页面只填数据不发送" };
+    const sizes = Array.from(new Set(rs.flatMap((r) => r.res.rows.map((x) => x.size)))).sort((a, b) => a - b);
+    const fmt = (b) => (b >= 1 << 20 ? b / 1048576 + " MB" : b / 1024 + " KB");
+    const rows = [];
+    for (const s of SH) for (const k of Object.keys(KN)) {
+      const g = rs.filter((r) => r.shell === s);
+      if (!g.some((r) => r.res.rows.some((x) => x.kind === k))) continue;
+      rows.push([NAME[s], KN[k], g.length, ...sizes.map((z) => { const v = g.map((r) => r.res.rows.find((x) => x.kind === k && x.size === z)).filter((x) => x && x.p50Ms != null).map((x) => x.p50Ms); return v.length ? (v.length > 1 ? pm(v, 2) : v[0].toFixed(2)) : "–"; })]);
+    }
+    let body = table(["外壳", "方式", "轮数", ...sizes.map(fmt)], rows);
+    body += "\n每格是一次往返的中位数耗时（ms），多轮时给均值 ± 标准差。往返 = 主线程发请求 → 对方造出指定大小的数据 → 数据回到主线程（页面→Rust 那一行反过来：页面造数据发给 Rust，Rust 回一个数）。小块每档测 60 次，16 MB 测 10 次，各先热身 3 次。JSON 只测到 4 MB。页面计时器精度是 0.1 ms，Worker 的小块往返已经低于这个精度。测试时页面空闲，没有在跑游戏。\n\nTauri 里按中位数折算的吞吐（MB/s，取最大一档）：";
+    const thr = (s, k) => { const g = rs.filter((r) => r.shell === s).map((r) => r.res.rows.filter((x) => x.kind === k && x.mbps).sort((a, b) => b.size - a.size)[0]).filter(Boolean); return g.length ? f0(avg(g.map((x) => x.mbps))) : null; };
+    body += ["tauri-blob", "tauri-json", "tauri-sink", "worker-xfer", "worker-clone"].map((k) => { const v = thr("tauri", k); return v ? `${KN[k]} ${v}` : ""; }).filter(Boolean).join("；") + "。\n";
+    sec("十、IPC 基准：一段数据过一次边界要多久（空载）", body);
+  }
 }
 
 const notes = path.join(ROOT, "bench", "notes.md");
